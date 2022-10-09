@@ -2,12 +2,12 @@ import { useState } from "react";
 
 export default function LoginForm() {
 
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState("");
 
     const handleSubmit = (event) => {
       event.preventDefault();
       alert(`Bonjour ${inputValue}`);
-      setInputValue('');
+      setInputValue("");
     };
 
     const handleChange = (event) => {
