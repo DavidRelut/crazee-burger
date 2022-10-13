@@ -6,8 +6,8 @@ export default function ErrorPage() {
       <h1>ErrorPage</h1>
       <br />
       <Link to={'/'}>
-        <button>Retourner à la page d'acceuil</button>
+        <button>Retourner à la page d'accueil</button>
       </Link>
     </div>
-  )
+  );
 }
