@@ -72,7 +72,7 @@ const LoginFormStyled = styled.form`
   }
 
   h2 {
-    font-size: ${theme.fonts.P3_bis};
+    font-size: ${theme.fonts.P3Bis};
     margin: 10px 0 0 0;
   }
 
