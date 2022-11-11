@@ -33,7 +33,7 @@ export default function LoginForm() {
           required
           className="font_open-sans"
         />
-        <button className="font_open-sans">Accéder à votre espace</button>
+        <button className="font_open-sans btn">Accéder à votre espace</button>
       </div>
     </LoginFormStyled>
   );
@@ -53,7 +53,7 @@ const LoginFormStyled = styled.form`
   align-items: center;
 
   .login-card {
-    width: 270px;
+    width: 300px;
     height: 40%;
     display: flex;
     flex-direction: column;
@@ -68,6 +68,12 @@ const LoginFormStyled = styled.form`
   h1 {
     margin: 0;
     padding: 0;
+    font-size: ${theme.fonts.P4};
+  }
+
+  h2 {
+    font-size: ${theme.fonts.P3_bis};
+    margin: 10px 0 0 0;
   }
 
   hr {
@@ -79,11 +85,26 @@ const LoginFormStyled = styled.form`
 
   input {
     width: 100%;
-    height: 12.5%; 
+    height: 2.5rem;
+    border-radius: 5px;
+    border-style: none;
+  }
+
+  input::placeholder {
+    font-size: ${theme.fonts.XS};
+    padding: 0 0 0 2rem;
   }
 
   button {
-    width: 280px;
-    height: 12.5%;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 5px;
+    border-style: none;
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.primary};
+  }
+
+  .btn {
+    font-size: ${theme.fonts.XS};
   }
 `;
