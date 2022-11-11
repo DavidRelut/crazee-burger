@@ -115,4 +115,10 @@ const LoginFormStyled = styled.form`
   .btn {
     font-size: ${theme.fonts.XS};
   }
+
+  .btn:hover {
+    font-weight: ${theme.weights.bold};
+    color: ${theme.colors.primary};
+    background-color: ${theme.colors.white};
+  }
 `;
