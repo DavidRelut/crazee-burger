@@ -20,9 +20,10 @@ export default function LoginForm() {
     };
 
   return (
-      <LoginFormStyled action="submit" onSubmit={handleSubmit}>
+    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
+      <div className="login-card">
         <h1 className="global_text font_amatic-sc">Bienvenue chez nous !</h1>
-        <br />
+        <hr />
         <h2 className="global_text font_amatic-sc">Connectez-vous</h2>
         <input
           value={name}
@@ -30,9 +31,11 @@ export default function LoginForm() {
           type="text"
           placeholder="Entrez votre prénom..."
           required
+          className="font_open-sans"
         />
-        <button>Accéder à votre espace</button>
-      </LoginFormStyled>
+        <button className="font_open-sans">Accéder à votre espace</button>
+      </div>
+    </LoginFormStyled>
   );
 }
 
@@ -40,15 +43,23 @@ const LoginFormStyled = styled.form`
   width: 100vw;
   height: 100vh;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
   background-image: url(${background_img});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-card {
+    width: 270px;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 
   .global_text {
     color: ${theme.colors.white};
@@ -57,5 +68,22 @@ const LoginFormStyled = styled.form`
   h1 {
     margin: 0;
     padding: 0;
+  }
+
+  hr {
+    width: 100%;
+    background: ${theme.colors.primary_burger2};
+    border: 1px solid ${theme.colors.primary_burger2};
+    border-radius: 0.5px;
+  }
+
+  input {
+    width: 100%;
+    height: 12.5%; 
+  }
+
+  button {
+    width: 280px;
+    height: 12.5%;
   }
 `;
