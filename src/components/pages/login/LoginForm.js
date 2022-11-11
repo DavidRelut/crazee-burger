@@ -29,7 +29,7 @@ export default function LoginForm() {
           value={name}
           onChange={handleChange}
           type="text"
-          placeholder="Entrez votre prénom..."
+          placeholder="Entrez votre prénom"
           required
           className="font_open-sans"
         />
@@ -88,11 +88,18 @@ const LoginFormStyled = styled.form`
     height: 2.5rem;
     border-radius: 5px;
     border-style: none;
+    outline: none;
   }
 
   input::placeholder {
+    outline: none;
+    width: 90%;
     font-size: ${theme.fonts.XS};
-    padding: 0 0 0 2rem;
+  }
+
+  input:focus::placeholder {
+    border: 2px solid ${theme.colors.blue};
+    border-radius: 5px;
   }
 
   button {
@@ -102,6 +109,7 @@ const LoginFormStyled = styled.form`
     border-style: none;
     color: ${theme.colors.white};
     background-color: ${theme.colors.primary};
+    cursor: pointer;
   }
 
   .btn {
