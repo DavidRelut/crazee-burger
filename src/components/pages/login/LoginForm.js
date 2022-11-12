@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro"
 import background_img from '../../../images/burger_background.jpg';
 import { theme } from "../../../theme";
+import { BsPersonCircle } from 'react-icons/bs';
 
 export default function LoginForm() {
 
@@ -25,14 +26,17 @@ export default function LoginForm() {
         <h1 className="global_text font_amatic-sc">Bienvenue chez nous !</h1>
         <hr />
         <h2 className="global_text font_amatic-sc">Connectez-vous</h2>
-        <input
-          value={name}
-          onChange={handleChange}
-          type="text"
-          placeholder="Entrez votre prénom"
-          required
-          className="font_open-sans"
-        />
+        <div className="input-card">
+          <BsPersonCircle className="bsPersonCircle"/>
+          <input
+            value={name}
+            onChange={handleChange}
+            type="text"
+            placeholder="Entrez votre prénom"
+            required
+            className="font_open-sans"
+          />
+        </div>
         <button className="font_open-sans btn">Accéder à votre espace</button>
       </div>
     </LoginFormStyled>
@@ -83,29 +87,47 @@ const LoginFormStyled = styled.form`
     border-radius: 0.5px;
   }
 
-  input {
+  .input-card {
+    display: inline-flex;
+    justify-content: initial;
+    align-items: center;
     width: 100%;
     height: 2.5rem;
+  }
+
+  .bsPersonCircle {
+    padding: 0 12px 0 20px;
+    color: ${theme.colors.greyDark};
+  }
+
+  input {
+    width: 14rem;
     border-radius: 5px;
     border-style: none;
     outline: none;
   }
 
-  input::placeholder {
-    outline: none;
-    width: 90%;
-    font-size: ${theme.fonts.XS};
+  .input-card {
+    background-color: white;
+    display: inline-flex;
+    width: 100%;
   }
 
+  input::placeholder {
+    outline: none;
+    font-size: ${theme.fonts.XS};
+    padding-left: 1px;
+  }
+  
   input:focus::placeholder {
     border: 2px solid ${theme.colors.blue};
-    border-radius: 5px;
+    border-radius: ${theme.borderRadius.round};
   }
 
   button {
     width: 100%;
     height: 2.5rem;
-    border-radius: 5px;
+    border-radius: ${theme.borderRadius.round};
     border-style: none;
     color: ${theme.colors.white};
     background-color: ${theme.colors.primary};
