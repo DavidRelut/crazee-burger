@@ -51,10 +51,8 @@ const LoginFormStyled = styled.form`
   width: 100vw;
   height: 100vh;
 
-  background-image: url(${background_img});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url(${background_img}) center center / cover rgba(0, 0, 0, 0.7);
+  background-blend-mode: darken;
 
   display: flex;
   flex-direction: column;
