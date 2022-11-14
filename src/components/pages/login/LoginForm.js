@@ -130,16 +130,13 @@ const LoginFormStyled = styled.form`
     width: 83%;
     border-style: none;
     outline: none;
-  }
-
-  input::placeholder {
-    outline: none;
+    padding: 4px;
     font-size: ${theme.fonts.XS};
-    padding-left: 1px;
   }
 
-  input:focus::placeholder {
-    border: 2px solid ${theme.colors.blue};
+  input:focus {
+    padding: 2px;
+    border: 2px solid ${theme.colors.primary};
     border-radius: ${theme.borderRadius.round};
   }
 
