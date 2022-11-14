@@ -118,6 +118,7 @@ const LoginFormStyled = styled.form`
     align-items: center;
     width: 100%;
     height: 3rem;
+    border-radius: ${theme.borderRadius.round};
   }
 
   .bsPersonCircle {
@@ -127,7 +128,6 @@ const LoginFormStyled = styled.form`
 
   input {
     width: 83%;
-    border-radius: 5px;
     border-style: none;
     outline: none;
   }
