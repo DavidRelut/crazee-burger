@@ -4,8 +4,8 @@ import { theme } from "../../../theme";
 export default function PrimaryButton({ label, Icon }) {
   return (
     <PrimaryButtonStyled className="button-with-icon">
-      <span>{ label }</span>
-      { Icon && Icon }
+      <span>{label}</span>
+      {Icon && Icon}
     </PrimaryButtonStyled>
   );
 }
