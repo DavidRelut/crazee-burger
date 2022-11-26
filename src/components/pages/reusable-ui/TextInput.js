@@ -31,9 +31,11 @@ const InputStyled = styled.div`
       width: 100%;
     }
 
+    input:focus-visible {
+      outline: 2px solid ${theme.colors.primary_burger2};
+    }
+
     &::placeholder {
-      background: ${theme.colors.white};
       color: ${theme.colors.greyLight};
-      border: 2px solid ${theme.colors.blue};
     }
 `;
