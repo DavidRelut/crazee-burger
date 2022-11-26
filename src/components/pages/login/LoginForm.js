@@ -79,14 +79,14 @@ const LoginFormStyled = styled.form`
     margin: 18px 0;
 
     .icon {
-      font-size: 15px;
+      font-size: ${theme.fonts.P0};
       margin-right: 8px;
       color: ${theme.colors.greyMedium};
     }
 
     input {
       border: none;
-      font-size: 15px;
+      font-size: ${theme.fonts.P0};
       color: ${theme.colors.dark};
     }
 
