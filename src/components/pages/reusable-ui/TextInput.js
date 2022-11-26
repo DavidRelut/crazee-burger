@@ -5,7 +5,7 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return (
     <InputStyled>
       {Icon && Icon}
-      <input onChange={onChange} type="text" {...extraProps} />
+      <input value={value} onChange={onChange} type="text" {...extraProps} />
     </InputStyled>
   )
 }
@@ -34,5 +34,6 @@ const InputStyled = styled.div`
     &::placeholder {
       background: ${theme.colors.white};
       color: ${theme.colors.greyLight};
+      border: 2px solid ${theme.colors.blue};
     }
 `;
