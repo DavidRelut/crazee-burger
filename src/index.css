@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.font_amatic-sc {
+  font-family: 'Amatic SC', cursive;
+}
+
+.font_open-sans {
+  font-family: 'Open Sans', sans-serif
+}
