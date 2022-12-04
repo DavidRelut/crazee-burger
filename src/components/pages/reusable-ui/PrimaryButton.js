@@ -7,12 +7,12 @@ export default function PrimaryButton({ label, Icon }) {
       <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyled>
-  );
+  )
 }
 
 const PrimaryButtonStyled = styled.button`
   width: 100%;
-  border: 1px solid red;
+  border: 1px solid ${theme.colors.greyLight};
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ const PrimaryButtonStyled = styled.button`
   padding: 18px 24px;
   border-radius: ${theme.borderRadius.round};
   font-size: ${theme.fonts.P0};
-  font-weight: ${theme.weights.heavy};
+  font-weight: ${theme.weights.bold};
   color: ${theme.colors.white};
   background-color: ${theme.colors.primary_burger};
   border: 1px solid ${theme.colors.primary_burger};
