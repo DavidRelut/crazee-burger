@@ -23,7 +23,6 @@ export default function Profile({ name }) {
 
 const ProfileStyled = styled.div`
   display: flex;
-  margin-right: 70px;
   margin-bottom: 20px;
 
   .user-info {
