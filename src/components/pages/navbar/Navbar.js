@@ -14,7 +14,7 @@ export default function Navbar({ name }) {
   );
 }
 
-const NavbarStyled = styled.div`
+const NavbarStyled = styled.nav`
   height: 10%;
 
   display: flex;
