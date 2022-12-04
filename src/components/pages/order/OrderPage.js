@@ -27,7 +27,7 @@ const OrderPageSyled = styled.div`
 
 
   .container {
-    /* background-color: ${theme.colors.background_white}; */
+    background-color: ${theme.colors.background_white};
     border-radius: ${theme.borderRadius.extraRound};
     margin: ${theme.spacing.md};
     width: 100%;
