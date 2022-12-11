@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { theme } from "../../../theme";
+import styled from 'styled-components';
+import { theme } from '../../theme';
 
 export default function PrimaryButton({ label, Icon }) {
   return (
@@ -7,7 +7,7 @@ export default function PrimaryButton({ label, Icon }) {
       <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyled>
-  )
+  );
 }
 
 const PrimaryButtonStyled = styled.button`

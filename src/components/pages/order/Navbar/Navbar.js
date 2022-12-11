@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../../../theme';
-import Logo from '../../reusable-ui/Logo';
+import Logo from '../../../reusable-ui/Logo';
 import Profile from './Profile';
 
 export default function Navbar({ name }) {
