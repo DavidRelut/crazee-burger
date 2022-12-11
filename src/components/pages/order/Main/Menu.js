@@ -10,6 +10,7 @@ export default function MenuCard() {
 
   return (
     <MenuStyled>
+      hello wo
       {menu.map(({ id, title, imageSource, price }) => {
         return (
           <Card
