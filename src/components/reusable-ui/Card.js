@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { theme } from '../../theme';
 import PrimaryButton from './PrimaryButton';
 
-export default function Product({ title, imageSource, price }) {
+export default function Product({ title, imageSource, leftDescription }) {
   return (
     <CardStyled>
       <div className="image">
@@ -11,7 +11,7 @@ export default function Product({ title, imageSource, price }) {
       <div className="text-info">
         <div className="title">{title}</div>
         <div className="description">
-          <div className="left-description">{price}</div>
+          <div className="left-description">{leftDescription}</div>
           <div className="right-description">
             <PrimaryButton className="primary-button" label={'Ajouter'} />
           </div>

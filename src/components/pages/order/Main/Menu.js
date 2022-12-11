@@ -10,13 +10,13 @@ export default function MenuCard() {
 
   return (
     <MenuStyled>
-      {menu.map(({ id, title, imageSource, price}) => {
+      {menu.map(({ id, title, imageSource, price }) => {
         return (
           <Card
             key={id}
             title={title}
             imageSource={imageSource}
-            price={formatPrice(price)}
+            leftDescription={formatPrice(price)}
           />
         );
       })}

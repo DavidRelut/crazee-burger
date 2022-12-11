@@ -23,7 +23,7 @@ const MainStyled = styled.div`
 
   overflow-y: scroll;
 
-  .basket {
+  /* .basket {
     background: ${theme.colors.incognito};
-  }
+  } */
 `;
