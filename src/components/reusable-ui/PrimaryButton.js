@@ -12,7 +12,7 @@ export default function PrimaryButton({ label, Icon, className }) {
 
 const PrimaryButtonStyled = styled.button`
   width: 100%;
-  border: 1px solid ${theme.colors.greyLight};
+  border: 1px solid red;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -20,39 +20,44 @@ const PrimaryButtonStyled = styled.button`
   white-space: nowrap;
   text-decoration: none;
   line-height: 1;
-  cursor: pointer;
 
   padding: 18px 24px;
-  border-radius: ${theme.borderRadius.round};
-  font-size: ${theme.fonts.P0};
-  font-weight: ${theme.weights.bold};
-  color: ${theme.colors.white};
-  background-color: ${theme.colors.primary_burger};
-  border: 1px solid ${theme.colors.primary_burger};
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 800;
+  color: white;
+  background-color: #ff9f1b;
+  border: 1px solid #ff9f1b;
 
-  &:hover:not(:disabled) {
+  :hover {
+    color: ${theme.colors.primary};
     background-color: ${theme.colors.white};
-    color: ${theme.colors.primary_burger};
-    border: 1px solid ${theme.colors.primary_burger};
+    border: 1px solid ${theme.colors.primary};
     transition: all 200ms ease-out;
   }
-
-  &:active {
+  :active {
+    background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
-    background-color: ${theme.colors.primary_burger};
-    border: 1px solid ${theme.colors.primary_burger};
   }
 
-  &:disabled {
-    opacity: 0.6;
+  &.is-disabled {
+    opacity: 50%;
     cursor: not-allowed;
+    z-index: 2;
   }
 
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: ${theme.fonts.P0};
-    margin-left: 10px;
+  &.with-focus {
+    border: 1px solid white;
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.primary};
+    :hover {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary};
+      border: 1px solid ${theme.colors.white};
+    }
+    :active {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+    }
   }
 `;
