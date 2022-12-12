@@ -5,20 +5,18 @@ import { theme } from '../../../../theme/index';
 import { formatPrice } from '../../../../utils/maths';
 import Card from '../../../reusable-ui/Card';
 
-export default function MenuCard() {
+export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu2);
 
   return (
     <MenuStyled>
       {menu.map(({ id, title, imageSource, price }) => {
-        return (
-          <Card
+        return <Card
             key={id}
             title={title}
             imageSource={imageSource}
             leftDescription={formatPrice(price)}
-          />
-        );
+          />      
       })}
     </MenuStyled>
   );
