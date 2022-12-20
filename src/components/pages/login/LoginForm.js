@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { theme } from '../../../theme';
-import { BsPersonCircle } from 'react-icons/bs';
-import { IoChevronForward } from 'react-icons/io5';
-import TextInput from '../../reusable-ui/TextInput';
-import PrimaryButton from '../../reusable-ui/PrimaryButton';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { theme } from "../../../theme";
+import { BsPersonCircle } from "react-icons/bs";
+import { IoChevronForward } from "react-icons/io5";
+import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setName('');
+    setName("");
     navigate(`/order/${name}`);
   };
 
@@ -64,12 +64,12 @@ const LoginFormStyled = styled.form`
 
   h1 {
     color: ${theme.colors.white};
-    font-size: ${theme.fonts.P5};
+    font-size: ${theme.fonts.size.P5};
   }
 
   h2 {
     color: ${theme.colors.white};
     margin: 20px 10px 10px;
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.size.P4};
   }
 `;

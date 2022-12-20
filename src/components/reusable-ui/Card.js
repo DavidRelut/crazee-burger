@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { theme } from '../../theme';
-import PrimaryButton from './PrimaryButton';
+import styled from "styled-components";
+import { theme } from "../../theme";
+import PrimaryButton from "./PrimaryButton";
 
 export default function Card({ title, imageSource, leftDescription }) {
   return (
@@ -13,12 +13,12 @@ export default function Card({ title, imageSource, leftDescription }) {
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={'Ajouter'} />
+            <PrimaryButton className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
     </CardStyled>
-  )
+  );
 }
 
 const CardStyled = styled.div`
@@ -52,17 +52,17 @@ const CardStyled = styled.div`
 
     .title {
       margin: auto 0;
-      font-size: ${theme.fonts.P4};
+      font-size: ${theme.fonts.size.P4};
       position: relative;
       bottom: 10px;
-      font-weight: ${theme.weights.bold};
+      font-weight: ${theme.fonts.weights.bold};
       color: ${theme.colors.dark};
       text-align: left;
       white-space: nowrap;
       overflow: hidden;
       width: 100%;
       text-overflow: ellipsis;
-      font-family: 'Amatic SC', cursive;
+      font-family: "Amatic SC", cursive;
     }
 
     .description {
@@ -73,11 +73,11 @@ const CardStyled = styled.div`
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        font-weight: ${theme.weights.medium};
+        font-weight: ${theme.fonts.weights.medium};
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-weight: ${theme.weights.medium};
+        font-weight: ${theme.fonts.weights.medium};
         color: ${theme.colors.primary};
       }
 
@@ -85,10 +85,10 @@ const CardStyled = styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        font-size: ${theme.fonts.P1};
+        font-size: ${theme.fonts.size.P1};
 
         .primary-button {
-          font-size: ${theme.fonts.XS};
+          font-size: ${theme.fonts.size.XS};
           cursor: pointer;
           padding: 12px;
         }

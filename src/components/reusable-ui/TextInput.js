@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { theme } from '../../theme';
+import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return (
@@ -19,20 +19,20 @@ const InputStyled = styled.div`
   margin: 18px 0;
 
   .icon {
-    font-size: ${theme.fonts.P2};
+    font-size: ${theme.fonts.size.P2};
     margin-right: 8px;
     color: ${theme.colors.greyMedium};
   }
 
   input {
     border: none;
-    font-size: ${theme.fonts.P0};
+    font-size: ${theme.fonts.size.P0};
     color: ${theme.colors.dark};
     width: 100%;
   }
 
   input:focus-visible {
-    outline: 2px solid ${theme.colors.primary_burger2};
+    outline: 2px solid ${theme.colors.loginLine};
   }
 
   &::placeholder {

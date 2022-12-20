@@ -1,13 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { theme } from "../../theme";
 
-
-
-export default function Logo({ className }) {
+export default function Logo({ className, onClick }) {
   return (
-    <LogoStyled className={className}>
+    <LogoStyled className={className} onClick={onClick}>
       <h1>CRAZEE</h1>
-      <img src="/images/logo-orange.png" alt="Logo"/>
+      <img src="/images/logo-orange.png" alt="Logo" />
       <h1>BURGER</h1>
     </LogoStyled>
   );
@@ -20,13 +18,13 @@ const LogoStyled = styled.div`
   h1 {
     display: inline;
     text-align: center;
-    color: ${theme.colors.primary_burger};
-    font-size: ${theme.fonts.P4};
+    color: ${theme.colors.primary};
+    font-size: ${theme.fonts.size.P4};
     line-height: 1em;
-    font-weight: ${theme.weights.bold};
+    font-weight: ${theme.fonts.weights.bold};
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    font-family: 'Amatic SC', cursive;
+    font-family: "Amatic SC", cursive;
   }
 
   img {
