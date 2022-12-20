@@ -8,17 +8,17 @@ import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
-  const [name, setName] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setName("");
-    navigate(`/order/${name}`);
+    setInputValue("");
+    navigate(`/order/${inputValue}`);
   };
 
   const handleChange = (event) => {
-    setName(event.target.value);
+    setInputValue(event.target.value);
   };
 
   return (
@@ -31,7 +31,7 @@ export default function LoginForm() {
 
       <div className="font_open-sans">
         <TextInput
-          value={name}
+          value={inputValue}
           onChange={handleChange}
           type="text"
           placeholder="Entrez votre prénom"
@@ -57,8 +57,8 @@ const LoginFormStyled = styled.form`
   border-radius: ${theme.borderRadius.round};
 
   hr {
-    background-color: ${theme.colors.primary_burger2};
-    border: 1.5px solid ${theme.colors.primary_burger2};
+    background-color: ${theme.colors.loginLine};
+    border: 1.5px solid ${theme.colors.loginLine};
     margin-bottom: 40px;
   }
 
