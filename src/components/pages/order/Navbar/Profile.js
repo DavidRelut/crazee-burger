@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
-export default function Profile({ name }) {
+export default function Profile({ username }) {
   return (
     <ProfileStyled>
       <div className="user-info font_open-sans">
         <h3>
-          Hey, <span>{name}</span>
+          Hey, <span>{username}</span>
         </h3>
         <Link to={"/"}>Se déconnecter</Link>
       </div>
