@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Logo from "../../../reusable-ui/Logo";
-import Profile from "./Profile";
+import NavbarRightSide from "./NavbarRightSide";
 import { refreshPage } from "../../../../utils/window";
 
 export default function Navbar({ username }) {
   return (
     <NavbarStyled>
       <Logo className="logo-order-page" onClick={() => refreshPage()} />
-      <Profile username={username} />
+      <NavbarRightSide username={username} />
     </NavbarStyled>
   );
 }
@@ -18,7 +18,7 @@ const NavbarStyled = styled.nav`
   height: 10vh;
   display: flex;
   justify-content: space-between;
-  padding: 0 70px 0 25px;
+  padding: 0 20px;
 
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
