@@ -5,13 +5,11 @@ import styled from "styled-components";
 
 export default function ToastAdmin() {
   return (
-    <ToastAdminStyled>
-      <ToastContainer className="toaster" bodyClassName="body-toast" />
-    </ToastAdminStyled>
+    <ToastContainerStyled className="toaster" bodyClassName="body-toast" />
   );
 }
 
-const ToastAdminStyled = styled.div`
+const ToastContainerStyled = styled(ToastContainer)`
   .toaster {
     max-width: 300px;
   }
