@@ -1,66 +1,69 @@
-import { BsPersonCircle } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { theme } from '../../../../theme';
+import { BsPersonCircle } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { theme } from "../../../../theme";
 
-export default function Profile({ name }) {
+export default function Profile({ username }) {
   return (
     <ProfileStyled>
-      <div className="user-info font_open-sans">
-        <h3>
-          Hey, <span>{name}</span>
-        </h3>
-        <Link to={'/'}>Se déconnecter</Link>
+      <div className="info font_open-sans">
+        <p>
+          Hey, <b>{username}</b>
+        </p>
+        <Link to="/">
+          <div className="description">
+            <small>Se déconnecter</small>
+          </div>
+        </Link>
       </div>
-      <BsPersonCircle
-        className="icon"
-        size={40}
-        color={theme.colors.greyDark}
-      />
+      <div className="picture">
+        <BsPersonCircle />
+      </div>
     </ProfileStyled>
   );
 }
 
 const ProfileStyled = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100px;
+  padding-left: 50px;
 
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin-right: 5px;
-  }
-
-  h3 {
-    text-align: center;
-    font-size: ${theme.fonts.P0};
-    font-weight: ${theme.weights.medium};
-    color: ${theme.colors.greyBlue};
-    margin-bottom: 5px;
-    margin-left: 25px;
-  }
-
-  span {
-    color: ${theme.colors.primary};
-    font-weight: ${theme.weights.bold};
-  }
-
-  a {
-    cursor: pointer;
-    text-decoration: none;
-    background-color: transparent;
-    border: 0px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: ${theme.fonts.XXS};
-    font-weight: ${theme.weights.medium};
-    color: ${theme.colors.greyDark};
-    &:hover {
-      text-decoration: underline ${theme.colors.dark};
+  .info {
+    text-align: right;
+    margin-right: 10px;
+    p {
+      margin: 0;
+      color: ${theme.colors.greyBlue};
+      b {
+        color: ${theme.colors.primary};
+      }
+    }
+    a {
+      text-decoration: none;
+      .description {
+        &:hover {
+          text-decoration: underline;
+          color: ${theme.colors.greyDark};
+        }
+        small {
+          font-size: ${theme.fonts.size.XXS};
+          color: ${theme.colors.greyBlue};
+          font-weight: ${theme.fonts.weights.medium};
+          text-decoration: none;
+          position: relative;
+          bottom: 2px;
+        }
+      }
     }
   }
-  .icon {
-    margin-top: 15px;
+
+  .picture {
+    height: auto;
+    display: flex;
+    height: 100%;
+    font-size: ${theme.fonts.size.P4};
+    color: ${theme.colors.greyBlue};
   }
 `;
