@@ -1,54 +1,21 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
+import { BsPlusLg } from "react-icons/bs";
+import { FaPen } from "react-icons/fa";
+import { CgChevronDown } from "react-icons/cg";
 
 export default function PanelToggle() {
   return (
     <PanelToggleStyled>
       <div className="tab collapse-tab">
-        <svg
-          stroke="currentColor"
-          fill="none"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          className="icon-collapse"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
+        <CgChevronDown className="icon-collapse" />
       </div>
       <div className="tab form-tab active">
-        <svg
-          stroke="currentColor"
-          fill="currentColor"
-          stroke-width="0"
-          viewBox="0 0 16 16"
-          className="icon"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"></path>
-        </svg>
+        <BsPlusLg className="icon" />
         <span>Ajouter un produit</span>
       </div>
       <div className="tab form-tab">
-        <svg
-          stroke="currentColor"
-          fill="currentColor"
-          stroke-width="0"
-          viewBox="0 0 24 24"
-          className="icon"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path fill="none" d="M0 0h24v24H0z"></path>
-          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 5.63l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 000-1.41z"></path>
-        </svg>
+        <FaPen className="icon" />
         <span>Modifier un produit</span>
       </div>
     </PanelToggleStyled>
