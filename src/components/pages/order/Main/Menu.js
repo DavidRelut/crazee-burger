@@ -4,7 +4,6 @@ import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import { theme } from "../../../../theme/index";
 import { formatPrice } from "../../../../utils/maths";
 import Card from "../../../reusable-ui/Card";
-import PanelContainer from "./Panel/PanelContainer";
 
 export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu2);
@@ -21,7 +20,6 @@ export default function Menu() {
           />
         );
       })}
-      <PanelContainer className="panel-container" />
     </MenuStyled>
   );
 }
@@ -35,12 +33,4 @@ const MenuStyled = styled.div`
   padding: 50px 50px 150px;
   justify-items: center;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
-
-  .panel-container {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 2;
-  }
 `;
