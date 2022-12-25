@@ -47,6 +47,12 @@ const PanelToggleStyled = styled.div`
     }
   }
 
+  .collapse-tab.active {
+    background: rgb(41, 39, 41);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(41, 39, 41);
+  }
+
   .form-tab {
     box-shadow: rgb(0 0 0 / 10%) 0px -2px 8px -2px;
     background-color: rgb(255, 255, 255);
@@ -88,5 +94,9 @@ const PanelToggleStyled = styled.div`
 
   span {
     font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
