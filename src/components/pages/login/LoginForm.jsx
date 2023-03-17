@@ -13,8 +13,8 @@ export default function LoginForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setInputValue("");
     navigate(`/order/${inputValue}`);
+    setInputValue("");
   };
 
   const handleChange = (event) => {
