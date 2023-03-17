@@ -4,9 +4,21 @@ import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import { theme } from "../../../../theme/index";
 import { formatPrice } from "../../../../utils/maths";
 import Card from "../../../reusable-ui/Card";
+import PanelAdmin from "../Panel/PanelAdmin";
 
 export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu2);
+
+  const handleAdd = (productToAdd) => {
+    //1. copie du state
+    const productsCopy = [...menu];
+
+    //2. manipulation sur la copie du state
+    productsCopy.push(productToAdd);
+
+    //3. modifier le state avec le setter
+    setMenu(productsCopy);
+  };
 
   return (
     <MenuStyled>
@@ -20,6 +32,7 @@ export default function Menu() {
           />
         );
       })}
+      <PanelAdmin handleAdd={handleAdd} />
     </MenuStyled>
   );
 }
