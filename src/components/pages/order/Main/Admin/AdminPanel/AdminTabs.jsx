@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
+import { theme } from "../../../../../../theme";
 import { BsPlusLg } from "react-icons/bs";
 import { FaPen } from "react-icons/fa";
 import { CgChevronDown } from "react-icons/cg";
 
-export default function PanelToggle() {
+export default function AdminTab() {
   return (
-    <PanelToggleStyled>
+    <AdminTabStyled>
       <div className="tab collapse-tab">
         <CgChevronDown className="icon-collapse" />
       </div>
@@ -18,11 +18,11 @@ export default function PanelToggle() {
         <FaPen className="icon" />
         <span>Modifier un produit</span>
       </div>
-    </PanelToggleStyled>
+    </AdminTabStyled>
   );
 }
 
-const PanelToggleStyled = styled.div`
+const AdminTabStyled = styled.div`
   position: absolute;
   top: -37px;
   left: 8%;

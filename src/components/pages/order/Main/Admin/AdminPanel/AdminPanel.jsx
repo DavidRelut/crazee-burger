@@ -1,70 +1,17 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
-import { FaHamburger } from "react-icons/fa";
-import { MdEuro } from "react-icons/md";
-import { BsFillCameraFill } from "react-icons/bs";
-import { FiPackage } from "react-icons/fi";
-import { GoMegaphone } from "react-icons/go";
+import { theme } from "../../../../../../theme";
 
-export default function PanelAdmin() {
+export default function AdminPanel() {
   return (
-    <PanelAdminStyled>
+    <AdminPanelStyled>
       <div class="admin-container">
-        <form action="submit" className="form">
-          <div class="image-preview">
-            <div class="empty-image">Aucune image</div>
-          </div>
-          <div class="text-inputs">
-            <div class="input-content first-row">
-              <FaHamburger className="icon" />
-              <input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="Produit (ex: Super Burger)"
-                value=""
-              />
-            </div>
-            <div class="input-content second-row">
-              <BsFillCameraFill className="icon" />
-              <input
-                type="text"
-                name="imageSource"
-                placeholder="Lien URL d'une image (ex: https://photo-frites.png)"
-                value=""
-              />
-            </div>
-            <div class="third-row">
-              <div class="input-content">
-                <MdEuro className="icon" />
-                <input type="text" name="price" placeholder="Prix" value="" />
-              </div>
-              <div class="option">
-                <FiPackage className="icon" />
-                <select name="isAvailable">
-                  <option value="true">En stock</option>
-                  <option value="false">En rupture</option>
-                </select>
-              </div>
-              <div class="option">
-                <GoMegaphone className="icon" />
-                <select name="isAdvertised">
-                  <option value="false">Sans pub</option>
-                  <option value="true">Avec pub</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="submitButton">
-            <button>Ajouter un nouveau produit au menu</button>
-          </div>
-        </form>
+        <form action="submit" className="form"></form>
       </div>
-    </PanelAdminStyled>
+    </AdminPanelStyled>
   );
 }
 
-const PanelAdminStyled = styled.div`
+const AdminPanelStyled = styled.div`
   .admin-container {
     background-color: rgb(255, 255, 255);
     box-shadow: rgb(0 0 0 / 20%) 0px -2px 8px -2px;
