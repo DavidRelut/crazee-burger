@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Menu from "./Menu";
-import PanelContainer from "./Panel/PanelContainer";
+import Admin from "./Admin/Admin";
 
 export default function Main() {
   return (
@@ -9,7 +9,7 @@ export default function Main() {
       <div className="basket">Basket</div>
       <div menu-and-panel-container>
         <Menu />
-        <PanelContainer className="panel-container" />
+        <Admin className="panel-container" />
       </div>
     </MainStyled>
   );
