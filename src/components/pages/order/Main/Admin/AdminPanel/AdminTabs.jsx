@@ -4,9 +4,9 @@ import { BsPlusLg } from "react-icons/bs";
 import { FaPen } from "react-icons/fa";
 import { CgChevronDown } from "react-icons/cg";
 
-export default function AdminTab() {
+export default function AdminTabs() {
   return (
-    <AdminTabStyled>
+    <AdminTabsStyled>
       <div className="tab collapse-tab">
         <CgChevronDown className="icon-collapse" />
       </div>
@@ -18,11 +18,11 @@ export default function AdminTab() {
         <FaPen className="icon" />
         <span>Modifier un produit</span>
       </div>
-    </AdminTabStyled>
+    </AdminTabsStyled>
   );
 }
 
-const AdminTabStyled = styled.div`
+const AdminTabsStyled = styled.div`
   position: absolute;
   top: -37px;
   left: 8%;

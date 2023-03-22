@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
-import AdminTab from "./AdminPanel/AdminTabs";
+import AdminTabs from "./AdminPanel/AdminTabs";
 import AdminPanel from "./AdminPanel/AdminPanel";
 
 export default function Admin({ className }) {
   return (
     <AdminStyled className={className}>
-      <AdminTab />
+      <AdminTabs />
       <AdminPanel />
     </AdminStyled>
   );
