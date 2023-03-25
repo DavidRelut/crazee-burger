@@ -29,7 +29,6 @@ const MainStyled = styled.div`
   overflow-y: scroll;
 
   .menu-and-panel-container {
-    position: absolute;
     height: calc(85vh);
     display: flex;
     box-shadow: rgb(0 0 0 / 20%) 0px 0px 8px 0px inset;

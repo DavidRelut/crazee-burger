@@ -3,21 +3,25 @@ import { theme } from "../../../../../../theme";
 import { BsPlusLg } from "react-icons/bs";
 import { FaPen } from "react-icons/fa";
 import { CgChevronDown } from "react-icons/cg";
+import Tab from "../../../../../reusable-ui/Tab";
 
 export default function AdminTabs() {
   return (
     <AdminTabsStyled>
-      <div className="tab collapse-tab">
-        <CgChevronDown className="icon-collapse" />
-      </div>
-      <div className="tab form-tab active">
-        <BsPlusLg className="icon" />
-        <span>Ajouter un produit</span>
-      </div>
-      <div className="tab form-tab">
-        <FaPen className="icon" />
-        <span>Modifier un produit</span>
-      </div>
+      <Tab
+        className="tab collapse-tab "
+        Icon={<CgChevronDown className="icon-collapse" />}
+      />
+      <Tab
+        className="tab form-tab active"
+        Icon={<BsPlusLg className="icon" />}
+        label="Ajouter un produit"
+      />
+      <Tab
+        className="tab form-tab"
+        Icon={<FaPen className="icon" />}
+        label="Modifier un produit"
+      />
     </AdminTabsStyled>
   );
 }
@@ -46,12 +50,12 @@ const AdminTabsStyled = styled.div`
       min-height: 1.5em;
     }
   }
-
+  /* 
   .collapse-tab.active {
     background: rgb(41, 39, 41);
     color: rgb(255, 255, 255);
     border: 1px solid rgb(41, 39, 41);
-  }
+  } */
 
   .form-tab {
     box-shadow: rgb(0 0 0 / 10%) 0px -2px 8px -2px;
@@ -65,13 +69,10 @@ const AdminTabsStyled = styled.div`
     background: rgb(41, 39, 41);
     border: 1px solid rgb(41, 39, 41);
     color: rgb(255, 255, 255);
-    font-weight: 700;
+    font-weight: 500;
   }
 
   .tab {
-    /* border-top: 1px solid rgb(51, 51, 51); */
-    /* border-right: 1px solid rgb(51, 51, 51); */
-    /* border-left: 1px solid rgb(51, 51, 51); */
     border-image: initial;
     background-color: rgb(245, 245, 247);
     /* color: rgb(23, 22, 26); */
@@ -90,13 +91,5 @@ const AdminTabsStyled = styled.div`
     min-width: 1em;
     min-height: 1em;
     margin-right: 0.5em;
-  }
-
-  span {
-    font-weight: 500;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 `;
