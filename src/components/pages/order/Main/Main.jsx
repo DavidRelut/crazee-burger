@@ -7,7 +7,7 @@ export default function Main() {
   return (
     <MainStyled>
       <div className="basket">Basket</div>
-      <div menu-and-panel-container>
+      <div className="menu-and-panel-container">
         <Menu />
         <Admin className="panel-container" />
       </div>
@@ -30,7 +30,7 @@ const MainStyled = styled.div`
 
   .menu-and-panel-container {
     height: calc(85vh);
-    display: flex;
+    /* display: flex; */
     box-shadow: rgb(0 0 0 / 20%) 0px 0px 8px 0px inset;
     border-bottom-right-radius: 15px;
   }

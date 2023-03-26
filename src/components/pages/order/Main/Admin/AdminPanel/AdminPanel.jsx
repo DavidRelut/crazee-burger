@@ -3,7 +3,7 @@ import { theme } from "../../../../../../theme";
 export default function AdminPanel() {
   return (
     <AdminPanelStyled>
-      <div class="admin-container"></div>
+      <div className="admin-container"></div>
     </AdminPanelStyled>
   );
 }
