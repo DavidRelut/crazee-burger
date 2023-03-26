@@ -7,43 +7,34 @@ export default function Main() {
   return (
     <MainStyled>
       <div className="basket">Basket</div>
-      <div className="menu-and-panel-container">
+      <div className="menu-and-admin">
         <Menu />
-        <Admin className="panel-container" />
+        <Admin />
       </div>
     </MainStyled>
   );
 }
 
 const MainStyled = styled.div`
-  position: relative;
-  background-color: ${theme.colors.background_white};
-  flex: 1;
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  background: ${theme.colors.background_white};
+  flex: 1; // or you can also use this : height: calc(95vh - 10vh);
+  height: calc(95vh - 10vh);
+
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  box-shadow: ${theme.shadows.strong};
 
   display: grid;
   grid-template-columns: 25% 1fr;
 
-  overflow-y: scroll;
-
-  .menu-and-panel-container {
-    height: calc(85vh);
-    /* display: flex; */
-    box-shadow: rgb(0 0 0 / 20%) 0px 0px 8px 0px inset;
-    border-bottom-right-radius: 15px;
+  .basket {
+    background: pink;
+    border: 1px solid black;
   }
 
-  .panel-container {
+  .menu-and-admin {
     position: relative;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 2;
+    display: grid;
+    overflow-y: hidden;
   }
-
-  /* .basket {
-    background: ${theme.colors.incognito};
-  } */
 `;

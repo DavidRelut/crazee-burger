@@ -1,22 +1,14 @@
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 export default function AdminPanel() {
-  return (
-    <AdminPanelStyled>
-      <div className="admin-container"></div>
-    </AdminPanelStyled>
-  );
+  return <AdminPanelStyled>Add</AdminPanelStyled>;
 }
 
 const AdminPanelStyled = styled.div`
-  .admin-container {
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgb(0 0 0 / 20%) 0px -2px 8px -2px;
-    height: 13em;
-    padding: 25px 30px 20px 60px;
-    display: flex;
-    align-items: flex-start;
-    border-top: 1px solid rgb(228, 229, 233);
-    border-bottom-right-radius: 15px;
-  }
+  height: 251px;
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  background: ${theme.colors.white};
+  border-top: 1px solid ${theme.colors.greyLight};
+  box-shadow: ${theme.shadows.subtle};
 `;
