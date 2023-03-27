@@ -21,21 +21,26 @@ const InputStyled = styled.div`
   .icon {
     font-size: ${theme.fonts.size.P2};
     margin-right: 8px;
-    color: ${theme.colors.greyMedium};
+    color: ${theme.colors.greyBlue};
   }
 
   input {
     border: none;
     font-size: ${theme.fonts.size.SM};
+    background-color: ${theme.colors.background_white};
     color: ${theme.colors.dark};
     width: 100%;
+
+    &::placeholder {
+      color: ${theme.colors.greyExtraLight};
+    }
   }
 
   input:focus-visible {
-    outline: 2px solid ${theme.colors.loginLine};
+    outline: 2px solid ${theme.colors.background_white};
   }
 
-  &::placeholder {
-    color: ${theme.colors.greyLight};
+  &:active {
+    background-color: ${theme.colors.background_white};
   }
 `;
