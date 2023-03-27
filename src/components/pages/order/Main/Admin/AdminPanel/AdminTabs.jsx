@@ -1,14 +1,25 @@
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
-import { BsPlusLg } from "react-icons/bs";
-import { FaPen } from "react-icons/fa";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import Tab from "../../../../../reusable-ui/Tab";
 import OrderContext from "../../../../../../context/OrderContext";
 import { useContext } from "react";
+import { tabsConfig } from "../../../../../../utils/tabsConfig";
 
 export default function AdminTabs() {
-  const { isCollapsed, setIsCollapsed } = useContext(OrderContext);
+  const {
+    isCollapsed,
+    setIsCollapsed,
+    currentTabSelected,
+    setCurrentTabSelected,
+  } = useContext(OrderContext);
+
+  const tabs = tabsConfig;
+
+  const selectTab = (tabSelected) => {
+    setIsCollapsed(false);
+    setCurrentTabSelected(tabSelected);
+  };
 
   return (
     <AdminTabsStyled>
@@ -23,12 +34,15 @@ export default function AdminTabs() {
         onClick={() => setIsCollapsed(!isCollapsed)}
         className={isCollapsed ? "is-active" : ""}
       />
-      <Tab
-        className="is-active"
-        Icon={<BsPlusLg />}
-        label="Ajouter un produit"
-      />
-      <Tab Icon={<FaPen />} label="Modifier un produit" />
+      {tabs.map((tab) => (
+        <Tab
+          key={tab.index}
+          Icon={tab.Icon}
+          label={tab.label}
+          onClick={() => selectTab(tab.index)}
+          className={currentTabSelected === tab.index ? "is-active" : ""}
+        />
+      ))}
     </AdminTabsStyled>
   );
 }
