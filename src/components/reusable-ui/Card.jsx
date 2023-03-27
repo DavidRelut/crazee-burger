@@ -87,7 +87,6 @@ const CardStyled = styled.div`
         align-items: center;
         font-size: ${theme.fonts.size.P1};
 
-        //
         .primary-button {
           font-size: ${theme.fonts.size.XS};
           cursor: pointer;
