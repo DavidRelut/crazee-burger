@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme";
 import AdminTabs from "./AdminPanel/AdminTabs";
 import AdminPanel from "./AdminPanel/AdminPanel";
 import OrderContext from "../../../../../context/OrderContext";
