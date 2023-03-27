@@ -2,13 +2,27 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import { BsPlusLg } from "react-icons/bs";
 import { FaPen } from "react-icons/fa";
-import { CgChevronDown } from "react-icons/cg";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import Tab from "../../../../../reusable-ui/Tab";
+import OrderContext from "../../../../../../context/OrderContext";
+import { useContext } from "react";
 
 export default function AdminTabs() {
+  const { isCollapsed, setIsCollapsed } = useContext(OrderContext);
+
   return (
     <AdminTabsStyled>
-      <Tab Icon={<CgChevronDown className="icon" />} />
+      <Tab
+        Icon={
+          isCollapsed ? (
+            <FiChevronUp className="icon-chevron" />
+          ) : (
+            <FiChevronDown className="icon-chevron" />
+          )
+        }
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        className={isCollapsed ? "is-active" : ""}
+      />
       <Tab
         className="is-active"
         Icon={<BsPlusLg />}
@@ -28,7 +42,7 @@ const AdminTabsStyled = styled.div`
     border-color: ${theme.colors.background_dark};
   }
 
-  .icon {
+  .icon-chevron {
     min-width: 1.5em;
     min-height: 1.5em;
   }
