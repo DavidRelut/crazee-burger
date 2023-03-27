@@ -34,13 +34,13 @@ export default function AdminTabs() {
         onClick={() => setIsCollapsed(!isCollapsed)}
         className={isCollapsed ? "is-active" : ""}
       />
-      {tabs.map((tab) => (
+      {tabs.map(({ index, Icon, label }) => (
         <Tab
-          key={tab.index}
-          Icon={tab.Icon}
-          label={tab.label}
-          onClick={() => selectTab(tab.index)}
-          className={currentTabSelected === tab.index ? "is-active" : ""}
+          key={index}
+          Icon={Icon}
+          label={label}
+          onClick={() => selectTab(index)}
+          className={currentTabSelected === index ? "is-active" : ""}
         />
       ))}
     </AdminTabsStyled>
