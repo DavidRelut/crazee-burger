@@ -32,8 +32,9 @@ const MainStyled = styled.div`
   grid-template-columns: 25% 1fr;
 
   .basket {
-    background: pink;
-    border: 1px solid black;
+    background: ${theme.colors.background_dark};
+    border: 1px solid ${theme.colors.dark};
+    color: ${theme.colors.white};
   }
 
   .menu-and-admin {
