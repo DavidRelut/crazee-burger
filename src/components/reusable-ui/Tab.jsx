@@ -11,9 +11,8 @@ export default function Tab({ className, Icon, label, onClick }) {
 }
 
 const TabStyled = styled.div`
-  border: 1px solid blue;
   padding: 0 22px;
-  height: 35px;
+  height: 43px;
 
   display: flex;
   justify-content: center;
@@ -29,10 +28,10 @@ const TabStyled = styled.div`
   left: 5%;
   top: 1px;
 
-  background: #ffffff;
+  background: ${theme.colors.white}};
   border-width: 1px 1px 2px 1px;
   border-style: solid;
-  border-color: #e4e5e9;
+  border-color: ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
   border-radius: 5px 5px 0px 0px;
 
@@ -47,9 +46,5 @@ const TabStyled = styled.div`
   :hover {
     border-bottom: 2px solid ${theme.colors.white};
     text-decoration: underline;
-  }
-
-  .label {
-    margin-left: 5px;
   }
 `;
