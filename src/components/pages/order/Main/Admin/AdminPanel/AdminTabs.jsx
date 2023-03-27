@@ -8,7 +8,7 @@ import Tab from "../../../../../reusable-ui/Tab";
 export default function AdminTabs() {
   return (
     <AdminTabsStyled>
-      <Tab Icon={<CgChevronDown />} />
+      <Tab Icon={<CgChevronDown className="icon" />} />
       <Tab
         className="is-active"
         Icon={<BsPlusLg />}
@@ -26,6 +26,11 @@ const AdminTabsStyled = styled.div`
     background: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
+  }
+
+  .icon {
+    min-width: 1.5em;
+    min-height: 1.5em;
   }
 
   button {

@@ -21,7 +21,8 @@ const TabStyled = styled.div`
 
   cursor: pointer;
 
-  font-size: ${theme.fonts.size.P0};
+  font-size: ${theme.fonts.size.SM};
+  font-weight: ${theme.fonts.weights.medium};
   color: ${theme.colors.greySemiDark};
 
   position: relative;
@@ -37,6 +38,9 @@ const TabStyled = styled.div`
 
   .icon {
     display: flex;
+    align-items: center;
+    min-width: 1em;
+    min-height: 1em;
   }
 
   .label {
@@ -48,7 +52,7 @@ const TabStyled = styled.div`
     text-decoration: underline;
   }
 
-  .text-tab {
-    margin-left: 13px;
+  .label {
+    margin-left: 5px;
   }
 `;
