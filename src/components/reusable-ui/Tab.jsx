@@ -38,9 +38,6 @@ const TabStyled = styled.div`
 
   .icon {
     display: flex;
-    align-items: center;
-    min-width: 1em;
-    min-height: 1em;
   }
 
   .label {
