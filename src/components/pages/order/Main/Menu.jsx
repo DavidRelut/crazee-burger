@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
+import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import { theme } from "../../../../theme/index";
 import { formatPrice } from "../../../../utils/maths";
 import Card from "../../../reusable-ui/Card";
 import PanelAdmin from "../Panel/PanelAdmin";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu2);
+  const [menu, setMenu] = useState(fakeMenu.LARGE);
 
   const handleAdd = (productToAdd) => {
     //1. copie du state
