@@ -40,7 +40,7 @@ const TabStyled = styled.div`
   }
 
   .label {
-    margin-left: 13px;
+    margin-left: 15px;
   }
 
   :hover {
