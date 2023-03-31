@@ -17,8 +17,8 @@ export default function AdminTabs() {
   const tabs = tabsConfig;
 
   const selectTab = (tabSelected) => {
-    setIsCollapsed(false);
     setCurrentTabSelected(tabSelected);
+    setIsCollapsed(false);
   };
 
   return (
