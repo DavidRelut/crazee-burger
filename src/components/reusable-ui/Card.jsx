@@ -1,10 +1,22 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 import PrimaryButton from "./PrimaryButton";
+import { RxCross2 } from "react-icons/rx";
 
-export default function Card({ title, imageSource, leftDescription }) {
+export default function Card({
+  title,
+  imageSource,
+  leftDescription,
+  hasDeleteButton,
+  onDelete,
+}) {
   return (
     <CardStyled>
+      {hasDeleteButton && (
+        <div className="delete-btn" onClick={onDelete}>
+          <RxCross2 />
+        </div>
+      )}
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
@@ -22,6 +34,7 @@ export default function Card({ title, imageSource, leftDescription }) {
 }
 
 const CardStyled = styled.div`
+  position: relative;
   background: ${theme.colors.white};
   width: 200px;
   height: 300px;
@@ -31,6 +44,23 @@ const CardStyled = styled.div`
   padding-bottom: 10px;
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
+
+  .delete-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    width: 20px;
+    border-radius: ${theme.borderRadius.circle};
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: ${theme.colors.primary};
+    cursor: pointer;
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P0};
+  }
 
   .image {
     width: 100%;
