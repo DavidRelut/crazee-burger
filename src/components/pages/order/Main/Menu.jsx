@@ -1,24 +1,19 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import { theme } from "../../../../theme/index";
 import { formatPrice } from "../../../../utils/maths";
 import Card from "../../../reusable-ui/Card";
-// import PanelAdmin from "./Admin/AdminPanel/AdminContent";
+import OrderContext from "../../../../context/OrderContext";
+import { useContext } from "react";
+import EmptyMenu from "./EmptyMenu";
+const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
+  const { menu, isModeAdmin, handleDelete, handleReset } =
+    useContext(OrderContext);
 
-  const handleAdd = (productToAdd) => {
-    //1. copie du state
-    const productsCopy = [...menu];
-
-    //2. manipulation sur la copie du state
-    productsCopy.unshift(productToAdd);
-
-    //3. modifier le state avec le setter
-    setMenu(productsCopy);
-  };
+  if (menu.length === 0) {
+    return <EmptyMenu onReset={handleReset} />;
+  }
 
   return (
     <MenuStyled>
@@ -27,12 +22,13 @@ export default function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource}
+            imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
             leftDescription={formatPrice(price)}
+            hasDeleteButton={isModeAdmin}
+            onDelete={() => handleDelete(id)}
           />
         );
       })}
-      {/* <PanelAdmin handleAdd={handleAdd} /> */}
     </MenuStyled>
   );
 }
