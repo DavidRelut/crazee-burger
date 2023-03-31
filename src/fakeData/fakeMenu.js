@@ -1,4 +1,4 @@
-const EMPTY = []
+const EMPTY = [];
 
 const SMALL = [
   {
@@ -19,7 +19,7 @@ const SMALL = [
     isAvailable: true,
     isAdvertised: false,
   },
-]
+];
 
 const MEDIUM = [
   {
@@ -67,7 +67,7 @@ const MEDIUM = [
     isAvailable: true,
     isAdvertised: false,
   },
-]
+];
 
 const LARGE = [
   {
@@ -160,11 +160,11 @@ const LARGE = [
     isAvailable: true,
     isAdvertised: false,
   },
-]
+];
 
 export const fakeMenu = {
   EMPTY,
   SMALL,
   MEDIUM,
   LARGE,
-}
+};

@@ -4,19 +4,43 @@ import Main from "./Main/Main";
 import Navbar from "./Navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useState } from "react";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function OrderPage() {
+  const [menu, setMenu] = useState(fakeMenu.LARGE);
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
+  const handleAdd = (productToAdd) => {
+    const menuCopy = [...menu];
+    const menuUpdate = menuCopy.unshift(productToAdd);
+    setMenu(menuUpdate);
+  };
+
+  const handleDelete = (idProductToDelete) => {
+    const menuCopy = [...menu];
+    const menuUpdate = menuCopy.filter(
+      (product) => product.id !== idProductToDelete
+    );
+    setMenu(menuUpdate);
+  };
+
+  const handleReset = () => {
+    setMenu(fakeMenu.LARGE);
+  };
+
   const orderContextValue = {
+    menu,
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
+    handleAdd,
+    handleDelete,
+    handleReset,
   };
 
   return (
