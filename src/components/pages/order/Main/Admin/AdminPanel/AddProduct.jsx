@@ -64,13 +64,10 @@ export default function AddProduct() {
 }
 
 const AddProductStyled = styled.form`
-  /* height: 100%; */
   width: 80%;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  /* grid-template-rows: repeat(4, 1fr); */
   grid-column-gap: 20px;
-  /* grid-row-gap: 8px; */
   margin-left: 54px;
   margin-top: 35px;
 
