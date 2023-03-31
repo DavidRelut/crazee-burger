@@ -14,7 +14,7 @@ export default function OrderPage() {
 
   const handleAdd = (productToAdd) => {
     const menuCopy = [...menu];
-    const menuUpdate = menuCopy.unshift(productToAdd);
+    const menuUpdate = [productToAdd, ...menuCopy];
     setMenu(menuUpdate);
   };
 
