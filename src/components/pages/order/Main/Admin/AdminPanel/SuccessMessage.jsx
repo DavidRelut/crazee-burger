@@ -26,5 +26,6 @@ const SuccessMessageStyled = styled.div`
 
   .success-span {
     margin-left: 5px;
+    font-weight: ${theme.fonts.weight.regular};
   }
 `;
