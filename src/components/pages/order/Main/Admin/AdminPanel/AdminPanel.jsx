@@ -6,16 +6,13 @@ import {
 } from "../../../../../../utils/admin/tabsConfig";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
-import AdminContent from "./AdminContent";
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
 
   const tabs = tabsConfig;
   const tabSelected = getTabSelected(tabs, currentTabSelected);
 
-  return (
-    <AdminPanelStyled>{tabSelected.label && <AdminContent />}</AdminPanelStyled>
-  );
+  return <AdminPanelStyled>{tabSelected.Panel}</AdminPanelStyled>;
 }
 
 const AdminPanelStyled = styled.div`
