@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 import PrimaryButton from "./PrimaryButton";
-import { RxCross2 } from "react-icons/rx";
+import { TiDelete } from "react-icons/ti";
 
 export default function Card({
   title,
@@ -13,9 +13,7 @@ export default function Card({
   return (
     <CardStyled>
       {hasDeleteButton && (
-        <div className="delete-btn" onClick={onDelete}>
-          <RxCross2 />
-        </div>
+        <TiDelete className="delete-btn" onClick={onDelete} />
       )}
       <div className="image">
         <img src={imageSource} alt={title} />
@@ -49,17 +47,14 @@ const CardStyled = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    width: 20px;
-    border-radius: ${theme.borderRadius.circle};
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: ${theme.colors.primary};
-    cursor: pointer;
-    color: ${theme.colors.white};
-    font-size: ${theme.fonts.size.P0};
+    color: ${theme.colors.primary};
+
+    &:hover {
+      color: ${theme.colors.danger};
+    }
   }
 
   .image {

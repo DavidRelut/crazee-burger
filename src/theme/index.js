@@ -9,6 +9,7 @@ const colors = {
   success: "#60bd4f",
   red: "#e25549",
   redSecondary: "#c4151c",
+  danger: "#e25549",
   blue: "#51a7e1",
   greyExtraLight: "#D3D3D3",
   greyLight: "#e4e5e9",
