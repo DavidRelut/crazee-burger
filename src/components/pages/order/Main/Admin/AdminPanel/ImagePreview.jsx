@@ -19,6 +19,9 @@ export default function ImagePreview({ image, title }) {
 const ImagePreviewStyled = styled.div`
   width: 220px;
   height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .txt-without-image {
     font-size: ${theme.fonts.size.P2};
@@ -34,8 +37,9 @@ const ImagePreviewStyled = styled.div`
   }
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    height: 100px;
     object-fit: fill;
+    padding-left: 22px;
   }
 `;
