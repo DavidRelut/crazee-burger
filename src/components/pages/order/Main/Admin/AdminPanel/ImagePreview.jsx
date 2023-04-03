@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 
 export default function ImagePreview({ image, title }) {
-  const regex = /^(http|https):\/\/[^"]+$/;
+  const checkUrlRegex = /^(http|https):\/\/[^"]+$/;
 
   return (
     <ImagePreviewStyled>
-      {regex.test(image) ? (
-        <img src={image} alt={title} className="" />
+      {checkUrlRegex.test(image) ? (
+        <img src={image} alt={title} />
       ) : (
-        <span className="txt-without-image">Aucune image 📷</span>
+        <span className="text-without-image">Aucune image 📷</span>
       )}
     </ImagePreviewStyled>
   );
