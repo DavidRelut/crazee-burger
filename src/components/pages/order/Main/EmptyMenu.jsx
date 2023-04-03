@@ -1,5 +1,5 @@
 import { theme } from "../../../../theme";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton";
+import Button from "../../../reusable-ui/Button";
 import styled from "styled-components";
 
 export default function EmptyMenu({ onReset }) {
@@ -9,7 +9,7 @@ export default function EmptyMenu({ onReset }) {
       <span className="txt-info-2">
         Cliquez ci-dessous pour le réinitialiser
       </span>
-      <PrimaryButton
+      <Button
         label="Générer de nouveaux produits"
         className="reset-btn"
         onClick={onReset}

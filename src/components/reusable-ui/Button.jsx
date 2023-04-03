@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function PrimaryButton({ label, Icon, className, onClick }) {
+export default function Button({ label, Icon, className, onClick }) {
   return (
-    <PrimaryButtonStyled className={className} onClick={onClick}>
+    <ButtonStyled className={className} onClick={onClick}>
       <span>{label}</span>
       {Icon && Icon}
-    </PrimaryButtonStyled>
+    </ButtonStyled>
   );
 }
 
-const PrimaryButtonStyled = styled.button`
+const ButtonStyled = styled.button`
   width: 100%;
   border: 1px solid {theme.colors.greyLight};
   display: inline-flex;
@@ -20,6 +20,7 @@ const PrimaryButtonStyled = styled.button`
   white-space: nowrap;
   text-decoration: none;
   line-height: 1;
+  cursor: pointer;
 
   padding: 18px 24px;
   border-radius: ${theme.borderRadius.round};

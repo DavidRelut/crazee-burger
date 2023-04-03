@@ -3,7 +3,7 @@ import { theme } from "../../../../../../theme";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
-import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
+import Button from "../../../../../reusable-ui/Button";
 import { getInputsConfig } from "../../../../../../utils/admin/inputsConfig";
 import { EMPTY_PRODUCT } from "../../../../../../utils/admin/emptyProduct";
 import ImagePreview from "./ImagePreview";
@@ -55,7 +55,7 @@ export default function AddProduct() {
           />
         ))}
         <div className="success-container">
-          <PrimaryButton
+          <Button
             className="success-button"
             label="Ajouter un nouveau produit au menu"
           />
