@@ -17,11 +17,12 @@ export default function AdminPanel() {
 
 const AdminPanelStyled = styled.div`
   box-sizing: border-box;
+  position: relative;
   height: 250px;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
   border-top: 1px solid ${theme.colors.greyLight};
   box-shadow: ${theme.shadows.subtle};
-  padding-left: 5px;
+  padding-left: 3px;
 `;
