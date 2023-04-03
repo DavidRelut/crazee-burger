@@ -8,7 +8,7 @@ import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("DavidR");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
