@@ -42,7 +42,7 @@ const MenuStyled = styled.div`
   grid-row-gap: 60px;
   padding: 50px 50px 150px;
   justify-items: center;
-  box-shadow: ${theme.shadows.strong};
+  box-shadow: ${theme.shadows.extraStrong};
   overflow-y: scroll;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
