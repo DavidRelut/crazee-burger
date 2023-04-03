@@ -7,7 +7,7 @@ import { useState } from "react";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function OrderPage() {
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
@@ -27,7 +27,7 @@ export default function OrderPage() {
   };
 
   const handleReset = () => {
-    setMenu(fakeMenu.LARGE);
+    setMenu(fakeMenu.MEDIUM);
   };
 
   const orderContextValue = {
