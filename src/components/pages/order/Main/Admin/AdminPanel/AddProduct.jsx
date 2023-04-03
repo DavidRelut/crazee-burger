@@ -20,6 +20,13 @@ export default function AddProduct() {
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
   };
 
+  const displaySubmitMessage = () => {
+    setIsSuccess(true);
+    setTimeout(() => {
+      setIsSuccess(false);
+    }, 2000);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -27,10 +34,7 @@ export default function AddProduct() {
 
     setNewProduct(EMPTY_PRODUCT);
 
-    setIsSuccess(true);
-    setTimeout(() => {
-      setIsSuccess(false);
-    }, 2000);
+    displaySubmitMessage();
   };
 
   return (
