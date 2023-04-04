@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { theme } from "../../../../../../theme";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
@@ -56,8 +55,8 @@ export default function AddProduct() {
         ))}
         <div className="success-container">
           <Button
-            className="success-button"
             label="Ajouter un nouveau produit au menu"
+            variant="success"
           />
 
           {isSuccess && <SuccessMessage />}
@@ -100,27 +99,5 @@ const AddProductStyled = styled.form`
     align-items: center;
     justify-content: space-between;
     width: 455px;
-  }
-  /* SUCCESS BUTTON */
-  .success-button {
-    background-color: ${theme.colors.success};
-    border: 1px solid ${theme.colors.success};
-    color: ${theme.colors.white};
-    font-size: ${theme.fonts.size.XS};
-    cursor: pointer;
-    padding: 12px;
-    width: 275.28px;
-    height: 35px;
-
-    :hover {
-      color: ${theme.colors.success};
-      background-color: ${theme.colors.white};
-      border: 1px solid ${theme.colors.success};
-      transition: all 200ms ease-out;
-    }
-    :active {
-      background-color: ${theme.colors.success};
-      color: ${theme.colors.white};
-    }
   }
 `;

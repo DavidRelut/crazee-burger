@@ -1,9 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function Button({ label, Icon, className, onClick }) {
+export default function Button({
+  label,
+  Icon,
+  className,
+  onClick,
+  variant = "normal",
+}) {
   return (
-    <ButtonStyled className={className} onClick={onClick}>
+    <ButtonStyled className={className} onClick={onClick} variant={variant}>
       <span>{label}</span>
       {Icon && Icon}
     </ButtonStyled>
@@ -11,6 +17,10 @@ export default function Button({ label, Icon, className, onClick }) {
 }
 
 const ButtonStyled = styled.button`
+  ${({ variant }) => buttonStyle[variant]}
+`;
+
+const normalStyle = css`
   width: 100%;
   border: 1px solid {theme.colors.greyLight};
   display: inline-flex;
@@ -62,3 +72,35 @@ const ButtonStyled = styled.button`
     }
   }
 `;
+
+const successStyle = css`
+  background-color: ${theme.colors.success};
+  border: 1px solid ${theme.colors.success};
+  border-radius: ${theme.borderRadius.round};
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: ${theme.colors.white};
+  font-size: ${theme.fonts.size.XS};
+  font-weight: ${theme.fonts.weights.bold};
+  cursor: pointer;
+  padding: 12px;
+  width: 275.28px;
+  height: 35px;
+
+  :hover {
+    color: ${theme.colors.success};
+    background-color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.success};
+    transition: all 200ms ease-out;
+  }
+  :active {
+    background-color: ${theme.colors.success};
+    color: ${theme.colors.white};
+  }
+`;
+
+const buttonStyle = {
+  normal: normalStyle,
+  success: successStyle,
+};
