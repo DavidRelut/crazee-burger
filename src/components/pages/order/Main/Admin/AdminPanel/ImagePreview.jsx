@@ -23,7 +23,7 @@ const ImagePreviewStyled = styled.div`
   justify-content: center;
   align-items: center;
 
-  .txt-without-image {
+  .text-without-image {
     font-size: ${theme.fonts.size.P2};
     color: ${theme.colors.greySemiDark};
     box-sizing: border-box;

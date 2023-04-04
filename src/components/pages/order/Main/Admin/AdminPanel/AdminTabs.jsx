@@ -60,8 +60,4 @@ const AdminTabsStyled = styled.div`
     min-width: 1.5em;
     min-height: 1.5em;
   }
-
-  button {
-    margin-left: 1px;
-  }
 `;
