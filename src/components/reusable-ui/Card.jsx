@@ -55,6 +55,9 @@ const CardStyled = styled.div`
     &:hover {
       color: ${theme.colors.danger};
     }
+    :active {
+      color: ${theme.colors.primary};
+    }
   }
 
   .image {
