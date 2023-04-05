@@ -48,10 +48,11 @@ export default function AdminTabs() {
 }
 
 const AdminTabsStyled = styled.div`
-  display: flex;
+  z-index: 1;
   position: absolute;
-  top: -43px;
+  top: -45px;
   left: 5%;
+  display: flex;
 
   .is-active {
     background: ${theme.colors.background_dark};
