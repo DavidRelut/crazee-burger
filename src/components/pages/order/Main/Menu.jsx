@@ -43,6 +43,4 @@ const MenuStyled = styled.div`
   justify-items: center;
   box-shadow: ${theme.shadows.extraStrong};
   overflow-y: scroll;
-  border-bottom-left-radius: ${theme.borderRadius.extraRound};
-  border-bottom-right-radius: ${theme.borderRadius.extraRound};
 `;
