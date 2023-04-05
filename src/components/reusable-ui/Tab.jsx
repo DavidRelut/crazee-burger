@@ -11,7 +11,6 @@ export default function Tab({ className, Icon, label, onClick }) {
 }
 
 const TabStyled = styled.div`
-  z-index: 1;
   padding: 0 22px;
   height: 43px;
 
