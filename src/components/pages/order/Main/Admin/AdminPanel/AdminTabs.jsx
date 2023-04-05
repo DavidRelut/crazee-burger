@@ -4,7 +4,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import Tab from "../../../../../reusable-ui/Tab";
 import OrderContext from "../../../../../../context/OrderContext";
 import { useContext } from "react";
-import { tabsConfig } from "../../../../../../utils/tabsConfig";
+import { tabsConfig } from "../../../../../../utils/admin/tabsConfig";
 
 export default function AdminTabs() {
   const {
@@ -17,8 +17,8 @@ export default function AdminTabs() {
   const tabs = tabsConfig;
 
   const selectTab = (tabSelected) => {
-    setIsCollapsed(false);
     setCurrentTabSelected(tabSelected);
+    setIsCollapsed(false);
   };
 
   return (
@@ -48,6 +48,10 @@ export default function AdminTabs() {
 }
 
 const AdminTabsStyled = styled.div`
+  z-index: 1;
+  position: absolute;
+  top: -45px;
+  left: 5%;
   display: flex;
 
   .is-active {
@@ -59,9 +63,5 @@ const AdminTabsStyled = styled.div`
   .icon-chevron {
     min-width: 1.5em;
     min-height: 1.5em;
-  }
-
-  button {
-    margin-left: 1px;
   }
 `;

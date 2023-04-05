@@ -7,7 +7,7 @@ const colors = {
   primary: "#ffa01b",
   green: "green",
   success: "#60bd4f",
-  red: "#e25549",
+  danger: "#e25549",
   redSecondary: "#c4151c",
   blue: "#51a7e1",
   greyExtraLight: "#D3D3D3",
@@ -64,6 +64,7 @@ const shadows = {
   subtle: "0px -6px 8px -2px rgba(0, 0, 0, 0.1)",
   medium: "-8px 8px 20px 0px rgb(0 0 0 / 20%)",
   strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
+  extraStrong: "10px 8px 20px 8px rgba(0,0,0,0.2) inset",
 };
 
 export const theme = {

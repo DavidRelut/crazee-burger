@@ -5,16 +5,16 @@ import { theme } from "../../../theme";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
-import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import Button from "../../reusable-ui/Button";
 
 export default function LoginForm() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("DavidR");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setInputValue("");
     navigate(`/order/${inputValue}`);
+    setInputValue("");
   };
 
   const handleChange = (event) => {
@@ -36,13 +36,10 @@ export default function LoginForm() {
           type="text"
           placeholder="Entrez votre prénom"
           required
-          Icon={<BsPersonCircle className="icon" />}
+          Icon={<BsPersonCircle />}
         />
 
-        <PrimaryButton
-          label="Accéder à mon espace"
-          Icon={<IoChevronForward className="icon" />}
-        />
+        <Button label="Accéder à mon espace" Icon={<IoChevronForward />} />
       </div>
     </LoginFormStyled>
   );
