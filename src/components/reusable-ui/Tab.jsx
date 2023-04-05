@@ -25,10 +25,6 @@ const TabStyled = styled.div`
   font-weight: ${theme.fonts.weights.medium};
   color: ${theme.colors.greySemiDark};
 
-  position: relative;
-  left: 5%;
-  top: 1px;
-
   background: ${theme.colors.white}};
   border-width: 1px 1px 2px 1px;
   border-style: solid;

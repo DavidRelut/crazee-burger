@@ -40,6 +40,6 @@ const MainStyled = styled.div`
   .menu-and-admin {
     position: relative;
     display: grid;
-    overflow-y: hidden;
+    overflow: hidden;
   }
 `;
