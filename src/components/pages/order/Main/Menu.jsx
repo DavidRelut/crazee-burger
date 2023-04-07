@@ -12,7 +12,19 @@ export default function Menu() {
     useContext(OrderContext);
 
   if (menu.length === 0) {
-    return <EmptyMenu onReset={handleReset} />;
+    return isModeAdmin ? (
+      <EmptyMenu
+        title="Le menu est vide ?"
+        description="Cliquez ci-dessous pour le réinitialiser"
+        isModeAdmin={isModeAdmin}
+        onReset={handleReset}
+      />
+    ) : (
+      <EmptyMenu
+        title="Victime de notre succès ! :D"
+        description="De nouvelles recettes sont en cours de préparation."
+      />
+    );
   }
 
   return (
@@ -23,7 +35,7 @@ export default function Menu() {
             key={id}
             title={title}
             imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
-            leftDescription={formatPrice(price)}
+            price={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDelete(id)}
           />

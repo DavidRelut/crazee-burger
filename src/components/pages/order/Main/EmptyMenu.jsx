@@ -2,18 +2,25 @@ import { theme } from "../../../../theme";
 import Button from "../../../reusable-ui/Button";
 import styled from "styled-components";
 
-export default function EmptyMenu({ onReset }) {
+export default function EmptyMenu({
+  title,
+  description,
+  isModeAdmin,
+  onReset,
+}) {
   return (
     <EmptyMenuStyled>
-      <span className="txt-info-1">Le menu est vide ?</span>
-      <span className="txt-info-2">
-        Cliquez ci-dessous pour le réinitialiser
-      </span>
-      <Button
-        label="Générer de nouveaux produits"
-        className="reset-btn"
-        onClick={onReset}
-      />
+      <span className="title">{title}</span>
+      <span className="description">{description}</span>
+      {isModeAdmin ? (
+        <Button
+          label="Générer de nouveaux produits"
+          className="reset-btn"
+          onClick={onReset}
+        />
+      ) : (
+        <span className="description description-2">"À très vite !"</span>
+      )}
     </EmptyMenuStyled>
   );
 }
@@ -25,7 +32,7 @@ const EmptyMenuStyled = styled.div`
   justify-content: center;
   height: 100%;
 
-  .txt-info-1 {
+  .title {
     font-family: "Amatic SC";
     font-weight: 700;
     font-size: 36px;
@@ -33,7 +40,7 @@ const EmptyMenuStyled = styled.div`
     text-transform: uppercase;
   }
 
-  .txt-info-2 {
+  .description {
     font-family: "Amatic SC";
     font-weight: 400;
     font-size: 36px;
@@ -41,6 +48,10 @@ const EmptyMenuStyled = styled.div`
     color: ${theme.colors.greyBlue};
     text-transform: uppercase;
     margin: 30px 0;
+  }
+
+  .description-2 {
+    margin: 0;
   }
 
   .reset-btn {
