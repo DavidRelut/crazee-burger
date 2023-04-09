@@ -16,7 +16,12 @@ export default function AddProduct() {
   const inputs = getInputsConfig(newProduct);
 
   const handleChange = (event) => {
-    setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
+    const newSingleValue = event.target.value;
+    const newSinglePropertyName = event.target.name;
+    setNewProduct((newProduct) => ({
+      ...newProduct,
+      [newSinglePropertyName]: [newSingleValue],
+    }));
   };
 
   const displaySubmitMessage = () => {
