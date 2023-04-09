@@ -11,6 +11,7 @@ export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [editProduct, setEditProduct] = useState({});
 
   const handleAdd = (productToAdd) => {
     const menuCopy = [...menu];
@@ -30,6 +31,17 @@ export default function OrderPage() {
     setMenu(fakeMenu.MEDIUM);
   };
 
+  const handleEdit = (productToEdit, event) => {
+    console.log(productToEdit);
+    const menuCopy = [...menu];
+    const menuUpdate = menuCopy.map((product) =>
+      product.id === productToEdit.id
+        ? { ...productToEdit, [event.target.name]: event.target.value }
+        : product
+    );
+    setMenu(menuUpdate);
+  };
+
   const orderContextValue = {
     menu,
     isModeAdmin,
@@ -41,6 +53,9 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     handleReset,
+    editProduct,
+    setEditProduct,
+    handleEdit,
   };
 
   return (
