@@ -8,7 +8,7 @@ import EmptyMenu from "./EmptyMenu";
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleDelete, handleReset } =
+  const { menu, isModeAdmin, handleDelete, handleReset, setEditProduct } =
     useContext(OrderContext);
 
   if (menu.length === 0) {
@@ -26,6 +26,10 @@ export default function Menu() {
       />
     );
   }
+  const handleClickProductToEdit = (productSelected) => {
+    // console.log({ title, imageSource, price });
+    setEditProduct(productSelected);
+  };
 
   return (
     <MenuStyled>
@@ -38,6 +42,9 @@ export default function Menu() {
             price={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDelete(id)}
+            onClick={() =>
+              handleClickProductToEdit({ id, title, imageSource, price })
+            }
           />
         );
       })}

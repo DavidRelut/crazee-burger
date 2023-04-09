@@ -4,14 +4,16 @@ import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
 
 export default function Card({
+  id,
   title,
   imageSource,
-  leftDescription,
+  price,
   hasDeleteButton,
   onDelete,
+  onClick,
 }) {
   return (
-    <CardStyled>
+    <CardStyled onClick={onClick}>
       {hasDeleteButton && (
         <TiDelete className="delete-btn" onClick={onDelete} />
       )}
@@ -21,7 +23,7 @@ export default function Card({
       <div className="text-info">
         <div className="title">{title}</div>
         <div className="description">
-          <div className="left-description">{leftDescription}</div>
+          <div className="left-description">{price}</div>
           <div className="right-description">
             <Button className="primary-button" label={"Ajouter"} />
           </div>
@@ -42,6 +44,14 @@ const CardStyled = styled.div`
   padding-bottom: 10px;
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
+
+  &:active {
+    box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+    background: ${theme.colors.primary};
+    .delete-btn {
+      color: ${theme.colors.white};
+    }
+  }
 
   .delete-btn {
     position: absolute;
