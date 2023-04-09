@@ -1,6 +1,7 @@
 import { BsPlusLg } from "react-icons/bs";
 import { MdModeEditOutline } from "react-icons/md";
 import AddProduct from "../../components/pages/order/Main/Admin/AdminPanel/AddProduct";
+import EditProduct from "../../components/pages/order/Main/Admin/AdminPanel/EditProduct";
 
 export const tabsConfig = [
   {
@@ -9,7 +10,12 @@ export const tabsConfig = [
     Icon: <BsPlusLg />,
     Panel: <AddProduct />,
   },
-  { index: "edit", label: "Modifier un produit", Icon: <MdModeEditOutline /> },
+  {
+    index: "edit",
+    label: "Modifier un produit",
+    Icon: <MdModeEditOutline />,
+    Panel: <EditProduct />,
+  },
 ];
 
 export const getTabSelected = (tabs, currentTabSelected) => {
