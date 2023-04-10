@@ -1,7 +1,7 @@
 import { BsPlusLg } from "react-icons/bs";
 import { MdModeEditOutline } from "react-icons/md";
-import AddProduct from "../../components/pages/order/Main/Admin/AdminPanel/AddProduct";
-import EditProduct from "../../components/pages/order/Main/Admin/AdminPanel/EditProduct";
+import AddProduct from "../../components/pages/order/Main/Admin/AdminPanel/AddProduct/AddProduct";
+import EditProduct from "../../components/pages/order/Main/Admin/AdminPanel/EditProduct/EditProduct";
 
 export const tabsConfig = [
   {

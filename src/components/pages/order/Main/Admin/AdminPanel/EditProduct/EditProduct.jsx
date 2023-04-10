@@ -1,11 +1,11 @@
-import { HiCursorClick } from "react-icons/hi";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
+import { theme } from "../../../../../../../theme";
 import { useContext } from "react";
-import OrderContext from "../../../../../../context/OrderContext";
-import ImagePreview from "./ImagePreview";
-import { getInputsConfig } from "../../../../../../utils/admin/inputsConfig";
-import TextInput from "../../../../../reusable-ui/TextInput";
+import OrderContext from "../../../../../../../context/OrderContext";
+import ImagePreview from "../../../../../../reusable-ui/Admin/ImagePreview";
+import { getInputsConfig } from "../../../../../../../utils/admin/inputsConfig";
+import TextInput from "../../../../../../reusable-ui/TextInput";
+import EmptyEditProduct from "./EmptyEditProduct";
 
 export default function EditProduct() {
   const { editProduct, setEditProduct, handleEdit, isClick } =
@@ -46,14 +46,13 @@ export default function EditProduct() {
               />
             ))}
           </div>
+          <span className="edit-text">
+            Cliquer sur un produit du menu pour le modifier
+            <span className="underline">en temps réel</span>
+          </span>
         </div>
       ) : (
-        <div className="container-text">
-          <span className="edit-message">
-            Cliquer sur un produit pour le modifier
-          </span>
-          <HiCursorClick />
-        </div>
+        <EmptyEditProduct />
       )}
     </EditProductStyled>
   );
@@ -93,6 +92,15 @@ const EditProductStyled = styled.div`
       align-items: center;
       justify-content: space-between;
       width: 455px;
+    }
+    .edit-text {
+      grid-area: 3 / 2 / 4 / -1;
+      font-size: ${theme.fonts.size.SM};
+      color: ${theme.colors.primary};
+      .underline {
+        margin-left: 5px;
+        text-decoration: underline;
+      }
     }
   }
 `;

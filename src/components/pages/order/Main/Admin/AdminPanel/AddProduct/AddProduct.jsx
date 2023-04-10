@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../../../context/OrderContext";
-import TextInput from "../../../../../reusable-ui/TextInput";
-import Button from "../../../../../reusable-ui/Button";
-import { getInputsConfig } from "../../../../../../utils/admin/inputsConfig";
-import { EMPTY_PRODUCT } from "../../../../../../utils/admin/emptyProduct";
-import ImagePreview from "./ImagePreview";
-import SuccessMessage from "./SuccessMessage";
+import OrderContext from "../../../../../../../context/OrderContext";
+import TextInput from "../../../../../../reusable-ui/TextInput";
+import Button from "../../../../../../reusable-ui/Button";
+import { getInputsConfig } from "../../../../../../../utils/admin/inputsConfig";
+import { EMPTY_PRODUCT } from "../../../../../../../utils/admin/emptyProduct";
+import ImagePreview from "../../../../../../reusable-ui/Admin/ImagePreview";
+import SuccessMessage from "../../../../../../reusable-ui/Admin/SuccessMessage";
 export default function AddProduct() {
   const { handleAdd } = useContext(OrderContext);
 
