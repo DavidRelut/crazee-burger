@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
+import OrderContext from "../../context/OrderContext";
+import { useContext } from "react";
 
 export default function Card({
   id,
@@ -11,9 +13,16 @@ export default function Card({
   hasDeleteButton,
   onDelete,
   onClick,
+  className,
+  variant = "hoverable",
 }) {
+  const { isModeAdmin } = useContext(OrderContext);
   return (
-    <CardStyled onClick={onClick}>
+    <CardStyled
+      onClick={onClick}
+      className={className}
+      variant={isModeAdmin && variant}
+    >
       {hasDeleteButton && (
         <TiDelete className="delete-btn" onClick={onDelete} />
       )}
@@ -34,6 +43,8 @@ export default function Card({
 }
 
 const CardStyled = styled.div`
+  ${({ variant }) => cardStyle[variant]}
+
   position: relative;
   background: ${theme.colors.white};
   width: 200px;
@@ -42,16 +53,11 @@ const CardStyled = styled.div`
   grid-template-rows: 65% 1fr;
   padding: 20px;
   padding-bottom: 10px;
-  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
-
-  &:active {
-    box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
-    background: ${theme.colors.primary};
-    .delete-btn {
-      color: ${theme.colors.white};
-    }
-  }
+  cursor: pointer;
+  transform: scale(1);
+  transition: all 0.4s ease-out 0s;
+  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
 
   .delete-btn {
     position: absolute;
@@ -134,3 +140,15 @@ const CardStyled = styled.div`
     }
   }
 `;
+
+const hoverableStyle = css`
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.4s ease-out 0s;
+    box-shadow: rgb(255, 154, 35) 0px 0px 8px 0px;
+  }
+`;
+
+const cardStyle = {
+  hoverable: hoverableStyle,
+};

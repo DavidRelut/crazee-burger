@@ -8,8 +8,17 @@ import EmptyMenu from "./EmptyMenu";
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleDelete, handleReset, setEditProduct } =
-    useContext(OrderContext);
+  const {
+    menu,
+    isModeAdmin,
+    handleDelete,
+    handleReset,
+    editProduct,
+    setEditProduct,
+    setCurrentTabSelected,
+    setIsCollapsed,
+    setIsClick,
+  } = useContext(OrderContext);
 
   if (menu.length === 0) {
     return isModeAdmin ? (
@@ -27,8 +36,10 @@ export default function Menu() {
     );
   }
   const handleClickProductToEdit = (productSelected) => {
-    // console.log({ title, imageSource, price });
     setEditProduct(productSelected);
+    setCurrentTabSelected("edit");
+    setIsCollapsed(false);
+    setIsClick(true);
   };
 
   return (
@@ -44,6 +55,9 @@ export default function Menu() {
             onDelete={() => handleDelete(id)}
             onClick={() =>
               handleClickProductToEdit({ id, title, imageSource, price })
+            }
+            className={
+              isModeAdmin === true && editProduct.id === id ? "is-click" : ""
             }
           />
         );
@@ -62,4 +76,36 @@ const MenuStyled = styled.div`
   justify-items: center;
   box-shadow: ${theme.shadows.extraStrong};
   overflow-y: scroll;
+
+  .is-click {
+    background: ${theme.colors.primary};
+
+    .delete-btn {
+      color: ${theme.colors.white};
+      &:hover {
+        color: ${theme.colors.danger};
+      }
+      :active {
+        color: ${theme.colors.white};
+      }
+    }
+    .primary-button {
+      background: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      &:hover {
+        background: ${theme.colors.primary};
+        color: ${theme.colors.white};
+        border: 1px solid ${theme.colors.white};
+      }
+      :active {
+        background: ${theme.colors.white};
+        color: ${theme.colors.primary};
+      }
+    }
+    .description {
+      .left-description {
+        color: ${theme.colors.white};
+      }
+    }
+  }
 `;

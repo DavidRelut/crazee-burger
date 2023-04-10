@@ -14,4 +14,6 @@ export default createContext({
   editProduct: {},
   setEditProduct: () => {},
   handleEdit: () => {},
+  isClick: false,
+  setIsClick: () => {},
 });

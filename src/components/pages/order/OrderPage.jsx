@@ -12,6 +12,7 @@ export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [editProduct, setEditProduct] = useState({});
+  const [isClick, setIsClick] = useState(false);
 
   const handleAdd = (productToAdd) => {
     const menuCopy = [...menu];
@@ -56,6 +57,8 @@ export default function OrderPage() {
     editProduct,
     setEditProduct,
     handleEdit,
+    isClick,
+    setIsClick,
   };
 
   return (
