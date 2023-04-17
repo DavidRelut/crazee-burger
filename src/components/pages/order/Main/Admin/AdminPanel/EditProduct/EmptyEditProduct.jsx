@@ -17,7 +17,7 @@ export default function EmptyEditProduct() {
 const EmptyEditProductStyled = styled.div`
   font-size: ${theme.fonts.size.P3};
   color: ${theme.colors.greyBlue};
-  font-family: "Amatic SC";
+  font-family: ${theme.fonts.family.stylish};
   font-weight: ${theme.fonts.weights.regular};
   display: flex;
   align-items: center;
