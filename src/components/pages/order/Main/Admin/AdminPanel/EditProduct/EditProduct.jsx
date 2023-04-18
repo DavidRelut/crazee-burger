@@ -6,30 +6,25 @@ import ImagePreview from "../../../../../../reusable-ui/Admin/ImagePreview";
 import { getInputsConfig } from "../../../../../../../utils/admin/inputsConfig";
 import TextInput from "../../../../../../reusable-ui/TextInput";
 import EmptyEditProduct from "./EmptyEditProduct";
-import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
-import { useState } from "react";
 
 export default function EditProduct() {
   const {
     productSelected,
-    editProduct,
-    setEditProduct,
+    setProductSelected,
     handleEdit,
-    isClick,
+    // isClick,
     // inputRef,
   } = useContext(OrderContext);
-  const [productBeingEdited, setProductBeingEdited] = useState(EMPTY_PRODUCT);
 
   const inputs = getInputsConfig(productSelected);
 
   const handleChange = (event) => {
-    // console.log(event.target);
     const { name, value } = event.target;
-    setProductBeingEdited({
-      ...productBeingEdited,
-      [name]: value,
-    });
-    // handleEdit(editProduct, event);
+
+    const productBeingUpdated = { ...productSelected, [name]: value };
+
+    setProductSelected(productBeingUpdated);
+    handleEdit(productBeingUpdated);
   };
 
   return (
