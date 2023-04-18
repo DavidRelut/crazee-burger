@@ -15,12 +15,8 @@ export default function AddProduct() {
   const inputs = getInputsConfig(newProduct);
 
   const handleChange = (event) => {
-    const newSingleValue = event.target.value;
-    const newSinglePropertyName = event.target.name;
-    setNewProduct((newProduct) => ({
-      ...newProduct,
-      [newSinglePropertyName]: [newSingleValue],
-    }));
+    const { name, value } = event.target;
+    setNewProduct({ ...newProduct, [name]: [value] });
   };
 
   const displaySubmitMessage = () => {
@@ -32,8 +28,9 @@ export default function AddProduct() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const newProductToAdd = { ...newProduct, id: crypto.randomUUID() };
 
-    handleAdd({ ...newProduct, id: crypto.randomUUID() });
+    handleAdd(newProductToAdd);
 
     setNewProduct(EMPTY_PRODUCT);
 
