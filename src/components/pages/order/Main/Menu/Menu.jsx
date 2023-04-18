@@ -13,12 +13,11 @@ export default function Menu() {
     handleDelete,
     handleReset,
     menu,
+    productSelected,
     setProductSelected,
-    editProduct,
-    setEditProduct,
-    setCurrentTabSelected,
-    setIsCollapsed,
-    setIsClick,
+    // setCurrentTabSelected,
+    // setIsCollapsed,
+    // setIsClick,
     // inputRef,
   } = useContext(OrderContext);
 
@@ -37,14 +36,6 @@ export default function Menu() {
       />
     );
   }
-  // const handleClickProductToEdit = (productSelected) => {
-  //   setIsClick(true);
-  //   setEditProduct(productSelected);
-  //   setCurrentTabSelected("edit");
-  //   setIsCollapsed(false);
-  //   inputRef.current.focus();
-  //   console.log(inputRef);
-  // };
 
   const handleClick = (idProductClicked) => {
     const productSelected = menu.find(
@@ -68,7 +59,9 @@ export default function Menu() {
             // handleClickProductToEdit({ id, title, imageSource, price })
             // }
             className={
-              isModeAdmin === true && editProduct.id === id ? "is-click" : ""
+              isModeAdmin === true && productSelected.id === id
+                ? "is-click"
+                : ""
             }
           />
         );
