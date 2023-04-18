@@ -1,23 +1,25 @@
 import styled from "styled-components";
-import { theme } from "../../../../theme/index";
-import { formatPrice } from "../../../../utils/maths";
-import Card from "../../../reusable-ui/Card";
-import OrderContext from "../../../../context/OrderContext";
+import { theme } from "../../../../../theme/index";
+import { formatPrice } from "../../../../../utils/maths";
+import Card from "../../../../reusable-ui/Card";
+import OrderContext from "../../../../../context/OrderContext";
 import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
   const {
-    menu,
     isModeAdmin,
     handleDelete,
     handleReset,
+    menu,
+    setProductSelected,
     editProduct,
     setEditProduct,
     setCurrentTabSelected,
     setIsCollapsed,
     setIsClick,
+    // inputRef,
   } = useContext(OrderContext);
 
   if (menu.length === 0) {
@@ -35,11 +37,20 @@ export default function Menu() {
       />
     );
   }
-  const handleClickProductToEdit = (productSelected) => {
-    setEditProduct(productSelected);
-    setCurrentTabSelected("edit");
-    setIsCollapsed(false);
-    setIsClick(true);
+  // const handleClickProductToEdit = (productSelected) => {
+  //   setIsClick(true);
+  //   setEditProduct(productSelected);
+  //   setCurrentTabSelected("edit");
+  //   setIsCollapsed(false);
+  //   inputRef.current.focus();
+  //   console.log(inputRef);
+  // };
+
+  const handleClick = (idProductClicked) => {
+    const productSelected = menu.find(
+      (product) => product.id === idProductClicked
+    );
+    setProductSelected(productSelected);
   };
 
   return (
@@ -53,9 +64,9 @@ export default function Menu() {
             price={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDelete(id)}
-            onClick={() =>
-              handleClickProductToEdit({ id, title, imageSource, price })
-            }
+            onClick={() => handleClick(id)}
+            // handleClickProductToEdit({ id, title, imageSource, price })
+            // }
             className={
               isModeAdmin === true && editProduct.id === id ? "is-click" : ""
             }
