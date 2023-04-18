@@ -8,8 +8,14 @@ import TextInput from "../../../../../../reusable-ui/TextInput";
 import EmptyEditProduct from "./EmptyEditProduct";
 
 export default function EditProduct() {
-  const { editProduct, setEditProduct, handleEdit, isClick } =
-    useContext(OrderContext);
+  const {
+    productSelected,
+    editProduct,
+    setEditProduct,
+    handleEdit,
+    isClick,
+    // inputRef,
+  } = useContext(OrderContext);
 
   const inputs = getInputsConfig(editProduct);
 
@@ -43,6 +49,7 @@ export default function EditProduct() {
                 placeholder={placeholder}
                 onChange={handleChange}
                 className="input"
+                // ref={inputRef}
               />
             ))}
           </div>
@@ -86,13 +93,6 @@ const EditProductStyled = styled.div`
       grid-row-gap: 8px;
     }
 
-    /* SUCCESS CONTAINER */
-    .success-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 455px;
-    }
     .edit-text {
       grid-area: 3 / 2 / 4 / -1;
       font-size: ${theme.fonts.size.SM};

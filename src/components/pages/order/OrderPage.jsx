@@ -5,14 +5,19 @@ import Navbar from "./Navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useState } from "react";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
+// import { useRef } from "react";
+import { EMPTY_PRODUCT } from "../../../enums/product";
 
 export default function OrderPage() {
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const [editProduct, setEditProduct] = useState({});
   const [isClick, setIsClick] = useState(false);
+  // const inputRef = useRef();
 
   const handleAdd = (productToAdd) => {
     const menuCopy = [...menu];
@@ -44,21 +49,26 @@ export default function OrderPage() {
   };
 
   const orderContextValue = {
-    menu,
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,
     setIsCollapsed,
     currentTabSelected,
     setCurrentTabSelected,
+    menu,
     handleAdd,
     handleDelete,
     handleReset,
+    newProduct,
+    setNewProduct,
+    productSelected,
+    setProductSelected,
     editProduct,
     setEditProduct,
     handleEdit,
     isClick,
     setIsClick,
+    // inputRef,
   };
 
   return (

@@ -4,13 +4,12 @@ import OrderContext from "../../../../../../../context/OrderContext";
 import TextInput from "../../../../../../reusable-ui/TextInput";
 import Button from "../../../../../../reusable-ui/Button";
 import { getInputsConfig } from "../../../../../../../utils/admin/inputsConfig";
-import { EMPTY_PRODUCT } from "../../../../../../../utils/admin/emptyProduct";
+import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
 import ImagePreview from "../../../../../../reusable-ui/Admin/ImagePreview";
 import SuccessMessage from "../../../../../../reusable-ui/Admin/SuccessMessage";
 export default function AddProduct() {
-  const { handleAdd } = useContext(OrderContext);
+  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
 
-  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const inputs = getInputsConfig(newProduct);
