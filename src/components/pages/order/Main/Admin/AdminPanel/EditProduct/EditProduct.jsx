@@ -6,6 +6,8 @@ import ImagePreview from "../../../../../../reusable-ui/Admin/ImagePreview";
 import { getInputsConfig } from "../../../../../../../utils/admin/inputsConfig";
 import TextInput from "../../../../../../reusable-ui/TextInput";
 import EmptyEditProduct from "./EmptyEditProduct";
+import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
+import { useState } from "react";
 
 export default function EditProduct() {
   const {
@@ -16,51 +18,51 @@ export default function EditProduct() {
     isClick,
     // inputRef,
   } = useContext(OrderContext);
+  const [productBeingEdited, setProductBeingEdited] = useState(EMPTY_PRODUCT);
 
-  const inputs = getInputsConfig(editProduct);
+  const inputs = getInputsConfig(productSelected);
 
   const handleChange = (event) => {
     // console.log(event.target);
-    const newSingleValue = event.target.value;
-    const newSinglePropertyName = event.target.name;
-    setEditProduct(() => ({
-      ...editProduct,
-      [newSinglePropertyName]: newSingleValue,
-    }));
-    handleEdit(editProduct, event);
+    const { name, value } = event.target;
+    setProductBeingEdited({
+      ...productBeingEdited,
+      [name]: value,
+    });
+    // handleEdit(editProduct, event);
   };
 
   return (
     <EditProductStyled>
-      {isClick ? (
-        <div className="container-edit">
-          <ImagePreview
-            image={editProduct.imageSource}
-            title={editProduct.title}
-          />
-          <div className="input-fields">
-            {inputs.map(({ id, type, name, placeholder, value, Icon }) => (
-              <TextInput
-                key={id}
-                Icon={Icon}
-                type={type}
-                name={name}
-                value={value}
-                placeholder={placeholder}
-                onChange={handleChange}
-                className="input"
-                // ref={inputRef}
-              />
-            ))}
-          </div>
-          <span className="edit-text">
-            Cliquer sur un produit du menu pour le modifier
-            <span className="underline">en temps réel</span>
-          </span>
+      {/* {isClick ? ( */}
+      <div className="container-edit">
+        <ImagePreview
+          image={productSelected.imageSource}
+          title={productSelected.title}
+        />
+        <div className="input-fields">
+          {inputs.map(({ id, type, name, placeholder, value, Icon }) => (
+            <TextInput
+              key={id}
+              Icon={Icon}
+              type={type}
+              name={name}
+              value={value}
+              placeholder={placeholder}
+              onChange={handleChange}
+              className="input"
+              // ref={inputRef}
+            />
+          ))}
         </div>
-      ) : (
+        <span className="edit-text">
+          Cliquer sur un produit du menu pour le modifier
+          <span className="underline">en temps réel</span>
+        </span>
+      </div>
+      {/* ) : (
         <EmptyEditProduct />
-      )}
+      )} */}
     </EditProductStyled>
   );
 }
