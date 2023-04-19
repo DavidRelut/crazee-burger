@@ -16,7 +16,5 @@ export default createContext({
   setNewProduct: () => {},
   productSelected: {},
   setProductSelected: () => {},
-  // isClick: false,
-  // setIsClick: () => {},
   // inputRef: {},
 });
