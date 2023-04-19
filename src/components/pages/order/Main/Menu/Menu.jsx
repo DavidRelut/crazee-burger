@@ -56,8 +56,7 @@ export default function Menu() {
             hasDeleteButton={isModeAdmin}
             onDelete={() => handleDelete(id)}
             onClick={() => handleClick(id)}
-            // handleClickProductToEdit({ id, title, imageSource, price })
-            // }
+            isHoverable={isModeAdmin}
             className={
               isModeAdmin === true && productSelected.id === id
                 ? "is-click"
