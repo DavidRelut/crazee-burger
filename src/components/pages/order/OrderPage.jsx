@@ -16,7 +16,6 @@ export default function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
-  // const [isClick, setIsClick] = useState(false);
   // const inputRef = useRef();
 
   const handleAdd = (productToAdd) => {
@@ -69,8 +68,6 @@ export default function OrderPage() {
     setNewProduct,
     productSelected,
     setProductSelected,
-    // isClick,
-    // setIsClick,
     // inputRef,
   };
 
