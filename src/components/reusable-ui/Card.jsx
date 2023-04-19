@@ -34,7 +34,11 @@ export default function Card({
           <div className="description">
             <div className="left-description">{price}</div>
             <div className="right-description">
-              <Button className="primary-button" label={"Ajouter"} />
+              <Button
+                className="primary-button"
+                label={"Ajouter"}
+                onClick={(event) => event.stopPropagation()}
+              />
             </div>
           </div>
         </div>
@@ -46,6 +50,7 @@ export default function Card({
 const CardStyled = styled.div`
   ${({ isHoverable }) => isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
+  height: 330px;
 
   .card {
     position: relative;
