@@ -7,6 +7,7 @@ import { useState } from "react";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 // import { useRef } from "react";
 import { EMPTY_PRODUCT } from "../../../enums/product";
+import { deepClone } from "../../../utils/arrays";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
@@ -19,26 +20,33 @@ export default function OrderPage() {
   // const inputRef = useRef();
 
   const handleAdd = (productToAdd) => {
-    const menuDeepCopy = JSON.parse(JSON.stringify(menu));
-    const menuUpdated = [productToAdd, ...menuDeepCopy];
+    const menuDeepClone = deepClone(menu);
+
+    const menuUpdated = [productToAdd, ...menuDeepClone];
+
     setMenu(menuUpdated);
   };
 
   const handleDelete = (idProductToDelete) => {
-    const menuDeepCopy = JSON.parse(JSON.stringify(menu));
-    const menuUpdated = menuDeepCopy.filter(
+    const menuDeepClone = deepClone(menu);
+
+    const menuUpdated = menuDeepClone.filter(
       (product) => product.id !== idProductToDelete
     );
+
     setMenu(menuUpdated);
   };
 
   const handleEdit = (productBeingEdited) => {
-    const menuDeepCopy = JSON.parse(JSON.stringify(menu));
+    const menuDeepClone = deepClone(menu);
+
     const productToEdit = menu.findIndex(
       (product) => product.id === productBeingEdited.id
     );
-    menuDeepCopy[productToEdit] = productBeingEdited;
-    setMenu(menuDeepCopy);
+
+    menuDeepClone[productToEdit] = productBeingEdited;
+
+    setMenu(menuDeepClone);
   };
 
   const handleReset = () => {
