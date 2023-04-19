@@ -13,12 +13,14 @@ export default function Card({
   onClick,
   className,
   isHoverable,
+  isSelected,
 }) {
   return (
     <CardStyled
       onClick={onClick}
       className={className}
       isHoverable={isHoverable}
+      isSelected={isSelected}
     >
       <div className="card">
         {hasDeleteButton && (
@@ -139,6 +141,9 @@ const CardStyled = styled.div`
         }
       }
     }
+
+    ${({ isHoverable, isSelected }) =>
+      isHoverable && isSelected && selectedStyle}
   }
 `;
 
@@ -151,6 +156,36 @@ const hoverableStyle = css`
   }
 `;
 
-const cardStyle = {
-  hoverable: hoverableStyle,
-};
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+
+  .delete-btn {
+    color: ${theme.colors.white};
+    &:hover {
+      color: ${theme.colors.danger};
+    }
+    :active {
+      color: ${theme.colors.white};
+    }
+  }
+  .primary-button {
+    background: ${theme.colors.white};
+    color: ${theme.colors.primary};
+    &:hover {
+      background: ${theme.colors.primary};
+      color: ${theme.colors.white};
+      border: 1px solid ${theme.colors.white};
+    }
+    :active {
+      background: ${theme.colors.white};
+      color: ${theme.colors.primary};
+    }
+  }
+  .text-info {
+    .description {
+      .left-description {
+        color: ${theme.colors.white};
+      }
+    }
+  }
+`;

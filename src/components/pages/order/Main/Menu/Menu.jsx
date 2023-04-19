@@ -5,6 +5,7 @@ import Card from "../../../../reusable-ui/Card";
 import OrderContext from "../../../../../context/OrderContext";
 import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
+import { checkIfProductIsSelected } from "./helper";
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
@@ -57,11 +58,7 @@ export default function Menu() {
             onDelete={() => handleDelete(id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
-            className={
-              isModeAdmin === true && productSelected.id === id
-                ? "is-click"
-                : ""
-            }
+            isSelected={checkIfProductIsSelected(id, productSelected.id)}
           />
         );
       })}
@@ -79,36 +76,4 @@ const MenuStyled = styled.div`
   justify-items: center;
   box-shadow: ${theme.shadows.extraStrong};
   overflow-y: scroll;
-
-  .is-click {
-    background: ${theme.colors.primary};
-
-    .delete-btn {
-      color: ${theme.colors.white};
-      &:hover {
-        color: ${theme.colors.danger};
-      }
-      :active {
-        color: ${theme.colors.white};
-      }
-    }
-    .primary-button {
-      background: ${theme.colors.white};
-      color: ${theme.colors.primary};
-      &:hover {
-        background: ${theme.colors.primary};
-        color: ${theme.colors.white};
-        border: 1px solid ${theme.colors.white};
-      }
-      :active {
-        background: ${theme.colors.white};
-        color: ${theme.colors.primary};
-      }
-    }
-    .description {
-      .left-description {
-        color: ${theme.colors.white};
-      }
-    }
-  }
 `;
