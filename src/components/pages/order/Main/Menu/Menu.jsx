@@ -16,9 +16,8 @@ export default function Menu() {
     menu,
     productSelected,
     setProductSelected,
-    // setCurrentTabSelected,
-    // setIsCollapsed,
-    // setIsClick,
+    setIsCollapsed,
+    setCurrentTabSelected,
     // inputRef,
   } = useContext(OrderContext);
 
@@ -44,6 +43,10 @@ export default function Menu() {
   };
 
   const handleClick = (idProductClicked) => {
+    if (!isModeAdmin) return;
+
+    setIsCollapsed(false);
+    setCurrentTabSelected("edit");
     const productClicked = menu.find(
       (product) => product.id === idProductClicked
     );
