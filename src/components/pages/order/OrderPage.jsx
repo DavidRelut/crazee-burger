@@ -36,14 +36,14 @@ export default function OrderPage() {
     setMenu(menuUpdated);
   };
 
-  const handleEdit = (productBeenEdited) => {
+  const handleEdit = (productBeingEdited) => {
     const menuDeepClone = deepClone(menu);
 
     const productToEdit = menu.findIndex(
-      (product) => product.id === productBeenEdited.id
+      (product) => product.id === productBeingEdited.id
     );
 
-    menuDeepClone[productToEdit] = productBeenEdited;
+    menuDeepClone[productToEdit] = productBeingEdited;
 
     setMenu(menuDeepClone);
   };

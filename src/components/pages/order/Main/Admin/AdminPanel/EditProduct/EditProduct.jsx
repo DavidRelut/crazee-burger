@@ -16,10 +16,10 @@ export default function EditProduct() {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    const productBeenUpdated = { ...productSelected, [name]: value };
+    const productBeingUpdated = { ...productSelected, [name]: value };
 
-    setProductSelected(productBeenUpdated);
-    handleEdit(productBeenUpdated);
+    setProductSelected(productBeingUpdated);
+    handleEdit(productBeingUpdated);
   };
 
   return (
