@@ -6,6 +6,8 @@ import OrderContext from "../../../../../context/OrderContext";
 import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
+import { EMPTY_PRODUCT } from "../../../../../enums/product";
+
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
@@ -40,6 +42,9 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
+    idProductToDelete === productSelected.id &&
+      setProductSelected(EMPTY_PRODUCT);
+    titleEditRef.current.focus();
   };
 
   const handleClick = async (idProductClicked) => {

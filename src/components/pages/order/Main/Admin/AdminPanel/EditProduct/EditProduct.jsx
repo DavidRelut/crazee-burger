@@ -5,31 +5,24 @@ import OrderContext from "../../../../../../../context/OrderContext";
 import ImagePreview from "../../../../../../reusable-ui/Admin/ImagePreview";
 import { getInputsConfig } from "../../../../../../../utils/admin/inputsConfig";
 import TextInput from "../../../../../../reusable-ui/TextInput";
-import EmptyEditProduct from "./EmptyEditProduct";
 
 export default function EditProduct() {
-  const {
-    productSelected,
-    setProductSelected,
-    handleEdit,
-    titleEditRef,
-    // isClick,
-  } = useContext(OrderContext);
+  const { productSelected, setProductSelected, handleEdit, titleEditRef } =
+    useContext(OrderContext);
 
   const inputs = getInputsConfig(productSelected);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    const productBeingUpdated = { ...productSelected, [name]: value };
+    const productBeenUpdated = { ...productSelected, [name]: value };
 
-    setProductSelected(productBeingUpdated);
-    handleEdit(productBeingUpdated);
+    setProductSelected(productBeenUpdated);
+    handleEdit(productBeenUpdated);
   };
 
   return (
     <EditProductStyled>
-      {/* {isClick ? ( */}
       <div className="container-edit">
         <ImagePreview
           image={productSelected.imageSource}
@@ -55,9 +48,6 @@ export default function EditProduct() {
           <span className="underline">en temps réel</span>
         </span>
       </div>
-      {/* ) : (
-        <EmptyEditProduct />
-      )} */}
     </EditProductStyled>
   );
 }
