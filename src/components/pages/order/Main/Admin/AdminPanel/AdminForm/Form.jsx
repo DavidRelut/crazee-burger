@@ -32,8 +32,6 @@ const Form = React.forwardRef(
   }
 );
 
-export default Form;
-
 const FormStyled = styled.form`
   width: 80%;
   display: grid;
@@ -67,3 +65,5 @@ const FormStyled = styled.form`
     width: 455px;
   }
 `;
+
+export default Form;
