@@ -18,7 +18,7 @@ export default function Menu() {
     setProductSelected,
     setIsCollapsed,
     setCurrentTabSelected,
-    // inputRef,
+    titleEditRef,
   } = useContext(OrderContext);
 
   if (menu.length === 0) {
@@ -42,15 +42,16 @@ export default function Menu() {
     handleDelete(idProductToDelete);
   };
 
-  const handleClick = (idProductClicked) => {
+  const handleClick = async (idProductClicked) => {
     if (!isModeAdmin) return;
 
-    setIsCollapsed(false);
-    setCurrentTabSelected("edit");
-    const productClicked = menu.find(
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    const productClickedOn = menu.find(
       (product) => product.id === idProductClicked
     );
-    setProductSelected(productClicked);
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
   };
 
   return (

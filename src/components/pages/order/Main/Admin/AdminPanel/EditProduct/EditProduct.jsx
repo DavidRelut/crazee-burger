@@ -12,8 +12,8 @@ export default function EditProduct() {
     productSelected,
     setProductSelected,
     handleEdit,
+    titleEditRef,
     // isClick,
-    // inputRef,
   } = useContext(OrderContext);
 
   const inputs = getInputsConfig(productSelected);
@@ -46,7 +46,7 @@ export default function EditProduct() {
               placeholder={placeholder}
               onChange={handleChange}
               className="input"
-              // ref={inputRef}
+              ref={name === "title" ? titleEditRef : null}
             />
           ))}
         </div>
