@@ -1,21 +1,21 @@
 import { BsPlusLg } from "react-icons/bs";
 import { MdModeEditOutline } from "react-icons/md";
-import AddProduct from "../../components/pages/order/Main/Admin/AdminPanel/AddProduct/AddProduct";
-import EditProduct from "../../components/pages/order/Main/Admin/AdminPanel/EditProduct/EditProduct";
-import EmptyEditProduct from "../../components/pages/order/Main/Admin/AdminPanel/EditProduct/EmptyEditProduct";
+import AddForm from "../../components/pages/order/Main/Admin/AdminPanel/AdminForm/AddForm/AddForm";
+import EditForm from "../../components/pages/order/Main/Admin/AdminPanel/AdminForm/EditForm/EditForm";
+import EmptyEditForm from "../../components/pages/order/Main/Admin/AdminPanel/AdminForm/EditForm/EmptyEditForm";
 
 export const getTabsConfig = (hasAlreadyBeenClicked) => [
   {
     index: "add",
     label: "Ajouter un produit",
     Icon: <BsPlusLg />,
-    Panel: <AddProduct />,
+    Panel: <AddForm />,
   },
   {
     index: "edit",
     label: "Modifier un produit",
     Icon: <MdModeEditOutline />,
-    Panel: hasAlreadyBeenClicked ? <EditProduct /> : <EmptyEditProduct />,
+    Panel: hasAlreadyBeenClicked ? <EditForm /> : <EmptyEditForm />,
   },
 ];
 

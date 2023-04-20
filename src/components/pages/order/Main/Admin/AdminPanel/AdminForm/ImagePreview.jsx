@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../theme";
+import { theme } from "../../../../../../../theme";
 
-export default function ImagePreview({ image, title }) {
+export default function ImagePreview({ imageSource, title }) {
   return (
     <ImagePreviewStyled>
-      {image ? (
-        <img src={image} alt={title} />
+      {imageSource ? (
+        <img src={imageSource} alt={title} />
       ) : (
         <span className="text-without-image">Aucune image 📷</span>
       )}

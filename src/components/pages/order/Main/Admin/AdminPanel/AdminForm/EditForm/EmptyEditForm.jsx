@@ -1,20 +1,19 @@
-import React from "react";
-import { HiCursorClick } from "react-icons/hi";
 import styled from "styled-components";
-import { theme } from "../../../../../../../theme";
+import { theme } from "../../../../../../../../theme";
+import { HiCursorClick } from "react-icons/hi";
 
-export default function EmptyEditProduct() {
+export default function EmptyEditForm() {
   return (
-    <EmptyEditProductStyled>
+    <EmptyEditFormStyled>
       <span className="edit-message">
         Cliquer sur un produit pour le modifier
       </span>
       <HiCursorClick />
-    </EmptyEditProductStyled>
+    </EmptyEditFormStyled>
   );
 }
 
-const EmptyEditProductStyled = styled.div`
+const EmptyEditFormStyled = styled.div`
   font-size: ${theme.fonts.size.P3};
   color: ${theme.colors.greyBlue};
   font-family: ${theme.fonts.family.stylish};
