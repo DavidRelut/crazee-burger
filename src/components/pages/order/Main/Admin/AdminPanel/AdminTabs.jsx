@@ -16,7 +16,7 @@ export default function AdminTabs() {
 
   const tabs = tabsConfig;
 
-  const selectTab = (tabSelected) => {
+  const handleClickSelectTab = (tabSelected) => {
     setCurrentTabSelected(tabSelected);
     setIsCollapsed(false);
   };
@@ -39,7 +39,7 @@ export default function AdminTabs() {
           key={index}
           Icon={Icon}
           label={label}
-          onClick={() => selectTab(index)}
+          onClick={() => handleClickSelectTab(index)}
           className={currentTabSelected === index ? "is-active" : ""}
         />
       ))}
