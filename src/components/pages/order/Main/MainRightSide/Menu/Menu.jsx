@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme/index";
-import { formatPrice } from "../../../../../utils/maths";
-import Card from "../../../../reusable-ui/Card";
-import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../../theme/index";
+import { formatPrice } from "../../../../../../utils/maths";
+import Card from "../../../../../reusable-ui/Card";
+import OrderContext from "../../../../../../context/OrderContext";
 import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
-import { EMPTY_PRODUCT } from "../../../../../enums/product";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
@@ -59,6 +59,13 @@ export default function Menu() {
     titleEditRef.current.focus();
   };
 
+  const handleAddProductToBasket = (event, idProductToAdd) => {
+    event.stopPropagation();
+    console.log("idProductToAdd", idProductToAdd);
+    const productToAdd = menu.find((product) => product.id === idProductToAdd);
+    console.log("productToAdd", productToAdd);
+  };
+
   return (
     <MenuStyled>
       {menu.map(({ id, title, imageSource, price }) => {
@@ -70,6 +77,7 @@ export default function Menu() {
             price={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
+            onAdd={(event) => handleAddProductToBasket(event, id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(id, productSelected.id)}

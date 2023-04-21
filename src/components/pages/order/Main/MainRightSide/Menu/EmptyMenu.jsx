@@ -1,5 +1,5 @@
-import { theme } from "../../../../../theme";
-import Button from "../../../../reusable-ui/Button";
+import { theme } from "../../../../../../theme";
+import Button from "../../../../../reusable-ui/Button";
 import styled from "styled-components";
 
 export default function EmptyMenu({

@@ -1,6 +1,6 @@
 import { theme } from "../../../../../theme";
 import styled from "styled-components";
-import BasketHeader from "./Header/BasketHeader";
+import BasketHeader from "./BasketHeader/BasketHeader";
 import BasketFooter from "./BasketFooter";
 import BasketBody from "./BasketBody";
 

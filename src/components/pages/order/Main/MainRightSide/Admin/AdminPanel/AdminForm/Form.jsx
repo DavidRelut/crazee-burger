@@ -1,8 +1,8 @@
 import React from "react";
-import { getInputsConfig } from "../../../../../../../utils/admin/inputsConfig";
+import { getInputsConfig } from "../../../../../../../../utils/admin/inputsConfig";
 import styled from "styled-components";
 import ImagePreview from "./ImagePreview";
-import TextInput from "../../../../../../reusable-ui/TextInput";
+import TextInput from "../../../../../../../reusable-ui/TextInput";
 
 const Form = React.forwardRef(
   ({ product, onSubmit, onChange, children }, ref) => {
