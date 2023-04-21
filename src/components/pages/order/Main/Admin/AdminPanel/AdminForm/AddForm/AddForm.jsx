@@ -4,9 +4,10 @@ import { EMPTY_PRODUCT } from "../../../../../../../../enums/product";
 import Button from "../../../../../../../reusable-ui/Button";
 import Form from "../Form";
 import SuccessMessage from "./SuccessMessage";
+import { useSuccessMessage } from "../../../../../../../../hooks/useSuccessMessage";
 export default function AddForm() {
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { isSubmitted, displaySuccessMessage } = useSuccessMessage();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,19 +16,12 @@ export default function AddForm() {
 
     setNewProduct(EMPTY_PRODUCT);
 
-    displaySubmitMessage();
+    displaySuccessMessage();
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewProduct({ ...newProduct, [name]: [value] });
-  };
-
-  const displaySubmitMessage = () => {
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 2000);
   };
 
   return (
