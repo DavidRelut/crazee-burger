@@ -17,6 +17,7 @@ export default function OrderPage() {
   const titleEditRef = useRef();
   const { menu, handleAdd, handleDelete, handleEdit, handleReset } =
     useMenuCrud();
+  const [basketOrder, setBasketOrder] = useState([]);
 
   const orderContextValue = {
     isModeAdmin,
@@ -35,6 +36,8 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     titleEditRef,
+    basketOrder,
+    setBasketOrder,
   };
 
   return (

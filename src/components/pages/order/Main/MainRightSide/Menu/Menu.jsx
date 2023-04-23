@@ -7,6 +7,7 @@ import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
+import { deepClone } from "../../../../../../utils/arrays";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
@@ -15,12 +16,15 @@ export default function Menu() {
     isModeAdmin,
     handleDelete,
     handleReset,
+    handleEdit,
     menu,
     productSelected,
     setProductSelected,
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    basketOrder,
+    setBasketOrder,
   } = useContext(OrderContext);
 
   if (menu.length === 0) {
@@ -61,9 +65,30 @@ export default function Menu() {
 
   const handleAddProductToBasket = (event, idProductToAdd) => {
     event.stopPropagation();
-    console.log("idProductToAdd", idProductToAdd);
-    const productToAdd = menu.find((product) => product.id === idProductToAdd);
-    console.log("productToAdd", productToAdd);
+    const productToAddToBasket = menu.find(
+      (product) => product.id === idProductToAdd
+    );
+
+    const basketOrderDeepClone = deepClone(basketOrder);
+    const sameProductIndex = basketOrderDeepClone.findIndex(
+      (product) => product.id === idProductToAdd
+    );
+
+    const sameProduct = basketOrderDeepClone[sameProductIndex];
+
+    if (sameProductIndex >= 0) {
+      console.log("sameProduct1", sameProductIndex);
+      sameProduct.quantity += 1;
+      setBasketOrder([...basketOrderDeepClone]);
+      return;
+    }
+
+    setBasketOrder((basketProduct) => [
+      ...basketProduct,
+      { ...productToAddToBasket, quantity: 1 },
+    ]);
+
+    handleEdit(basketOrderDeepClone);
   };
 
   return (
