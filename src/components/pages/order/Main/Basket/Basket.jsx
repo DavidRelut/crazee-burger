@@ -2,7 +2,7 @@ import { theme } from "../../../../../theme";
 import styled from "styled-components";
 import BasketHeader from "./BasketHeader/BasketHeader";
 import BasketFooter from "./BasketFooter";
-import BasketBody from "./BasketBody";
+import BasketBody from "./BasketBody/BasketBody";
 
 export default function Basket() {
   return (
