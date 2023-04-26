@@ -1,23 +1,34 @@
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
+// import { theme } from "../../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import BasketCard from "./BasketCard";
+import { formatPrice } from "../../../../../../utils/maths";
+import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 
 export default function BasketOrder() {
-  const { basketOrder } = useContext(OrderContext);
-  // console.log("basketOrder", basketOrder);
+  const { basketOrder, setBasketOrder, isModeAdmin } = useContext(OrderContext);
+
+  const handleDeleteProductToBasket = (event, idProductToDelete) => {
+    event.stopPropagation();
+    const newBasketOrder = basketOrder.filter(
+      (product) => product.id !== idProductToDelete
+    );
+    setBasketOrder(newBasketOrder);
+  };
 
   return (
-    <BasketOrderStyled>
+    <BasketOrderStyled className="cardbasket">
       {basketOrder.map(({ id, title, imageSource, price, quantity }) => {
         return (
           <BasketCard
             key={id}
             title={title}
-            imageSource={imageSource}
-            price={price}
+            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
+            price={formatPrice(price)}
             quantity={quantity}
+            onDelete={(event) => handleDeleteProductToBasket(event, id)}
+            isModeAdmin={isModeAdmin}
           />
         );
       })}
@@ -25,10 +36,4 @@ export default function BasketOrder() {
   );
 }
 
-const BasketOrderStyled = styled.div`
-  /* color: ${theme.colors.greyBlue}; */
-  .basket {
-    color: blueviolet;
-    font-size: 30px;
-  }
-`;
+const BasketOrderStyled = styled.div``;
