@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../../../../../theme";
 import { MdDeleteForever } from "react-icons/md";
 
@@ -108,6 +108,10 @@ const BasketCardStyled = styled.div`
     z-index: 1;
   }
 
+  ${({ isModeAdmin }) => isModeAdmin && hoverableStyle}
+`;
+
+const hoverableStyle = css`
   /* hover de la card */
   :hover {
     .delete-button {
