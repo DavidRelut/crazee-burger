@@ -21,7 +21,9 @@ export default function BasketCard({
       <img className="imageBasket" src={imageSource} alt={title} />
 
       <div className="text-info">
-        <span className="title">{title}</span>
+        <div className="title">
+          <span>{title}</span>
+        </div>
         <span className="price">{price}</span>
       </div>
       <div className="container-quantity">
@@ -55,6 +57,8 @@ const BasketCardStyled = styled.div`
   }
 
   .text-info {
+    user-select: none;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -62,7 +66,6 @@ const BasketCardStyled = styled.div`
     .title {
       display: flex;
       align-items: center;
-      /* background: yellow; */
       font-family: ${theme.fonts.family.stylish};
       font-size: ${theme.fonts.size.P3};
       line-height: 32px;
@@ -72,9 +75,8 @@ const BasketCardStyled = styled.div`
       min-width: 0;
       span {
         overflow: hidden;
-        /* width: 100%; */
+        width: 106.5px;
         white-space: nowrap;
-        text-overflow: ellipsis;
       }
     }
     .price {
@@ -109,7 +111,6 @@ const BasketCardStyled = styled.div`
   /* hover de la card */
   :hover {
     .delete-button {
-      /* border: 1px solid red; */
       border: none;
       box-sizing: border-box;
       position: absolute;
