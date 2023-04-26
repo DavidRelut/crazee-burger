@@ -8,8 +8,7 @@ import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 import { deepClone } from "../../../../../../utils/arrays";
-
-const DEFAULT_IMAGE = "/images/coming-soon.png";
+import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 
 export default function Menu() {
   const {
@@ -46,9 +45,13 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
-    idProductToDelete === productSelected.id &&
+    setBasketOrder((basketProduct) =>
+      basketProduct.filter((product) => product.id !== idProductToDelete)
+    );
+    if (idProductToDelete === productSelected.id) {
       setProductSelected(EMPTY_PRODUCT);
-    titleEditRef.current.focus();
+      titleEditRef.current.focus();
+    }
   };
 
   const handleClick = async (idProductClicked) => {
@@ -98,7 +101,7 @@ export default function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
+            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             price={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}

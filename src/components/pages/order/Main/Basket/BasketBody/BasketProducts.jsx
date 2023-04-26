@@ -4,19 +4,18 @@ import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import EmptyBasketBody from "./EmptyBasketBody";
 import BasketOrder from "./BasketOrder";
-import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 
-export default function BasketBody() {
+export default function BasketProducts() {
   const { basketOrder } = useContext(OrderContext);
 
   return (
-    <BasketBodyStyled>
+    <BasketProductsStyled>
       {basketOrder === [] ? <EmptyBasketBody /> : <BasketOrder />}
-    </BasketBodyStyled>
+    </BasketProductsStyled>
   );
 }
 
-const BasketBodyStyled = styled.div`
+const BasketProductsStyled = styled.div`
   flex-direction: column;
   height: calc(((85vh - 70px) - 50px) - 20px);
   box-shadow: ${theme.shadows.basket};
