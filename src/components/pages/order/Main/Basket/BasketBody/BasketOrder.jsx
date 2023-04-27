@@ -7,19 +7,16 @@ import { formatPrice } from "../../../../../../utils/maths";
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 
 export default function BasketOrder() {
-  const { basketOrder, setBasketOrder, isModeAdmin } = useContext(OrderContext);
+  const { basket, isModeAdmin, handleDeleteBasketProduct } =
+    useContext(OrderContext);
 
-  const handleDeleteProductToBasket = (event, idProductToDelete) => {
-    event.stopPropagation();
-    const newBasketOrder = basketOrder.filter(
-      (product) => product.id !== idProductToDelete
-    );
-    setBasketOrder(newBasketOrder);
+  const handleOnDelete = (idProductToDelete) => {
+    handleDeleteBasketProduct(idProductToDelete);
   };
 
   return (
     <BasketOrderStyled className="cardbasket">
-      {basketOrder.map(({ id, title, imageSource, price, quantity }) => {
+      {basket.map(({ id, title, imageSource, price, quantity }) => {
         return (
           <BasketCard
             key={id}
@@ -27,7 +24,7 @@ export default function BasketOrder() {
             imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             price={formatPrice(price)}
             quantity={quantity}
-            onDelete={(event) => handleDeleteProductToBasket(event, id)}
+            onDelete={(event) => handleOnDelete(id)}
             isModeAdmin={isModeAdmin}
           />
         );

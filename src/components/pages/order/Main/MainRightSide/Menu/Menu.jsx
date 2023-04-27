@@ -7,23 +7,22 @@ import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
-import { deepClone } from "../../../../../../utils/arrays";
+import { find } from "../../../../../../utils/arrays";
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 
 export default function Menu() {
   const {
+    menu,
     isModeAdmin,
     handleDelete,
     handleReset,
-    handleEdit,
-    menu,
     productSelected,
     setProductSelected,
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
-    basketOrder,
-    setBasketOrder,
+    handleAddProductToBasket,
+    handleDeleteBasketProduct,
   } = useContext(OrderContext);
 
   if (menu.length === 0) {
@@ -45,9 +44,7 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
-    setBasketOrder((basketProduct) =>
-      basketProduct.filter((product) => product.id !== idProductToDelete)
-    );
+    handleDeleteBasketProduct(idProductToDelete);
     if (idProductToDelete === productSelected.id) {
       setProductSelected(EMPTY_PRODUCT);
       titleEditRef.current.focus();
@@ -66,32 +63,10 @@ export default function Menu() {
     titleEditRef.current.focus();
   };
 
-  const handleAddProductToBasket = (event, idProductToAdd) => {
+  const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
-    const productToAddToBasket = menu.find(
-      (product) => product.id === idProductToAdd
-    );
-
-    const basketOrderDeepClone = deepClone(basketOrder);
-    const sameProductIndex = basketOrderDeepClone.findIndex(
-      (product) => product.id === idProductToAdd
-    );
-
-    const sameProduct = basketOrderDeepClone[sameProductIndex];
-
-    if (sameProductIndex >= 0) {
-      console.log("sameProduct1", sameProductIndex);
-      sameProduct.quantity += 1;
-      setBasketOrder([...basketOrderDeepClone]);
-      return;
-    }
-
-    setBasketOrder((basketProduct) => [
-      ...basketProduct,
-      { ...productToAddToBasket, quantity: 1 },
-    ]);
-
-    handleEdit(basketOrderDeepClone);
+    const productToAdd = find(menu, idProductToAdd);
+    handleAddProductToBasket(productToAdd);
   };
 
   return (
@@ -105,7 +80,7 @@ export default function Menu() {
             price={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
-            onAdd={(event) => handleAddProductToBasket(event, id)}
+            onAdd={(event) => handleAddButton(event, id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(id, productSelected.id)}
