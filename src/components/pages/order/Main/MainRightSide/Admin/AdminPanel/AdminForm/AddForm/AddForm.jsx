@@ -21,7 +21,7 @@ export default function AddForm() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNewProduct({ ...newProduct, [name]: [value] });
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
   return (
