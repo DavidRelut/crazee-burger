@@ -22,6 +22,7 @@ export default function OrderPage() {
     setBasket,
     handleAddProductToBasket,
     handleDeleteBasketProduct,
+    handleEditBasket,
   } = useBasket();
 
   const orderContextValue = {
@@ -45,6 +46,7 @@ export default function OrderPage() {
     setBasket,
     handleAddProductToBasket,
     handleDeleteBasketProduct,
+    handleEditBasket,
   };
 
   return (

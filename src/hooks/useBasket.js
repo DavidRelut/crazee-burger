@@ -49,10 +49,21 @@ export const useBasket = () => {
   };
   // ---------------------------------------------------------
 
+  const handleEditBasket = (productBeingEdited) => {
+    const basketDeepClone = deepClone(basket);
+
+    const productToEdit = findIndex(basket, productBeingEdited.id);
+
+    basketDeepClone[productToEdit] = productBeingEdited;
+
+    setBasket(basketDeepClone);
+  };
+
   return {
     basket,
     setBasket,
     handleAddProductToBasket,
     handleDeleteBasketProduct,
+    handleEditBasket,
   };
 };
