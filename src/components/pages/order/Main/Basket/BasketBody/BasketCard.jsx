@@ -113,6 +113,7 @@ const BasketCardStyled = styled.div`
 
 const hoverableStyle = css`
   /* hover de la card */
+  cursor: pointer;
   :hover {
     .delete-button {
       border: none;
@@ -149,5 +150,13 @@ const hoverableStyle = css`
         }
       }
     }
+  }
+`;
+
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+  .price,
+  .quantity {
+    color: ${theme.colors.white};
   }
 `;

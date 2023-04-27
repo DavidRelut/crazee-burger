@@ -8,11 +8,30 @@ import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 import { checkIfProductIsSelected } from "../../MainRightSide/Menu/helper";
 
 export default function BasketOrder() {
-  const { basket, isModeAdmin, handleDeleteBasketProduct } =
-    useContext(OrderContext);
+  const {
+    basket,
+    isModeAdmin,
+    handleDeleteBasketProduct,
+    titleEditRef,
+    productSelected,
+    setProductSelected,
+    setIsCollapsed,
+    setCurrentTabSelected,
+  } = useContext(OrderContext);
 
   const handleOnDelete = (idProductToDelete) => {
     handleDeleteBasketProduct(idProductToDelete);
+  };
+
+  const handleClick = async (idProductClicked) => {
+    if (!isModeAdmin) return;
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    const productClickedOn = basket.find(
+      (product) => product.id === idProductClicked
+    );
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
   };
 
   return (
@@ -26,7 +45,9 @@ export default function BasketOrder() {
             price={formatPrice(price)}
             quantity={quantity}
             onDelete={(event) => handleOnDelete(id)}
-            isModeAdmin={isModeAdmin}
+            onClick={() => handleClick(id)}
+            isHoverable={isModeAdmin}
+            isSelected={checkIfProductIsSelected(id, productSelected.id)}
           />
         );
       })}
