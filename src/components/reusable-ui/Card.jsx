@@ -12,20 +12,18 @@ export default function Card({
   onDelete,
   onAdd,
   onClick,
-  className,
   isHoverable,
   isSelected,
 }) {
   return (
     <CardStyled
       onClick={onClick}
-      className={className}
       isHoverable={isHoverable}
       isSelected={isSelected}
     >
       <div className="card">
         {hasDeleteButton && (
-          <TiDelete className="delete-btn" onClick={onDelete} />
+          <TiDelete className="delete-button" onClick={onDelete} />
         )}
         <div className="image">
           <img src={imageSource} alt={title} />
@@ -67,7 +65,7 @@ const CardStyled = styled.div`
     transition: all 0.4s ease-out 0s;
     box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
 
-    .delete-btn {
+    .delete-button {
       position: absolute;
       top: 15px;
       right: 15px;
@@ -165,7 +163,7 @@ const hoverableStyle = css`
 const selectedStyle = css`
   background: ${theme.colors.primary};
 
-  .delete-btn {
+  .delete-button {
     color: ${theme.colors.white};
     &:hover {
       color: ${theme.colors.danger};
