@@ -9,7 +9,6 @@ export default function BasketCard({
   price,
   quantity,
   onDelete,
-  className,
   isModeAdmin,
 }) {
   return (

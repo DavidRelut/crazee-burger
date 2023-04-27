@@ -5,9 +5,9 @@ import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 
 export default function BasketTotal() {
-  const { basketOrder } = useContext(OrderContext);
+  const { basket } = useContext(OrderContext);
 
-  const basketTotal = basketOrder.reduce((total, product) => {
+  const basketTotal = basket.reduce((total, product) => {
     total += product.price * product.quantity;
     return total;
   }, 0);
