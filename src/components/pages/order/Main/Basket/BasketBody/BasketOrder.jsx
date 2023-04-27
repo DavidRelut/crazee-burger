@@ -15,7 +15,7 @@ export default function BasketOrder() {
   };
 
   return (
-    <BasketOrderStyled className="cardbasket">
+    <BasketOrderStyled>
       {basket.map(({ id, title, imageSource, price, quantity }) => {
         return (
           <BasketCard

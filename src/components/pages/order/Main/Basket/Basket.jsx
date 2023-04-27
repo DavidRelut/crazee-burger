@@ -2,13 +2,13 @@ import { theme } from "../../../../../theme";
 import styled from "styled-components";
 import BasketHeader from "./BasketHeader/BasketHeader";
 import BasketFooter from "./BasketFooter";
-import BasketProduct from "./BasketBody/BasketProducts";
+import BasketProducts from "./BasketBody/BasketProducts";
 
 export default function Basket() {
   return (
     <BasketStyled>
       <BasketHeader />
-      <BasketProduct />
+      <BasketProducts />
       <BasketFooter />
     </BasketStyled>
   );
