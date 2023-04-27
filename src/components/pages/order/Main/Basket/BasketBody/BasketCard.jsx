@@ -34,7 +34,6 @@ export default function BasketCard({
 }
 
 const BasketCardStyled = styled.div`
-  /* cursor: ${({ isModeAdmin }) => (isModeAdmin ? "pointer" : "auto")}; */
   position: relative;
   width: 318px;
   height: 86px;
