@@ -5,13 +5,18 @@ import Button from "../../../../../../../../reusable-ui/Button";
 import Form from "../Form";
 import SuccessMessage from "./SuccessMessage";
 import { useSuccessMessage } from "../../../../../../../../../hooks/useSuccessMessage";
+import { replaceFrenchCommaWithDot } from "../../../../../../../../../utils/maths";
 export default function AddForm() {
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
   const { isSubmitted, displaySuccessMessage } = useSuccessMessage();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newProductToAdd = { ...newProduct, id: crypto.randomUUID() };
+    const newProductToAdd = {
+      ...newProduct,
+      id: crypto.randomUUID(),
+      price: replaceFrenchCommaWithDot(newProduct.price),
+    };
     handleAdd(newProductToAdd);
 
     setNewProduct(EMPTY_PRODUCT);

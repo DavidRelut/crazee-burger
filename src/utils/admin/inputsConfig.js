@@ -25,7 +25,7 @@ export const getInputsConfig = (inputValue) => [
     name: "price",
     type: "text",
     placeholder: "Prix",
-    value: inputValue.price,
+    value: inputValue.price ? inputValue.price : "",
     Icon: <MdOutlineEuro />,
   },
 ];

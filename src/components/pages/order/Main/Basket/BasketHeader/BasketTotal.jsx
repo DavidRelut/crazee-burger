@@ -3,19 +3,17 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
+import { calculateSumToPay } from "../helper";
 
 export default function BasketTotal() {
-  const { basket } = useContext(OrderContext);
+  const { basket, menu } = useContext(OrderContext);
 
-  const basketTotal = basket.reduce((total, product) => {
-    total += product.price * product.quantity;
-    return total;
-  }, 0);
+  const sumToPay = calculateSumToPay(basket, menu);
 
   return (
     <BasketTotalStyled>
       <span>Total</span>
-      <span>{formatPrice(basketTotal)}</span>
+      <span>{formatPrice(sumToPay)}</span>
     </BasketTotalStyled>
   );
 }
