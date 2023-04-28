@@ -11,9 +11,14 @@ export default function BasketCard({
   onDelete,
   onClick,
   isModeAdmin,
+  isSelected,
 }) {
   return (
-    <BasketCardStyled onClick={onClick} isModeAdmin={isModeAdmin}>
+    <BasketCardStyled
+      onClick={onClick}
+      isModeAdmin={isModeAdmin}
+      isSelected={isSelected}
+    >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
@@ -109,11 +114,11 @@ const BasketCardStyled = styled.div`
   }
   cursor: ${({ isModeAdmin }) => (isModeAdmin ? "pointer" : "auto")};
   ${({ isModeAdmin }) => hoverableStyle}
+  ${({ isModeAdmin, isSelected }) => isModeAdmin && isSelected && selectedStyle}
 `;
 
 const hoverableStyle = css`
   /* hover de la card */
-  cursor: pointer;
   :hover {
     .delete-button {
       border: none;

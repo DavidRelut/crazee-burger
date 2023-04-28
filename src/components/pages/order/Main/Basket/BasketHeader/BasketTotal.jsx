@@ -13,7 +13,7 @@ export default function BasketTotal() {
   return (
     <BasketTotalStyled>
       <span>Total</span>
-      <span>{formatPrice(sumToPay)}</span>
+      <span className="totalPrice">{formatPrice(sumToPay)}</span>
     </BasketTotalStyled>
   );
 }

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import { theme } from "../../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import BasketCard from "./BasketCard";
@@ -46,7 +45,7 @@ export default function BasketOrder() {
             quantity={quantity}
             onDelete={(event) => handleOnDelete(id)}
             onClick={() => handleClick(id)}
-            isHoverable={isModeAdmin}
+            isModeAdmin={isModeAdmin}
             isSelected={checkIfProductIsSelected(id, productSelected.id)}
           />
         );
