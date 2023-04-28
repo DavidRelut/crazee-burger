@@ -5,6 +5,7 @@ import OrderContext from "../../../../../../context/OrderContext";
 import BasketCard from "./BasketCard";
 import { formatPrice } from "../../../../../../utils/maths";
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
+import { checkIfProductIsSelected } from "../../MainRightSide/Menu/helper";
 
 export default function BasketOrder() {
   const { basket, isModeAdmin, handleDeleteBasketProduct } =

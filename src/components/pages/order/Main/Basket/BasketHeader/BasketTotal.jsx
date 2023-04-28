@@ -28,4 +28,8 @@ const BasketTotalStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .totalPrice {
+    font-weight: ${theme.fonts.weights.bold};
+  }
 `;

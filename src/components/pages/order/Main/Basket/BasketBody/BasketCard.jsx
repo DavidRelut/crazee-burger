@@ -9,10 +9,11 @@ export default function BasketCard({
   price,
   quantity,
   onDelete,
+  onClick,
   isModeAdmin,
 }) {
   return (
-    <BasketCardStyled isModeAdmin={isModeAdmin}>
+    <BasketCardStyled onClick={onClick} isModeAdmin={isModeAdmin}>
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
@@ -34,7 +35,7 @@ export default function BasketCard({
 
 const BasketCardStyled = styled.div`
   position: relative;
-  width: 318px;
+  width: 315px;
   height: 86px;
   left: 15px;
   top: 20px;
@@ -73,8 +74,9 @@ const BasketCardStyled = styled.div`
       min-width: 0;
       span {
         overflow: hidden;
-        width: 106.5px;
+        width: 120px;
         white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
     .price {
@@ -105,8 +107,8 @@ const BasketCardStyled = styled.div`
     display: none;
     z-index: 1;
   }
-
-  ${({ isModeAdmin }) => isModeAdmin && hoverableStyle}
+  cursor: ${({ isModeAdmin }) => (isModeAdmin ? "pointer" : "auto")};
+  ${({ isModeAdmin }) => hoverableStyle}
 `;
 
 const hoverableStyle = css`
