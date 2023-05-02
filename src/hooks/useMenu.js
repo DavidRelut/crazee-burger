@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, filter, findIndex } from "../utils/arrays";
+import { formatPrice, replaceFrenchCommaWithDot } from "../utils/maths";
 
 export const useMenu = () => {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
@@ -26,7 +27,12 @@ export const useMenu = () => {
 
     const productToEdit = findIndex(menu, productBeingEdited.id);
 
-    menuDeepClone[productToEdit] = productBeingEdited;
+    const editedProduct = {
+      ...productBeingEdited,
+      price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
+    };
+
+    menuDeepClone[productToEdit] = editedProduct;
 
     setMenu(menuDeepClone);
   };

@@ -5,10 +5,12 @@ import BasketCard from "./BasketCard";
 import { formatPrice } from "../../../../../../utils/maths";
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 import { checkIfProductIsSelected } from "../../MainRightSide/Menu/helper";
+import { find } from "../../../../../../utils/arrays";
 
 export default function BasketOrder() {
   const {
     basket,
+    menu,
     isModeAdmin,
     handleDeleteBasketProduct,
     titleEditRef,
@@ -35,18 +37,26 @@ export default function BasketOrder() {
 
   return (
     <BasketOrderStyled>
-      {basket.map(({ id, title, imageSource, price, quantity }) => {
+      {basket.map((basketProduct) => {
+        const menuProduct = find(menu, basketProduct.id);
         return (
           <BasketCard
-            key={id}
-            title={title}
-            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
-            price={formatPrice(price)}
-            quantity={quantity}
-            onDelete={(event) => handleOnDelete(id)}
-            onClick={() => handleClick(id)}
+            key={menuProduct.id}
+            title={menuProduct.title}
+            imageSource={
+              menuProduct.imageSource
+                ? menuProduct.imageSource
+                : IMAGE_COMING_SOON
+            }
+            price={formatPrice(menuProduct.price)}
+            quantity={basketProduct.quantity}
+            onDelete={(event) => handleOnDelete(menuProduct.id)}
+            onClick={() => handleClick(menuProduct.id)}
             isModeAdmin={isModeAdmin}
-            isSelected={checkIfProductIsSelected(id, productSelected.id)}
+            isSelected={checkIfProductIsSelected(
+              menuProduct.id,
+              productSelected.id
+            )}
           />
         );
       })}
