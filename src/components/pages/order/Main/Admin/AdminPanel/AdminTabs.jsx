@@ -4,7 +4,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import Tab from "../../../../../reusable-ui/Tab";
 import OrderContext from "../../../../../../context/OrderContext";
 import { useContext } from "react";
-import { tabsConfig } from "../../../../../../utils/admin/tabsConfig";
+import { getTabsConfig } from "../../../../../../utils/admin/tabsConfig";
 
 export default function AdminTabs() {
   const {
@@ -14,9 +14,9 @@ export default function AdminTabs() {
     setCurrentTabSelected,
   } = useContext(OrderContext);
 
-  const tabs = tabsConfig;
+  const tabs = getTabsConfig();
 
-  const selectTab = (tabSelected) => {
+  const handleClickSelectTab = (tabSelected) => {
     setCurrentTabSelected(tabSelected);
     setIsCollapsed(false);
   };
@@ -39,7 +39,7 @@ export default function AdminTabs() {
           key={index}
           Icon={Icon}
           label={label}
-          onClick={() => selectTab(index)}
+          onClick={() => handleClickSelectTab(index)}
           className={currentTabSelected === index ? "is-active" : ""}
         />
       ))}

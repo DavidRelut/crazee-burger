@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
+import { theme } from "../../../../../../../theme";
 
-export default function ImagePreview({ image, title }) {
-  const checkUrlRegex = /^(http|https):\/\/[^"]+$/;
-
+export default function ImagePreview({ imageSource, title }) {
   return (
     <ImagePreviewStyled>
-      {checkUrlRegex.test(image) ? (
-        <img src={image} alt={title} />
+      {imageSource ? (
+        <img src={imageSource} alt={title} />
       ) : (
         <span className="text-without-image">Aucune image 📷</span>
       )}
@@ -39,7 +37,7 @@ const ImagePreviewStyled = styled.div`
   img {
     width: 100px;
     height: 100px;
-    object-fit: fill;
+    object-fit: contain;
     padding-left: 22px;
   }
 `;
