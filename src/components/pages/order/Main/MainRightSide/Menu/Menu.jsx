@@ -1,26 +1,28 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme/index";
-import { formatPrice } from "../../../../../utils/maths";
-import Card from "../../../../reusable-ui/Card";
-import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../../theme/index";
+import { formatPrice } from "../../../../../../utils/maths";
+import Card from "../../../../../reusable-ui/Card";
+import OrderContext from "../../../../../../context/OrderContext";
 import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
-import { EMPTY_PRODUCT } from "../../../../../enums/product";
-
-const DEFAULT_IMAGE = "/images/coming-soon.png";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product";
+import { find } from "../../../../../../utils/arrays";
+import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 
 export default function Menu() {
   const {
+    menu,
     isModeAdmin,
     handleDelete,
     handleReset,
-    menu,
     productSelected,
     setProductSelected,
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    handleAddProductToBasket,
+    handleDeleteBasketProduct,
   } = useContext(OrderContext);
 
   if (menu.length === 0) {
@@ -42,9 +44,11 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
-    idProductToDelete === productSelected.id &&
+    handleDeleteBasketProduct(idProductToDelete);
+    if (idProductToDelete === productSelected.id) {
       setProductSelected(EMPTY_PRODUCT);
-    titleEditRef.current.focus();
+      titleEditRef.current.focus();
+    }
   };
 
   const handleClick = async (idProductClicked) => {
@@ -59,6 +63,12 @@ export default function Menu() {
     titleEditRef.current.focus();
   };
 
+  const handleAddButton = (event, idProductToAdd) => {
+    event.stopPropagation();
+    const productToAdd = find(menu, idProductToAdd);
+    handleAddProductToBasket(productToAdd);
+  };
+
   return (
     <MenuStyled>
       {menu.map(({ id, title, imageSource, price }) => {
@@ -66,10 +76,11 @@ export default function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
+            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             price={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
+            onAdd={(event) => handleAddButton(event, id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(id, productSelected.id)}

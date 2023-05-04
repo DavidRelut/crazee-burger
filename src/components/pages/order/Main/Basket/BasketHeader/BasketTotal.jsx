@@ -1,12 +1,21 @@
 import { formatPrice } from "../../../../../../utils/maths";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
+import { useContext } from "react";
+import OrderContext from "../../../../../../context/OrderContext";
 
 export default function BasketTotal() {
+  const { basket } = useContext(OrderContext);
+
+  const basketTotal = basket.reduce((total, product) => {
+    total += product.price * product.quantity;
+    return total;
+  }, 0);
+
   return (
     <BasketTotalStyled>
       <span>Total</span>
-      <span>{formatPrice(0)}</span>
+      <span>{formatPrice(basketTotal)}</span>
     </BasketTotalStyled>
   );
 }
@@ -19,4 +28,8 @@ const BasketTotalStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .totalPrice {
+    font-weight: ${theme.fonts.weights.bold};
+  }
 `;

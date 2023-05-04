@@ -10,6 +10,7 @@ export default function Card({
   price,
   hasDeleteButton,
   onDelete,
+  onAdd,
   onClick,
   className,
   isHoverable,
@@ -37,7 +38,7 @@ export default function Card({
               <Button
                 className="primary-button"
                 label={"Ajouter"}
-                onClick={(event) => event.stopPropagation()}
+                onClick={onAdd}
               />
             </div>
           </div>

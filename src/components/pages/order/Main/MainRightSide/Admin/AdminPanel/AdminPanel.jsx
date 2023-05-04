@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
+import { theme } from "../../../../../../../theme";
 import {
-  getTabsConfig,
   getTabSelected,
-} from "../../../../../../utils/admin/tabsConfig";
+  getTabsConfig,
+} from "../../../../../../../utils/admin/tabsConfig";
 import { useContext } from "react";
-import OrderContext from "../../../../../../context/OrderContext";
-import { EMPTY_PRODUCT } from "../../../../../../enums/product";
+import OrderContext from "../../../../../../../context/OrderContext";
+import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
 export default function AdminPanel() {
   const { currentTabSelected, productSelected } = useContext(OrderContext);
 

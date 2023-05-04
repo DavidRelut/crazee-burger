@@ -6,7 +6,8 @@ import OrderContext from "../../../context/OrderContext";
 import { useState } from "react";
 import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useRef } from "react";
-import { useMenuCrud } from "../../../hooks/useMenuCrud";
+import { useMenu } from "../../../hooks/useMenu";
+import { useBasket } from "../../../hooks/useBasket";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
@@ -15,8 +16,13 @@ export default function OrderPage() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
-  const { menu, handleAdd, handleDelete, handleEdit, handleReset } =
-    useMenuCrud();
+  const { menu, handleAdd, handleDelete, handleEdit, handleReset } = useMenu();
+  const {
+    basket,
+    setBasket,
+    handleAddProductToBasket,
+    handleDeleteBasketProduct,
+  } = useBasket();
 
   const orderContextValue = {
     isModeAdmin,
@@ -35,6 +41,10 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     titleEditRef,
+    basket,
+    setBasket,
+    handleAddProductToBasket,
+    handleDeleteBasketProduct,
   };
 
   return (

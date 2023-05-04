@@ -2,7 +2,7 @@ import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone } from "../utils/arrays";
 
-export const useMenuCrud = () => {
+export const useMenu = () => {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
 
   const handleAdd = (productToAdd) => {

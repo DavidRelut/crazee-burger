@@ -1,8 +1,8 @@
 import { BsPlusLg } from "react-icons/bs";
 import { MdModeEditOutline } from "react-icons/md";
-import AddForm from "../../components/pages/order/Main/Admin/AdminPanel/AdminForm/AddForm/AddForm";
-import EditForm from "../../components/pages/order/Main/Admin/AdminPanel/AdminForm/EditForm/EditForm";
-import EmptyEditForm from "../../components/pages/order/Main/Admin/AdminPanel/AdminForm/EditForm/EmptyEditForm";
+import AddForm from "../../components/pages/order/Main/MainRightSide/Admin/AdminPanel/AdminForm/AddForm/AddForm";
+import EditForm from "../../components/pages/order/Main/MainRightSide/Admin/AdminPanel/AdminForm/EditForm/EditForm";
+import EmptyEditForm from "../../components/pages/order/Main/MainRightSide/Admin/AdminPanel/AdminForm/EditForm/EmptyEditForm";
 
 export const getTabsConfig = (hasAlreadyBeenClicked) => [
   {
