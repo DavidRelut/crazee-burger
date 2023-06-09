@@ -4,13 +4,16 @@ import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import EmptyBasketBody from "./EmptyBasketBody";
 import BasketOrder from "./BasketOrder";
+import { isEmpty } from "../../../../../../utils/arrays";
 
 export default function BasketProducts() {
   const { basket } = useContext(OrderContext);
 
+  const isBasketEmpty = isEmpty(basket);
+
   return (
     <BasketProductsStyled basketLength={basket ? basket.length : 0}>
-      {basket.length === 0 ? <EmptyBasketBody /> : <BasketOrder />}
+      {isBasketEmpty ? <EmptyBasketBody /> : <BasketOrder />}
     </BasketProductsStyled>
   );
 }
@@ -23,9 +26,5 @@ const BasketProductsStyled = styled.div`
   align-items: center;
   position: relative;
 
-  ${({ basketLength }) =>
-    basketLength >= 7 &&
-    css`
-      overflow-y: scroll;
-    `}
+  overflow-y: ${({ basketLength }) => (basketLength >= 7 ? "scroll" : "none")};
 `;
