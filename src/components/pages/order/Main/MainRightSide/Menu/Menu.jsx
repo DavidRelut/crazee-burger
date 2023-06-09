@@ -7,7 +7,7 @@ import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
-import { find } from "../../../../../../utils/arrays";
+import { find, isEmpty } from "../../../../../../utils/arrays";
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 
 export default function Menu() {
@@ -25,20 +25,10 @@ export default function Menu() {
     handleDeleteBasketProduct,
   } = useContext(OrderContext);
 
-  if (menu.length === 0) {
-    return isModeAdmin ? (
-      <EmptyMenu
-        title="Le menu est vide ?"
-        description="Cliquez ci-dessous pour le réinitialiser"
-        isModeAdmin={isModeAdmin}
-        onReset={handleReset}
-      />
-    ) : (
-      <EmptyMenu
-        title="Victime de notre succès ! :D"
-        description="De nouvelles recettes sont en cours de préparation."
-      />
-    );
+  const isMenuEmpty = isEmpty(menu);
+
+  if (isMenuEmpty) {
+    return <EmptyMenu isModeAdmin={isModeAdmin} onReset={handleReset} />;
   }
 
   const handleCardDelete = (event, idProductToDelete) => {
