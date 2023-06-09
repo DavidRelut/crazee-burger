@@ -32,6 +32,9 @@ export const useMenu = () => {
       price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
     };
 
+    console.log("editedProduct", editedProduct);
+    console.log("...productBeingEdited", { ...productBeingEdited });
+
     menuDeepClone[productToEdit] = editedProduct;
 
     setMenu(menuDeepClone);
