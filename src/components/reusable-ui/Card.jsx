@@ -123,11 +123,10 @@ const CardStyled = styled.div`
           display: flex;
           justify-content: flex-start;
           align-items: center;
-          font-weight: ${theme.fonts.weights.medium};
+          font-weight: ${theme.fonts.weights.regular};
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          font-weight: ${theme.fonts.weights.medium};
           color: ${theme.colors.primary};
         }
 
