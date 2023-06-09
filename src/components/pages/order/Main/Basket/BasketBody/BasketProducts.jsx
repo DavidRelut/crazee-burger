@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
@@ -6,11 +6,11 @@ import EmptyBasketBody from "./EmptyBasketBody";
 import BasketOrder from "./BasketOrder";
 
 export default function BasketProducts() {
-  const { basketOrder } = useContext(OrderContext);
+  const { basket } = useContext(OrderContext);
 
   return (
-    <BasketProductsStyled>
-      {basketOrder === [] ? <EmptyBasketBody /> : <BasketOrder />}
+    <BasketProductsStyled basketLength={basket ? basket.length : 0}>
+      {basket.length === 0 ? <EmptyBasketBody /> : <BasketOrder />}
     </BasketProductsStyled>
   );
 }
@@ -21,6 +21,11 @@ const BasketProductsStyled = styled.div`
   box-shadow: ${theme.shadows.basket};
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
   position: relative;
+
+  ${({ basketLength }) =>
+    basketLength >= 7 &&
+    css`
+      overflow-y: scroll;
+    `}
 `;
