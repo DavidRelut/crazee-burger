@@ -75,6 +75,7 @@ const BasketCardStyled = styled.div`
       line-height: 32px;
       font-weight: ${theme.fonts.weights.bold};
       color: ${theme.colors.dark};
+      height: 32px;
       /* sans cette div avec "min-width: 0", l'ellipsis ne fonctionne pas dans un span : https://semicolon.dev/tutorial/css/text-overflow-ellipsis-doesnt-work#:~:text=If%20your%20text%2Doverflow%20is,Grid%20or%20on%20a%20Table. */
       min-width: 0;
       span {
