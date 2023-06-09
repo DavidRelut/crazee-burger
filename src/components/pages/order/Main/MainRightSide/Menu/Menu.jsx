@@ -8,7 +8,7 @@ import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 import { find, isEmpty } from "../../../../../../utils/arrays";
-import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
+import { getImageSource } from "../../../../../../utils/boolean";
 
 export default function Menu() {
   const {
@@ -66,7 +66,7 @@ export default function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
+            imageSource={getImageSource(imageSource)}
             price={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
