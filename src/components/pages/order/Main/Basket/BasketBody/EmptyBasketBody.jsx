@@ -12,4 +12,8 @@ const EmptyBasketBodyStyled = styled.div`
   font-weight: ${theme.fonts.weights.regular};
   font-size: ${theme.fonts.size.P4};
   color: ${theme.colors.greyBlue};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 `;
