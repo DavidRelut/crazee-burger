@@ -6,13 +6,19 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Button";
+import { createUser, getUser } from "../../../api/users";
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("DavidR");
   const navigate = useNavigate();
 
+  getUser(inputValue);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    createUser(inputValue);
+
     navigate(`/order/${inputValue}`);
     setInputValue("");
   };
