@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { deepClone, filter, find, findIndex } from "../utils/arrays";
-import { fakeBasket } from "../fakeData/fakeBasket";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState(() => {
