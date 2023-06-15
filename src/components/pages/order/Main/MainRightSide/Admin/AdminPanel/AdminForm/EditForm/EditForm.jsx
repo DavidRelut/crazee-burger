@@ -4,13 +4,8 @@ import Form from "../Form";
 import EditInfoMessage from "./EditInfoMessage";
 
 export default function EditForm() {
-  const {
-    productSelected,
-    setProductSelected,
-    handleEdit,
-    titleEditRef,
-    handleEditBasket,
-  } = useContext(OrderContext);
+  const { productSelected, setProductSelected, handleEdit, titleEditRef } =
+    useContext(OrderContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -19,7 +14,6 @@ export default function EditForm() {
 
     setProductSelected(productBeingUpdated);
     handleEdit(productBeingUpdated);
-    handleEditBasket(productBeingUpdated);
   };
 
   return (
