@@ -38,7 +38,4 @@ const EmptyMenuStyled = styled.div`
     text-transform: uppercase;
     margin: 30px 0;
   }
-  .description-2 {
-    margin: 0;
-  }
 `;

@@ -10,11 +10,15 @@ export default function EmptyMenuCustomer() {
         De nouvelles recettes sont encours de préparation.
       </h2>
 
-      <h3 className="description description-2">À très vite !</h3>
+      <h3 className="description h3-margin">À très vite !</h3>
     </EmptyMenuCustomerStyled>
   );
 }
 
 const EmptyMenuCustomerStyled = styled.div`
   display: contents;
+
+  .h3-margin {
+    margin: 0;
+  }
 `;
