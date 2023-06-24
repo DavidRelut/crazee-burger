@@ -12,6 +12,7 @@ import { getImageSource } from "../../../../../../utils/boolean";
 
 export default function Menu() {
   const {
+    username,
     menu,
     isModeAdmin,
     handleDelete,
@@ -32,7 +33,7 @@ export default function Menu() {
 
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
-    handleDelete(idProductToDelete);
+    handleDelete(idProductToDelete, username);
     handleDeleteBasketProduct(idProductToDelete);
     if (idProductToDelete === productSelected.id) {
       setProductSelected(EMPTY_PRODUCT);
