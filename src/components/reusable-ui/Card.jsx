@@ -62,7 +62,7 @@ const CardStyled = styled.div`
     padding-bottom: 10px;
     border-radius: ${theme.borderRadius.extraRound};
     transform: scale(1);
-    transition: all 0.4s ease-out 0s;
+    transition: all 0.1s ease-out 0s;
     box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
 
     .delete-button {
