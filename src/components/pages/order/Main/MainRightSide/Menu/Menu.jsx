@@ -27,12 +27,16 @@ export default function Menu() {
   } = useContext(OrderContext);
 
   if (menu === undefined) {
-    console.log("loader");
     return <Loader />;
   }
 
   if (isEmpty(menu)) {
-    return <EmptyMenu isModeAdmin={isModeAdmin} onReset={handleReset} />;
+    return (
+      <EmptyMenu
+        isModeAdmin={isModeAdmin}
+        onReset={() => handleReset(username)}
+      />
+    );
   }
 
   const handleCardDelete = (event, idProductToDelete) => {

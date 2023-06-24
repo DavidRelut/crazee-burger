@@ -40,8 +40,9 @@ export const useMenu = () => {
     setMenu(menuDeepClone);
   };
 
-  const handleReset = () => {
+  const handleReset = (username) => {
     setMenu(fakeMenu.LARGE);
+    syncBothMenus(username, fakeMenu.LARGE);
   };
 
   return { menu, setMenu, handleAdd, handleDelete, handleEdit, handleReset };
