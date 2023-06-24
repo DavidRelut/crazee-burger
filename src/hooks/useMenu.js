@@ -5,7 +5,7 @@ import { formatPrice, replaceFrenchCommaWithDot } from "../utils/maths";
 import { syncBothMenus } from "../api/product";
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
+  const [menu, setMenu] = useState();
 
   const handleAdd = (productToAdd, username) => {
     const menuDeepClone = deepClone(menu);
@@ -34,9 +34,6 @@ export const useMenu = () => {
       ...productBeingEdited,
       price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
     };
-
-    // console.log("editedProduct", editedProduct);
-    // console.log("productBeingEdited", productBeingEdited);
 
     menuDeepClone[productToEdit] = editedProduct;
 

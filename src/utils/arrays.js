@@ -3,7 +3,6 @@ export const deepClone = (array) => {
 };
 
 export function isEmpty(array) {
-  if (!array) return true;
   return array.length === 0;
 }
 
