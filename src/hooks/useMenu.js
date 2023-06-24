@@ -47,5 +47,5 @@ export const useMenu = () => {
     setMenu(fakeMenu.LARGE);
   };
 
-  return { menu, handleAdd, handleDelete, handleEdit, handleReset };
+  return { menu, setMenu, handleAdd, handleDelete, handleEdit, handleReset };
 };

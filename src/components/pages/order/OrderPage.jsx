@@ -9,6 +9,8 @@ import { useRef } from "react";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { getMenu } from "../../../api/product";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
@@ -17,7 +19,8 @@ export default function OrderPage() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
-  const { menu, handleAdd, handleDelete, handleEdit, handleReset } = useMenu();
+  const { menu, setMenu, handleAdd, handleDelete, handleEdit, handleReset } =
+    useMenu();
   const {
     basket,
     setBasket,
@@ -25,6 +28,15 @@ export default function OrderPage() {
     handleDeleteBasketProduct,
   } = useBasket();
   const { username } = useParams();
+
+  const initialiseMenu = async () => {
+    const menuReceived = await getMenu(username);
+    setMenu(menuReceived);
+  };
+
+  useEffect(() => {
+    initialiseMenu();
+  });
 
   const orderContextValue = {
     username,
