@@ -26,9 +26,7 @@ export default function Menu() {
     handleDeleteBasketProduct,
   } = useContext(OrderContext);
 
-  if (menu === undefined) {
-    return <Loader />;
-  }
+  if (menu === undefined) return <Loader />;
 
   if (isEmpty(menu)) {
     return (
