@@ -9,6 +9,7 @@ import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 import { find, isEmpty } from "../../../../../../utils/arrays";
 import { getImageSource } from "../../../../../../utils/boolean";
+import Loader from "./Loader";
 
 export default function Menu() {
   const {
@@ -25,9 +26,12 @@ export default function Menu() {
     handleDeleteBasketProduct,
   } = useContext(OrderContext);
 
-  const isMenuEmpty = isEmpty(menu);
+  if (menu === undefined) {
+    console.log("loader");
+    return <Loader />;
+  }
 
-  if (isMenuEmpty) {
+  if (isEmpty(menu)) {
     return <EmptyMenu isModeAdmin={isModeAdmin} onReset={handleReset} />;
   }
 
