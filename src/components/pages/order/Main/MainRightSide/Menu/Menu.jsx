@@ -41,7 +41,7 @@ export default function Menu() {
     }
   };
 
-  const handleClick = async (idProductClicked) => {
+  const handleProductSelected = async (idProductClicked) => {
     if (!isModeAdmin) return;
 
     await setIsCollapsed(false);
@@ -71,7 +71,7 @@ export default function Menu() {
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
             onAdd={(event) => handleAddButton(event, id)}
-            onClick={() => handleClick(id)}
+            onClick={() => handleProductSelected(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(id, productSelected.id)}
           />
