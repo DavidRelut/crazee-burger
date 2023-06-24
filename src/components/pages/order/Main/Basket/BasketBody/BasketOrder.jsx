@@ -20,7 +20,7 @@ export default function BasketOrder() {
     setCurrentTabSelected,
   } = useContext(OrderContext);
 
-  const handleOnDelete = (idProductToDelete) => {
+  const handleDelete = (idProductToDelete) => {
     handleDeleteBasketProduct(idProductToDelete);
   };
 
@@ -50,7 +50,7 @@ export default function BasketOrder() {
             }
             price={formatPrice(menuProduct.price)}
             quantity={basketProduct.quantity}
-            onDelete={(event) => handleOnDelete(menuProduct.id)}
+            onDelete={() => handleDelete(menuProduct.id)}
             onClick={() => handleClick(menuProduct.id)}
             isModeAdmin={isModeAdmin}
             isSelected={checkIfProductIsSelected(
