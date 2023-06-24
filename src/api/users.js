@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
 import { fakeMenu } from "../fakeData/fakeMenu";
 
@@ -9,7 +9,7 @@ export const getUser = async (userId) => {
 
   if (docSnapshot.exists()) {
     const userReceived = docSnapshot.data();
-    // console.log("userReceived: ", userReceived);
+    return userReceived;
   }
 };
 
@@ -24,21 +24,10 @@ export const createUser = (userId) => {
   setDoc(docRef, newDoc);
 };
 
-export const updateItem = (userId, menu) => {
-  const docRef = doc(db, "users", userId);
+export const authenticateUser = async (userId) => {
+  const existingUser = await getUser(userId);
 
-  const newDoc = {
-    username: userId,
-    menu: menu,
-  };
-
-  console.log(newDoc);
-
-  updateDoc(docRef, newDoc)
-    .then((docRef) => {
-      console.log("Value of an Existing Document Field has been updated");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  if (!existingUser) {
+    createUser(userId);
+  }
 };
