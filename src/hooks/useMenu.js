@@ -2,7 +2,6 @@ import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, filter, findIndex } from "../utils/arrays";
 import { formatPrice, replaceFrenchCommaWithDot } from "../utils/maths";
-import { updateItem } from "../api/users";
 
 export const useMenu = () => {
   const [menu, setMenu] = useState(fakeMenu.LARGE);
@@ -39,9 +38,6 @@ export const useMenu = () => {
     menuDeepClone[productToEdit] = editedProduct;
 
     setMenu(menuDeepClone);
-    // console.log("Avec spread operator: ");
-    // console.log("Sans spread operator: ", menuDeepClone);
-    updateItem("David", menuDeepClone);
   };
 
   const handleReset = () => {
