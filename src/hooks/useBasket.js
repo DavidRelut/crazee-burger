@@ -1,44 +1,46 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { deepClone, filter, find, findIndex } from "../utils/arrays";
+import { setLocalStorage } from "../utils/window";
 
 export const useBasket = () => {
-  const [basket, setBasket] = useState(() => {
-    // Récupère le panier depuis localStorage lorsque le composant est monté
-    const savedBasket = localStorage.getItem("basket");
-    return savedBasket ? JSON.parse(savedBasket) : [];
-  });
-
-  // Sauvegarde le panier dans localStorage chaque fois qu'il est modifié
-  useEffect(() => {
-    localStorage.setItem("basket", JSON.stringify(basket));
-  }, [basket]);
+  const [basket, setBasket] = useState([]);
 
   // ADD PRODUCT TO BASKET
-  const handleAddProductToBasket = (productToAdd) => {
+  const handleAddProductToBasket = (productToAdd, username) => {
     const basketDeepClone = deepClone(basket);
     const isProductAlreadyInBasket =
       find(basketDeepClone, productToAdd.id) !== undefined;
 
     if (!isProductAlreadyInBasket) {
-      createNewProductInBasket(productToAdd, basketDeepClone);
+      createNewProductInBasket(productToAdd, basketDeepClone, username);
       return;
     }
 
-    incrementQuantityProductAlreadyInBasket(productToAdd, basketDeepClone);
+    incrementQuantityProductAlreadyInBasket(
+      productToAdd,
+      basketDeepClone,
+      username
+    );
   };
 
-  const createNewProductInBasket = (productToAdd, basketDeepClone) => {
+  const createNewProductInBasket = (
+    productToAdd,
+    basketDeepClone,
+    username
+  ) => {
     const newBasketProduct = {
       ...productToAdd,
       quantity: 1,
     };
     const basketUpdated = [newBasketProduct, ...basketDeepClone];
     setBasket(basketUpdated);
+    setLocalStorage(username, basketUpdated);
   };
 
   const incrementQuantityProductAlreadyInBasket = (
     productToAdd,
-    basketDeepClone
+    basketDeepClone,
+    username
   ) => {
     const indexOfBasketProductToIncrement = findIndex(
       basketDeepClone,
@@ -46,6 +48,7 @@ export const useBasket = () => {
     );
     basketDeepClone[indexOfBasketProductToIncrement].quantity++;
     setBasket(basketDeepClone);
+    setLocalStorage(username, basketDeepClone);
   };
   // ---------------------------------------------------------
 
