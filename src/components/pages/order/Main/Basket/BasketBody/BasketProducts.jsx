@@ -9,11 +9,9 @@ import { isEmpty } from "../../../../../../utils/arrays";
 export default function BasketProducts() {
   const { basket } = useContext(OrderContext);
 
-  const isBasketEmpty = isEmpty(basket);
-
   return (
     <BasketProductsStyled basketLength={basket ? basket.length : 0}>
-      {isBasketEmpty ? <EmptyBasketBody /> : <BasketOrder />}
+      {isEmpty(basket) ? <EmptyBasketBody /> : <BasketOrder />}
     </BasketProductsStyled>
   );
 }
