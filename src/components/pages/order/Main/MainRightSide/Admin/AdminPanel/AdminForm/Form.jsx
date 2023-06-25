@@ -5,7 +5,7 @@ import ImagePreview from "./ImagePreview";
 import TextInput from "../../../../../../../reusable-ui/TextInput";
 
 const Form = React.forwardRef(
-  ({ product, onSubmit, onChange, children }, ref) => {
+  ({ product, onSubmit, onChange, onFocus, onBlur, children }, ref) => {
     const inputTexts = getInputsConfig(product);
 
     return (
@@ -21,6 +21,8 @@ const Form = React.forwardRef(
               value={value}
               Icon={Icon}
               onChange={onChange}
+              onFocus={onFocus}
+              onBlur={onBlur}
               className="input"
               ref={ref && name === "title" ? ref : null}
             />
