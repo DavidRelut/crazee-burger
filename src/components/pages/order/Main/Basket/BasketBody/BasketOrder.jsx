@@ -9,6 +9,7 @@ import { find } from "../../../../../../utils/arrays";
 
 export default function BasketOrder() {
   const {
+    username,
     basket,
     menu,
     isModeAdmin,
@@ -20,8 +21,9 @@ export default function BasketOrder() {
     setCurrentTabSelected,
   } = useContext(OrderContext);
 
-  const handleOnDelete = (idProductToDelete) => {
-    handleDeleteBasketProduct(idProductToDelete);
+  const handleOnDelete = (event, idProductToDelete) => {
+    event.stopPropagation();
+    handleDeleteBasketProduct(idProductToDelete, username);
   };
 
   const handleClick = async (idProductClicked) => {
@@ -50,7 +52,7 @@ export default function BasketOrder() {
             }
             price={formatPrice(menuProduct.price)}
             quantity={basketProduct.quantity}
-            onDelete={(event) => handleOnDelete(menuProduct.id)}
+            onDelete={(event) => handleOnDelete(event, menuProduct.id)}
             onClick={() => handleClick(menuProduct.id)}
             isModeAdmin={isModeAdmin}
             isSelected={checkIfProductIsSelected(

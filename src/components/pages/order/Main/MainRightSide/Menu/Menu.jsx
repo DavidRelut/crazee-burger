@@ -41,7 +41,7 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete, username);
-    handleDeleteBasketProduct(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete, username);
     if (idProductToDelete === productSelected.id) {
       setProductSelected(EMPTY_PRODUCT);
       titleEditRef.current.focus();
