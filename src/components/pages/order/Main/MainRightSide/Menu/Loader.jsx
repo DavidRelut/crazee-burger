@@ -4,7 +4,7 @@ import { theme } from "../../../../../../theme";
 export default function Loader() {
   return (
     <LoaderStyled>
-      <span className="title">Chargement ...</span>
+      <span className="title">Chargement en cours ...</span>
     </LoaderStyled>
   );
 }
