@@ -53,10 +53,11 @@ export const useBasket = () => {
   // ---------------------------------------------------------
 
   // DELETE PRODUCT FROM BASKET
-  const handleDeleteBasketProduct = (idProductToRemove) => {
+  const handleDeleteBasketProduct = (idProductToRemove, username) => {
     const basketDeepClone = deepClone(basket);
     const basketUpdated = filter(basketDeepClone, idProductToRemove);
     setBasket(basketUpdated);
+    setLocalStorage(username, basketUpdated);
   };
 
   return {
