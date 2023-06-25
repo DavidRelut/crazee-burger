@@ -22,6 +22,8 @@ export default function BasketProducts() {
   };
 
   return (
+    <BasketProductsStyled basketLength={basket ? basket.length : 0}>
+      {isEmpty(basket) ? <EmptyBasketBody /> : <BasketOrder />}
     <BasketProductsStyled>
       {basket.map((basketProduct) => {
         const menuProduct = find(menu, basketProduct.id);

@@ -11,6 +11,7 @@ import { useBasket } from "../../../hooks/useBasket";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getMenu } from "../../../api/product";
+import { getLocalStorage } from "../../../utils/window";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
