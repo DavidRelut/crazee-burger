@@ -32,7 +32,7 @@ export default function BasketCard({
         <span className="price">{price}</span>
       </div>
       <div className="container-quantity">
-        <span className="quantity">x{quantity}</span>
+        <span className="quantity">x {quantity}</span>
       </div>
     </BasketCardStyled>
   );
