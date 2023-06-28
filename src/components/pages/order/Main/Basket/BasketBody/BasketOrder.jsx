@@ -13,26 +13,12 @@ export default function BasketOrder() {
     menu,
     isModeAdmin,
     handleDeleteBasketProduct,
-    titleEditRef,
     productSelected,
-    setProductSelected,
-    setIsCollapsed,
-    setCurrentTabSelected,
+    handleProductToEdit,
   } = useContext(OrderContext);
 
   const handleDelete = (idProductToDelete) => {
     handleDeleteBasketProduct(idProductToDelete);
-  };
-
-  const handleBasketCardClick = async (idProductClicked) => {
-    if (!isModeAdmin) return;
-    await setIsCollapsed(false);
-    await setCurrentTabSelected("edit");
-    const productClickedOn = basket.find(
-      (product) => product.id === idProductClicked
-    );
-    await setProductSelected(productClickedOn);
-    titleEditRef.current.focus();
   };
 
   return (
@@ -51,8 +37,8 @@ export default function BasketOrder() {
             price={formatPrice(menuProduct.price)}
             quantity={basketProduct.quantity}
             onDelete={() => handleDelete(menuProduct.id)}
-            onClick={() => handleBasketCardClick(menuProduct.id)}
-            isModeAdmin={isModeAdmin}
+            onClick={() => handleProductToEdit(menuProduct.id, basket)}
+            isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(
               menuProduct.id,
               productSelected.id

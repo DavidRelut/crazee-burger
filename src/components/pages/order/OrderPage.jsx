@@ -24,6 +24,19 @@ export default function OrderPage() {
     handleDeleteBasketProduct,
   } = useBasket();
 
+  const handleProductToEdit = async (idProductClicked, menuOrBasket) => {
+    if (!isModeAdmin) return;
+
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    const productClickedOn = menuOrBasket.find(
+      (product) => product.id === idProductClicked
+    );
+    console.log(productClickedOn);
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -45,6 +58,7 @@ export default function OrderPage() {
     setBasket,
     handleAddProductToBasket,
     handleDeleteBasketProduct,
+    handleProductToEdit,
   };
 
   return (
