@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../../../../../theme";
 
 export default function EmptyMenuCustomer() {
   return (
@@ -10,7 +11,7 @@ export default function EmptyMenuCustomer() {
         De nouvelles recettes sont encours de préparation.
       </h2>
 
-      <h3 className="description h3-margin">À très vite !</h3>
+      <h3 className="h3-description ">À très vite !</h3>
     </EmptyMenuCustomerStyled>
   );
 }
@@ -18,7 +19,13 @@ export default function EmptyMenuCustomer() {
 const EmptyMenuCustomerStyled = styled.div`
   display: contents;
 
-  .h3-margin {
+  .h3-description {
+    font-family: "Amatic SC";
+    font-weight: 400;
+    font-size: 36px;
+    margin-top: 20px;
+    color: ${theme.colors.greyBlue};
+    text-transform: uppercase;
     margin: 0;
   }
 `;
