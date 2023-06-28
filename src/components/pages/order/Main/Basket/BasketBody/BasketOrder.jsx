@@ -24,7 +24,7 @@ export default function BasketOrder() {
     handleDeleteBasketProduct(idProductToDelete);
   };
 
-  const handleClick = async (idProductClicked) => {
+  const handleBasketCardClick = async (idProductClicked) => {
     if (!isModeAdmin) return;
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
@@ -51,7 +51,7 @@ export default function BasketOrder() {
             price={formatPrice(menuProduct.price)}
             quantity={basketProduct.quantity}
             onDelete={() => handleDelete(menuProduct.id)}
-            onClick={() => handleClick(menuProduct.id)}
+            onClick={() => handleBasketCardClick(menuProduct.id)}
             isModeAdmin={isModeAdmin}
             isSelected={checkIfProductIsSelected(
               menuProduct.id,
