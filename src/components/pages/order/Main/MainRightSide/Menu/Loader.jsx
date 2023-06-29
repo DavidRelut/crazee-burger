@@ -15,7 +15,7 @@ const LoaderStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: calc(((85vh - 70px) - 50px) - 20px);
+  height: 100%;
 
   .title {
     text-align: center;
