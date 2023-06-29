@@ -10,10 +10,15 @@ export default function BasketCard({
   quantity,
   onDelete,
   onClick,
-  isModeAdmin,
+  isHoverable,
+  isSelected,
 }) {
   return (
-    <BasketCardStyled onClick={onClick} isModeAdmin={isModeAdmin}>
+    <BasketCardStyled
+      onClick={onClick}
+      isHoverable={isHoverable}
+      isSelected={isSelected}
+    >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
@@ -27,7 +32,7 @@ export default function BasketCard({
         <span className="price">{price}</span>
       </div>
       <div className="container-quantity">
-        <span className="quantity">x{quantity}</span>
+        <span className="quantity">x {quantity}</span>
       </div>
     </BasketCardStyled>
   );
@@ -70,6 +75,7 @@ const BasketCardStyled = styled.div`
       line-height: 32px;
       font-weight: ${theme.fonts.weights.bold};
       color: ${theme.colors.dark};
+      height: 32px;
       /* sans cette div avec "min-width: 0", l'ellipsis ne fonctionne pas dans un span : https://semicolon.dev/tutorial/css/text-overflow-ellipsis-doesnt-work#:~:text=If%20your%20text%2Doverflow%20is,Grid%20or%20on%20a%20Table. */
       min-width: 0;
       span {
@@ -94,7 +100,8 @@ const BasketCardStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    padding-right: 26px;
     width: 76px;
 
     .quantity {
@@ -107,8 +114,9 @@ const BasketCardStyled = styled.div`
     display: none;
     z-index: 1;
   }
-  cursor: ${({ isModeAdmin }) => (isModeAdmin ? "pointer" : "auto")};
-  ${({ isModeAdmin }) => hoverableStyle}
+  cursor: ${({ isHoverable }) => (isHoverable ? "pointer" : "auto")};
+  ${({ isHoverable }) => hoverableStyle}
+  ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
 `;
 
 const hoverableStyle = css`
@@ -149,5 +157,13 @@ const hoverableStyle = css`
         }
       }
     }
+  }
+`;
+
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+  .price,
+  .quantity {
+    color: ${theme.colors.white};
   }
 `;

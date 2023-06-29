@@ -47,7 +47,6 @@ export const useBasket = () => {
     const basketUpdated = filter(basketDeepClone, idProductToRemove);
     setBasket(basketUpdated);
   };
-  // ---------------------------------------------------------
 
   return {
     basket,
