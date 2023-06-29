@@ -3,15 +3,8 @@ import styled from "styled-components";
 import BasketHeader from "./BasketHeader/BasketHeader";
 import BasketFooter from "./BasketFooter";
 import BasketBody from "./BasketBody/BasketBody";
-import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext";
-import Loader from "../MainRightSide/Menu/Loader";
 
 export default function Basket() {
-  const { menu } = useContext(OrderContext);
-
-  if (menu === undefined) return <Loader />;
-
   return (
     <BasketStyled>
       <BasketHeader />
