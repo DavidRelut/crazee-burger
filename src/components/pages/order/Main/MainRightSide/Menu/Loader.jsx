@@ -4,7 +4,7 @@ import { theme } from "../../../../../../theme";
 export default function Loader() {
   return (
     <LoaderStyled>
-      <span className="title">Chargement en cours ...</span>
+      <span className="loader">Chargement en cours ...</span>
     </LoaderStyled>
   );
 }
@@ -17,7 +17,7 @@ const LoaderStyled = styled.div`
   justify-content: center;
   height: 100%;
 
-  .title {
+  .loader {
     text-align: center;
     font-family: "Amatic SC", cursive;
     color: ${theme.colors.greyBlue};
