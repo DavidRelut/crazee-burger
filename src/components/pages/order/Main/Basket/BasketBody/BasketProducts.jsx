@@ -51,4 +51,6 @@ export default function BasketProducts() {
   );
 }
 
-const BasketProductsStyled = styled.div``;
+const BasketProductsStyled = styled.div`
+  //
+`;
