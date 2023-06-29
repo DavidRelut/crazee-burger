@@ -1,30 +1,53 @@
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
-import EmptyBasketBody from "./EmptyBasketBody";
-import BasketOrder from "./BasketOrder";
-import { isEmpty } from "../../../../../../utils/arrays";
+import BasketCard from "./BasketCard";
+import { formatPrice } from "../../../../../../utils/maths";
+import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
+import { checkIfProductIsSelected } from "../../MainRightSide/Menu/helper";
+import { find } from "../../../../../../utils/arrays";
 
 export default function BasketProducts() {
-  const { basket } = useContext(OrderContext);
+  const {
+    basket,
+    menu,
+    isModeAdmin,
+    handleDeleteBasketProduct,
+    productSelected,
+    handleProductToEdit,
+  } = useContext(OrderContext);
 
-  const isBasketEmpty = isEmpty(basket);
+  const handleDelete = (idProductToDelete) => {
+    handleDeleteBasketProduct(idProductToDelete);
+  };
 
   return (
-    <BasketProductsStyled basketLength={basket ? basket.length : 0}>
-      {isBasketEmpty ? <EmptyBasketBody /> : <BasketOrder />}
+    <BasketProductsStyled>
+      {basket.map((basketProduct) => {
+        const menuProduct = find(menu, basketProduct.id);
+        return (
+          <BasketCard
+            key={menuProduct.id}
+            title={menuProduct.title}
+            imageSource={
+              menuProduct.imageSource
+                ? menuProduct.imageSource
+                : IMAGE_COMING_SOON
+            }
+            price={formatPrice(menuProduct.price)}
+            quantity={basketProduct.quantity}
+            onDelete={() => handleDelete(menuProduct.id)}
+            onClick={() => handleProductToEdit(menuProduct.id, basket)}
+            isHoverable={isModeAdmin}
+            isSelected={checkIfProductIsSelected(
+              menuProduct.id,
+              productSelected.id
+            )}
+          />
+        );
+      })}
     </BasketProductsStyled>
   );
 }
 
-const BasketProductsStyled = styled.div`
-  flex-direction: column;
-  height: calc(((85vh - 70px) - 50px) - 20px);
-  box-shadow: ${theme.shadows.basket};
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  overflow-y: ${({ basketLength }) => (basketLength >= 7 ? "scroll" : "none")};
-`;
+const BasketProductsStyled = styled.div``;
