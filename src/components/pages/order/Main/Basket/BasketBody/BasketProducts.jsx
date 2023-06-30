@@ -18,7 +18,7 @@ export default function BasketProducts() {
     handleProductToEdit,
   } = useContext(OrderContext);
 
-  const handleOnDelete = (idProductToDelete, username) => {
+  const handleDelete = (idProductToDelete, username) => {
     handleDeleteBasketProduct(idProductToDelete, username);
   };
 
@@ -37,7 +37,7 @@ export default function BasketProducts() {
             }
             price={formatPrice(menuProduct.price)}
             quantity={basketProduct.quantity}
-            onDelete={() => handleOnDelete(menuProduct.id, username)}
+            onDelete={() => handleDelete(menuProduct.id, username)}
             onClick={() => handleProductToEdit(menuProduct.id, basket)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsSelected(
