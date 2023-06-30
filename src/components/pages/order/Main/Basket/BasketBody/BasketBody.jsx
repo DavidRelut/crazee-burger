@@ -5,15 +5,16 @@ import OrderContext from "../../../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
 import BasketProducts from "./BasketProducts";
 import { isEmpty } from "../../../../../../utils/arrays";
+import Loader from "../../MainRightSide/Menu/Loader";
 
 export default function BasketBody() {
-  const { basket } = useContext(OrderContext);
+  const { basket, menu } = useContext(OrderContext);
 
-  const isBasketEmpty = isEmpty(basket);
+  if (menu === undefined) return <Loader />;
 
   return (
     <BasketBodyStyled basketLength={basket ? basket.length : 0}>
-      {isBasketEmpty ? <EmptyBasket /> : <BasketProducts />}
+      {isEmpty(basket) ? <EmptyBasket /> : <BasketProducts />}
     </BasketBodyStyled>
   );
 }

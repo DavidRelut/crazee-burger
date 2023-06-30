@@ -8,6 +8,9 @@ import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useRef } from "react";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { initialiseUserSession } from "./helpers/initialiseUserSession";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
@@ -16,13 +19,15 @@ export default function OrderPage() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
-  const { menu, handleAdd, handleDelete, handleEdit, handleReset } = useMenu();
+  const { menu, setMenu, handleAdd, handleDelete, handleEdit, handleReset } =
+    useMenu();
   const {
     basket,
     setBasket,
     handleAddProductToBasket,
     handleDeleteBasketProduct,
   } = useBasket();
+  const { username } = useParams();
 
   const handleProductToEdit = async (idProductClicked, menuOrBasket) => {
     if (!isModeAdmin) return;
@@ -32,12 +37,16 @@ export default function OrderPage() {
     const productClickedOn = menuOrBasket.find(
       (product) => product.id === idProductClicked
     );
-    console.log(productClickedOn);
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
 
+  useEffect(() => {
+    initialiseUserSession(username, setMenu, setBasket);
+  }, []);
+
   const orderContextValue = {
+    username,
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,

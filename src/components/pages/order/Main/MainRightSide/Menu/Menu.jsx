@@ -9,9 +9,11 @@ import { checkIfProductIsSelected } from "./helper";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 import { find, isEmpty } from "../../../../../../utils/arrays";
 import { getImageSource } from "../../../../../../utils/boolean";
+import Loader from "./Loader";
 
 export default function Menu() {
   const {
+    username,
     menu,
     isModeAdmin,
     handleDelete,
@@ -24,16 +26,21 @@ export default function Menu() {
     handleDeleteBasketProduct,
   } = useContext(OrderContext);
 
-  const isMenuEmpty = isEmpty(menu);
+  if (menu === undefined) return <Loader />;
 
-  if (isMenuEmpty) {
-    return <EmptyMenu isModeAdmin={isModeAdmin} onReset={handleReset} />;
+  if (isEmpty(menu)) {
+    return (
+      <EmptyMenu
+        isModeAdmin={isModeAdmin}
+        onReset={() => handleReset(username)}
+      />
+    );
   }
 
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
-    handleDelete(idProductToDelete);
-    handleDeleteBasketProduct(idProductToDelete);
+    handleDelete(idProductToDelete, username);
+    handleDeleteBasketProduct(idProductToDelete, username);
     if (idProductToDelete === productSelected.id) {
       setProductSelected(EMPTY_PRODUCT);
       titleEditRef.current.focus();
@@ -43,7 +50,7 @@ export default function Menu() {
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
     const productToAdd = find(menu, idProductToAdd);
-    handleAddProductToBasket(productToAdd);
+    handleAddProductToBasket(productToAdd, username);
   };
 
   return (
