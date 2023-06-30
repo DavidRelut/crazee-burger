@@ -28,6 +28,6 @@ export const authenticateUser = async (userId) => {
   const existingUser = await getUser(userId);
 
   if (!existingUser) {
-    createUser(userId);
+    return createUser(userId);
   }
 };
