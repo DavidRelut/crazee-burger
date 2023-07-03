@@ -73,6 +73,13 @@ const shadows = {
   basketCard: "-4px 4px 15px rgba(0, 0, 0, 0.2)",
 };
 
+const animations = {
+  speed: {
+    quick: "300ms",
+    slow: "500ms",
+  },
+};
+
 export const theme = {
   colors,
   fonts,
@@ -80,4 +87,5 @@ export const theme = {
   borderRadius,
   shadows,
   spacing,
+  animations,
 };
