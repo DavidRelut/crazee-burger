@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
+import { fadeInFrontRight } from "../../theme/animations";
 
 export default function Card({
   id,
@@ -80,6 +81,8 @@ const CardStyled = styled.div`
       :active {
         color: ${theme.colors.primary};
       }
+
+      animation: ${fadeInFrontRight} ${theme.animations.speed.quick};
     }
 
     .image {
