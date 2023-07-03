@@ -7,6 +7,7 @@ import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 import { checkIfProductIsSelected } from "../../MainRightSide/Menu/helper";
 import { find } from "../../../../../../utils/arrays";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { basketAnimation } from "../../../../../../theme/animations";
 
 export default function BasketProducts() {
   const {
@@ -26,7 +27,7 @@ export default function BasketProducts() {
         return (
           <CSSTransition
             appear={true}
-            classNames={"animation-basket"}
+            classNames={"basket-animation"}
             key={menuProduct.id}
             timeout={300}
           >
@@ -58,34 +59,5 @@ export default function BasketProducts() {
 }
 
 const BasketProductsStyled = styled.div`
-  .animation-basket-appear {
-    transform: translateX(500px);
-    opacity: 0%;
-  }
-  .animation-basket-appear-active {
-    transition: 0.5s;
-    transform: translateX(0px);
-    opacity: 100%;
-  }
-
-  .animation-basket-enter {
-    transform: translateX(500px);
-    opacity: 0%;
-  }
-  .animation-basket-enter-active {
-    transition: 0.5s;
-    transform: translateX(0px);
-    opacity: 100%;
-  }
-
-  .animation-basket-exit {
-    transform: translateX(0px);
-    opacity: 100%;
-  }
-
-  .animation-basket-exit-active {
-    transition: 0.5s;
-    transform: translateX(-500px);
-    opacity: 0%;
-  }
+  ${basketAnimation}
 `;
