@@ -31,21 +31,21 @@ export const fadeInFromBottom = keyframes`
 
 export const basketAnimation = css`
   .basket-animation-appear {
-    transform: translateX(500px);
+    transform: translateX(100px);
     opacity: 0%;
   }
   .basket-animation-appear-active {
-    transition: ${theme.animations.speed.medium};
+    transition: ${theme.animations.speed.quick};
     transform: translateX(0px);
     opacity: 100%;
   }
 
   .basket-animation-enter {
-    transform: translateX(500px);
+    transform: translateX(100px);
     opacity: 0%;
   }
   .basket-animation-enter-active {
-    transition: ${theme.animations.speed.medium};
+    transition: ${theme.animations.speed.quick};
     transform: translateX(0px);
     opacity: 100%;
   }
@@ -56,8 +56,8 @@ export const basketAnimation = css`
   }
 
   .basket-animation-exit-active {
-    transition: ${theme.animations.speed.medium};
-    transform: translateX(-500px);
+    transition: ${theme.animations.speed.quick};
+    transform: translateX(-100px);
     opacity: 0%;
   }
 `;
