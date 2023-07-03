@@ -82,7 +82,7 @@ const CardStyled = styled.div`
         color: ${theme.colors.primary};
       }
 
-      animation: ${fadeInFrontRight} ${theme.animations.speed.quick};
+      animation: ${fadeInFrontRight} ${theme.animations.speed.slow} ease-out;
     }
 
     .image {
