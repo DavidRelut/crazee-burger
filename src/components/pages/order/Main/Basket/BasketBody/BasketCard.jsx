@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../../../../../theme";
 import { MdDeleteForever } from "react-icons/md";
+import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
 
 export default function BasketCard({
   title,
@@ -32,7 +33,7 @@ export default function BasketCard({
         <span className="price">{price}</span>
       </div>
       <div className="container-quantity">
-        <span className="quantity">x {quantity}</span>
+        <CasinoEffect count={`x ${quantity}`} className="quantity" />
       </div>
     </BasketCardStyled>
   );
