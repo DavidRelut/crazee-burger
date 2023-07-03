@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import Logo from '../../reusable-ui/Logo';
-import LoginForm from './LoginForm';
+import styled from "styled-components";
+import Logo from "../../reusable-ui/Logo";
+import LoginForm from "./LoginForm";
 
 export default function LoginPage() {
   return (
     <LoginPageStyled>
-      <Logo className="logo-login-page"/>
+      <Logo className="logo-login-page" />
       <LoginForm />
     </LoginPageStyled>
   );
@@ -19,8 +19,8 @@ const LoginPageStyled = styled.div`
   align-items: center;
 
   ::before {
-    content: '';
-    background: url('/images/burger_background.jpg') rgba(0, 0, 0, 0.7);
+    content: "";
+    background: url("/images/burger_background.jpg") rgba(0, 0, 0, 0.7);
     background-size: cover;
     background-position: center;
     background-blend-mode: darken;
