@@ -35,7 +35,7 @@ export const basketAnimation = css`
     opacity: 0%;
   }
   .basket-animation-appear-active {
-    transition: ${theme.animations.speed.quick};
+    transition: ${theme.animations.speed.medium};
     transform: translateX(0px);
     opacity: 100%;
   }
@@ -45,7 +45,7 @@ export const basketAnimation = css`
     opacity: 0%;
   }
   .basket-animation-enter-active {
-    transition: ${theme.animations.speed.quick};
+    transition: ${theme.animations.speed.medium};
     transform: translateX(0px);
     opacity: 100%;
   }
@@ -56,7 +56,7 @@ export const basketAnimation = css`
   }
 
   .basket-animation-exit-active {
-    transition: ${theme.animations.speed.quick};
+    transition: ${theme.animations.speed.medium};
     transform: translateX(-500px);
     opacity: 0%;
   }
