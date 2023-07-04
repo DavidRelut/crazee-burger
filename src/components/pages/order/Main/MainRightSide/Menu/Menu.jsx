@@ -10,6 +10,8 @@ import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 import { find, isEmpty } from "../../../../../../utils/arrays";
 import { getImageSource } from "../../../../../../utils/boolean";
 import Loader from "./Loader";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { menuAnimation } from "../../../../../../theme/animations";
 
 export default function Menu() {
   const {
@@ -54,24 +56,26 @@ export default function Menu() {
   };
 
   return (
-    <MenuStyled>
+    <TransitionGroup component={MenuStyled}>
       {menu.map(({ id, title, imageSource, price }) => {
         return (
-          <Card
-            key={id}
-            title={title}
-            imageSource={getImageSource(imageSource)}
-            price={formatPrice(price)}
-            hasDeleteButton={isModeAdmin}
-            onDelete={(event) => handleCardDelete(event, id)}
-            onAdd={(event) => handleAddButton(event, id)}
-            onClick={() => handleProductToEdit(id, menu)}
-            isHoverable={isModeAdmin}
-            isSelected={checkIfProductIsSelected(id, productSelected.id)}
-          />
+          <CSSTransition classNames={"menu-animation"} key={id} timeout={300}>
+            <Card
+              key={id}
+              title={title}
+              imageSource={getImageSource(imageSource)}
+              price={formatPrice(price)}
+              hasDeleteButton={isModeAdmin}
+              onDelete={(event) => handleCardDelete(event, id)}
+              onAdd={(event) => handleAddButton(event, id)}
+              onClick={() => handleProductToEdit(id, menu)}
+              isHoverable={isModeAdmin}
+              isSelected={checkIfProductIsSelected(id, productSelected.id)}
+            />
+          </CSSTransition>
         );
       })}
-    </MenuStyled>
+    </TransitionGroup>
   );
 }
 
@@ -85,4 +89,6 @@ const MenuStyled = styled.div`
   justify-items: center;
   box-shadow: ${theme.shadows.extraStrong};
   overflow-y: scroll;
+
+  ${menuAnimation}
 `;

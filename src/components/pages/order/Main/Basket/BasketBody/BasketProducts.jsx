@@ -6,6 +6,8 @@ import { formatPrice } from "../../../../../../utils/maths";
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 import { checkIfProductIsSelected } from "../../MainRightSide/Menu/helper";
 import { find } from "../../../../../../utils/arrays";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { basketAnimation } from "../../../../../../theme/animations";
 
 export default function BasketProducts() {
   const {
@@ -19,32 +21,43 @@ export default function BasketProducts() {
   } = useContext(OrderContext);
 
   return (
-    <BasketProductsStyled>
+    <TransitionGroup component={BasketProductsStyled}>
       {basket.map((basketProduct) => {
         const menuProduct = find(menu, basketProduct.id);
         return (
-          <BasketCard
+          <CSSTransition
+            appear={true}
+            classNames={"basket-animation"}
             key={menuProduct.id}
-            title={menuProduct.title}
-            imageSource={
-              menuProduct.imageSource
-                ? menuProduct.imageSource
-                : IMAGE_COMING_SOON
-            }
-            price={formatPrice(menuProduct.price)}
-            quantity={basketProduct.quantity}
-            onDelete={() => handleDeleteBasketProduct(menuProduct.id, username)}
-            onClick={() => handleProductToEdit(menuProduct.id, basket)}
-            isHoverable={isModeAdmin}
-            isSelected={checkIfProductIsSelected(
-              menuProduct.id,
-              productSelected.id
-            )}
-          />
+            timeout={300}
+          >
+            <BasketCard
+              {...menuProduct}
+              title={menuProduct.title}
+              imageSource={
+                menuProduct.imageSource
+                  ? menuProduct.imageSource
+                  : IMAGE_COMING_SOON
+              }
+              price={formatPrice(menuProduct.price)}
+              quantity={basketProduct.quantity}
+              onDelete={() =>
+                handleDeleteBasketProduct(menuProduct.id, username)
+              }
+              onClick={() => handleProductToEdit(menuProduct.id, basket)}
+              isHoverable={isModeAdmin}
+              isSelected={checkIfProductIsSelected(
+                menuProduct.id,
+                productSelected.id
+              )}
+            />
+          </CSSTransition>
         );
       })}
-    </BasketProductsStyled>
+    </TransitionGroup>
   );
 }
 
-const BasketProductsStyled = styled.div``;
+const BasketProductsStyled = styled.div`
+  ${basketAnimation}
+`;

@@ -4,6 +4,7 @@ import { theme } from "../../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import { calculateSumToPay } from "../helper";
+import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
 
 export default function BasketTotal() {
   const { basket, menu } = useContext(OrderContext);
@@ -13,7 +14,7 @@ export default function BasketTotal() {
   return (
     <BasketTotalStyled>
       <span>Total</span>
-      <span className="totalPrice">{formatPrice(sumToPay)}</span>
+      <CasinoEffect className="totalPrice" count={formatPrice(sumToPay)} />
     </BasketTotalStyled>
   );
 }
