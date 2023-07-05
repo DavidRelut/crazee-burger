@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../../../theme";
+import { fadeIn } from "../../../../../../../../theme/animations";
 
 export default function ImagePreview({ imageSource, title }) {
   return (
@@ -39,5 +40,6 @@ const ImagePreviewStyled = styled.div`
     height: 100px;
     object-fit: contain;
     padding-left: 22px;
+    animation: ${fadeIn} 1s;
   }
 `;
