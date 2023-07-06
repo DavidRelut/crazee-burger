@@ -55,9 +55,24 @@ const FormStyled = styled.form`
   .input-fields {
     grid-area: 1 / 2 / 4 / -1;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    grid-row-gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8px;
+
+    .input:first-child {
+      grid-area: 1 / 1 / 2 / 4;
+    }
+    .input:nth-child(2) {
+      grid-area: 2 / 1 / 3 / 4;
+    }
+    .input:nth-child(3) {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+    /* .input:nth-child(4) {
+      grid-area: 3 / 2 / 4 / 3;
+    }
+    .input:nth-child(5) {
+      grid-area: 3 / 3 / 4 / 4;
+    } */
   }
 
   .form-footer {
@@ -65,6 +80,7 @@ const FormStyled = styled.form`
     align-items: center;
     justify-content: space-between;
     width: 455px;
+    grid-area: 4 / 1 / 5 / 4;
   }
 `;
 
