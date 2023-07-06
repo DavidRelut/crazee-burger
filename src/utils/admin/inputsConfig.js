@@ -6,7 +6,7 @@ import { MdOutlineEuro } from "react-icons/md";
 
 export const getInputsConfig = (inputValue) => [
   {
-    id: 1,
+    id: 0,
     name: "title",
     type: "text",
     placeholder: "Nom du produit (ex: Super Burger)",
@@ -14,7 +14,7 @@ export const getInputsConfig = (inputValue) => [
     Icon: <FaHamburger />,
   },
   {
-    id: 2,
+    id: 1,
     name: "imageSource",
     type: "url",
     placeholder:
@@ -23,27 +23,11 @@ export const getInputsConfig = (inputValue) => [
     Icon: <BsFillCameraFill />,
   },
   {
-    id: 3,
+    id: 2,
     name: "price",
     type: "text",
     placeholder: "Prix",
     value: inputValue.price ? inputValue.price : "",
     Icon: <MdOutlineEuro />,
   },
-  // {
-  //   id: 4,
-  //   name: "price",
-  //   type: "select",
-  //   placeholder: "En stock",
-  //   value: inputValue.price ? inputValue.price : "",
-  //   Icon: <FiPackage />,
-  // },
-  // {
-  //   id: 5,
-  //   name: "price",
-  //   type: "select",
-  //   placeholder: "Sans pub",
-  //   value: inputValue.price ? inputValue.price : "",
-  //   Icon: <GoMegaphone />,
-  // },
 ];

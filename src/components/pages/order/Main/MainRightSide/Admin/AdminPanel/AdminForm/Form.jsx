@@ -27,6 +27,15 @@ const Form = React.forwardRef(
               ref={ref && name === "title" ? ref : null}
             />
           ))}
+          <select name="isAvailable" className="is-available" id="3">
+            <option value={true}>En stock</option>
+            <option value={false}>En rupture</option>
+          </select>
+          <select name="isPublicised" className="is-publicised" id="4">
+            <option value={true}>Sans pub</option>
+            <option value={false}>Avec pub</option>
+          </select>
+
           <div className="form-footer">{children}</div>
         </div>
       </FormStyled>
@@ -67,12 +76,6 @@ const FormStyled = styled.form`
     .input:nth-child(3) {
       grid-area: 3 / 1 / 4 / 2;
     }
-    /* .input:nth-child(4) {
-      grid-area: 3 / 2 / 4 / 3;
-    }
-    .input:nth-child(5) {
-      grid-area: 3 / 3 / 4 / 4;
-    } */
   }
 
   .form-footer {
