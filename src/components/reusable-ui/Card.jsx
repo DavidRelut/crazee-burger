@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
-import { fadeInFrontRight } from "../../theme/animations";
+import { fadeInFromTop, fadeInFrontRight } from "../../theme/animations";
 
 export default function Card({
   id,
@@ -15,6 +15,8 @@ export default function Card({
   onClick,
   isHoverable,
   isSelected,
+  overlapImageSource,
+  isOverlapImageVisible,
 }) {
   return (
     <CardStyled
@@ -26,9 +28,21 @@ export default function Card({
         {hasDeleteButton && (
           <TiDelete className="delete-button" onClick={onDelete} />
         )}
+
         <div className="image">
+          {isOverlapImageVisible && (
+            <div className="overlap">
+              <div className="transparent-layer"></div>
+              <img
+                className="overlap-image"
+                src={overlapImageSource}
+                alt="overlap"
+              />
+            </div>
+          )}
           <img src={imageSource} alt={title} />
         </div>
+
         <div className="text-info">
           <div className="title">{title}</div>
           <div className="description">
@@ -95,6 +109,31 @@ const CardStyled = styled.div`
         width: 100%;
         height: 100%;
         object-fit: contain;
+      }
+
+      .overlap {
+        .overlap-image {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 80%;
+          height: 100%;
+          z-index: 1;
+          animation: ${fadeInFromTop} 500ms;
+          border-radius: ${theme.borderRadius.extraRound};
+        }
+
+        .transparent-layer {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 70%;
+          background: snow;
+          z-index: 1;
+          border-radius: ${theme.borderRadius.extraRound};
+        }
       }
     }
 

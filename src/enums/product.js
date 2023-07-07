@@ -8,3 +8,5 @@ export const EMPTY_PRODUCT = Object.freeze({
 });
 
 export const IMAGE_COMING_SOON = "/images/coming-soon.png";
+
+export const IMAGE_NO_STOCK = "/images/stock-epuise.png";

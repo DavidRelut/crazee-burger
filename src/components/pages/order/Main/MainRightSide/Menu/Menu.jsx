@@ -6,7 +6,7 @@ import OrderContext from "../../../../../../context/OrderContext";
 import { useContext } from "react";
 import EmptyMenu from "./EmptyMenu";
 import { checkIfProductIsSelected } from "./helper";
-import { EMPTY_PRODUCT } from "../../../../../../enums/product";
+import { EMPTY_PRODUCT, IMAGE_NO_STOCK } from "../../../../../../enums/product";
 import { find, isEmpty } from "../../../../../../utils/arrays";
 import { getImageSource } from "../../../../../../utils/boolean";
 import Loader from "./Loader";
@@ -71,6 +71,8 @@ export default function Menu() {
               onClick={() => handleProductToEdit(id, menu)}
               isHoverable={isModeAdmin}
               isSelected={checkIfProductIsSelected(id, productSelected.id)}
+              overlapImageSource={IMAGE_NO_STOCK}
+              isOverlapImageVisible={true}
             />
           </CSSTransition>
         );
