@@ -1,21 +1,25 @@
 import React from "react";
-import { getInputsConfig } from "../../../../../../../../utils/admin/inputsConfig";
+import {
+  getSelectInputConfig,
+  getTextInputConfig,
+} from "../../../../../../../../utils/admin/inputsConfig";
 import styled from "styled-components";
 import ImagePreview from "./ImagePreview";
 import TextInput from "../../../../../../../reusable-ui/TextInput";
+import SelectInput from "../../../../../../../reusable-ui/SelectInput";
 
 const Form = React.forwardRef(
   ({ product, onSubmit, onChange, onFocus, onBlur, children }, ref) => {
-    const inputTexts = getInputsConfig(product);
+    const inputTexts = getTextInputConfig(product);
+    const inputSelects = getSelectInputConfig(product);
 
     return (
       <FormStyled onSubmit={onSubmit}>
         <ImagePreview imageSource={product.imageSource} title={product.title} />
         <div className="input-fields">
-          {inputTexts.map(({ id, type, name, placeholder, value, Icon }) => (
+          {inputTexts.map(({ id, name, placeholder, value, Icon }) => (
             <TextInput
               key={id}
-              type={type}
               name={name}
               placeholder={placeholder}
               value={value}
@@ -27,14 +31,17 @@ const Form = React.forwardRef(
               ref={ref && name === "title" ? ref : null}
             />
           ))}
-          <select name="isAvailable" className="is-available" id="3">
-            <option value={true}>En stock</option>
-            <option value={false}>En rupture</option>
-          </select>
-          <select name="isPublicised" className="is-publicised" id="4">
-            <option value={true}>Sans pub</option>
-            <option value={false}>Avec pub</option>
-          </select>
+
+          {inputSelects.map(({ id, value, name, options, className }) => (
+            <SelectInput
+              key={id}
+              value={value}
+              name={name}
+              options={options}
+              className={className}
+              onChange={onChange}
+            />
+          ))}
 
           <div className="form-footer">{children}</div>
         </div>
