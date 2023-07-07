@@ -40,6 +40,8 @@ const Form = React.forwardRef(
               options={options}
               className={className}
               onChange={onChange}
+              onFocus={onFocus}
+              onBlur={onBlur}
             />
           ))}
 

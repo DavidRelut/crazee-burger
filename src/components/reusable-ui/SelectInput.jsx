@@ -8,6 +8,7 @@ export default function SelectInput({
   options,
   onChange,
   className,
+  ...extraProps
 }) {
   return (
     <SelectInputStyled
@@ -16,6 +17,7 @@ export default function SelectInput({
       value={value}
       onChange={onChange}
       className={className}
+      {...extraProps}
     >
       {options.map(({ value, label }) => (
         <option key={label} value={value}>
