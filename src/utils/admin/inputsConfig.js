@@ -17,7 +17,7 @@ export const getTextInputConfig = (inputValue) => [
     id: 1,
     name: "imageSource",
     placeholder:
-      "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png",
+      "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
     value: inputValue.imageSource,
     Icon: <BsFillCameraFill />,
   },
@@ -36,7 +36,7 @@ export const getSelectInputConfig = (newProduct) => [
     name: "isAvailable",
     value: newProduct.isAvailable,
     options: isAvailableOptions,
-    Icon: <GoMegaphone />,
+    Icon: <FiPackage />,
     className: "is-available",
   },
   {
@@ -44,7 +44,7 @@ export const getSelectInputConfig = (newProduct) => [
     name: "isPublicised",
     value: newProduct.isPublicised,
     options: isPublicisedOptions,
-    Icon: <FiPackage />,
+    Icon: <GoMegaphone />,
     className: "is-publicised",
   },
 ];

@@ -32,13 +32,14 @@ const Form = React.forwardRef(
             />
           ))}
 
-          {inputSelects.map(({ id, value, name, options, className }) => (
+          {inputSelects.map(({ id, value, name, options, className, Icon }) => (
             <SelectInput
               key={id}
               value={value}
               name={name}
               options={options}
               className={className}
+              Icon={Icon}
               onChange={onChange}
               onFocus={onFocus}
               onBlur={onBlur}
@@ -61,7 +62,7 @@ const FormStyled = styled.form`
   margin-top: 35px;
 
   .icon {
-    margin: 0 15px 0 25px;
+    margin: 0 15px 0 20px;
   }
 
   .input {
@@ -74,7 +75,9 @@ const FormStyled = styled.form`
     grid-area: 1 / 2 / 4 / -1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-gap: 8px;
+    width: 510px;
 
     .input:first-child {
       grid-area: 1 / 1 / 2 / 4;

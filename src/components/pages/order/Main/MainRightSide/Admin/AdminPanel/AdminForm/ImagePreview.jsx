@@ -9,7 +9,7 @@ export default function ImagePreview({ imageSource, title }) {
       {imageSource ? (
         <img src={imageSource} alt={title} />
       ) : (
-        <span className="text-without-image">Aucune image 📷</span>
+        <span className="text-without-image">Aucune Image 📷</span>
       )}
     </ImagePreviewStyled>
   );
