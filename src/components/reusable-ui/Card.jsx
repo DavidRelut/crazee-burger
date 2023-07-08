@@ -194,8 +194,6 @@ const CardStyled = styled.div`
 
 const hoverableStyle = css`
   &:hover {
-    transform: scale(1.05);
-    transition: all 0.4s ease-out 0s;
     box-shadow: ${theme.shadows.orangeHighlight};
     cursor: pointer;
   }
