@@ -49,7 +49,6 @@ const Inputs = React.forwardRef(
 );
 
 const InputsStyled = styled.div`
-  /* grid-area: 1 / 2 / 4 / -1; */
   grid-area: 1 / 2 / -2 / 3;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
