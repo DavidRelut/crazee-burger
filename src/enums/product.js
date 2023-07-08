@@ -10,3 +10,8 @@ export const EMPTY_PRODUCT = Object.freeze({
 export const IMAGE_COMING_SOON = "/images/coming-soon.png";
 
 export const IMAGE_NO_STOCK = "/images/stock-epuise.png";
+
+export const BASKET_MESSAGE = {
+  EMPTY_BASKET: "Votre commande est vide.",
+  NOT_AVAILABLE: "Non disponible",
+};
