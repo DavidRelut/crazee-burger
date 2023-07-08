@@ -1,0 +1,43 @@
+import React from "react";
+import styled from "styled-components";
+import ImagePreview from "./ImagePreview";
+import Inputs from "./Inputs";
+
+const Form = React.forwardRef(
+  ({ product, onSubmit, onChange, onFocus, onBlur, children }, ref) => {
+    return (
+      <FormStyled onSubmit={onSubmit}>
+        <ImagePreview imageSource={product.imageSource} title={product.title} />
+        <Inputs
+          product={product}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          ref={ref}
+        />
+        <div className="form-footer">{children}</div>
+      </FormStyled>
+    );
+  }
+);
+
+const FormStyled = styled.form`
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  margin-left: 54px;
+  margin-top: 35px;
+  height: 70%;
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 455px;
+    grid-area: 4 / -2 / -1 / -1;
+  }
+`;
+
+export default Form;
