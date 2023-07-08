@@ -83,6 +83,7 @@ const CardStyled = styled.div`
 
     .delete-button {
       position: absolute;
+      z-index: 2;
       top: 15px;
       right: 15px;
       width: 30px;
