@@ -83,7 +83,10 @@ export default function OrderPage() {
 }
 
 const OrderPageSyled = styled.div`
-  background: ${theme.colors.primary};
+  background: ${theme.colors.primary} url(/images/pattern-burger.png) repeat;
+  background-size: 100px;
+  background-blend-mode: multiply;
+
   height: 100vh;
   display: flex;
   justify-content: center;
