@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import BasketCard from "./BasketCard";
-import { formatPrice } from "../../../../../../utils/maths";
-import { IMAGE_COMING_SOON } from "../../../../../../enums/product";
 import { checkIfProductIsSelected } from "../../MainRightSide/Menu/helper";
 import { find } from "../../../../../../utils/arrays";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations";
+import { isAvailableBasketPrice } from "../helper";
+import { getImageSource } from "../../../../../../utils/boolean";
 
 export default function BasketProducts() {
   const {
@@ -34,12 +34,11 @@ export default function BasketProducts() {
             <BasketCard
               {...menuProduct}
               title={menuProduct.title}
-              imageSource={
-                menuProduct.imageSource
-                  ? menuProduct.imageSource
-                  : IMAGE_COMING_SOON
-              }
-              price={formatPrice(menuProduct.price)}
+              imageSource={getImageSource(menuProduct.imageSource)}
+              price={isAvailableBasketPrice(
+                menuProduct.isAvailable,
+                menuProduct.price
+              )}
               quantity={basketProduct.quantity}
               onDelete={() =>
                 handleDeleteBasketProduct(menuProduct.id, username)
