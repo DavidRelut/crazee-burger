@@ -41,11 +41,10 @@ export default function BasketCard({
 
 const BasketCardStyled = styled.div`
   position: relative;
-  width: 315px;
+  width: 90%;
   height: 86px;
-  left: 15px;
   top: 20px;
-  margin-bottom: 20px;
+  margin: 0px 0px 20px 15px;
 
   background: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.basketCard};
