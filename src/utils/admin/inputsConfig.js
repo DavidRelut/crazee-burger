@@ -3,7 +3,10 @@ import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import { GoMegaphone } from "react-icons/go";
 import { FiPackage } from "react-icons/fi";
-import { isAvailableOptions, isPublicisedOptions } from "../../enums/select";
+import {
+  isAvailableOptions,
+  isPublicisedOptions,
+} from "../../enums/selectOptions";
 
 export const getTextInputConfig = (inputValue) => [
   {
