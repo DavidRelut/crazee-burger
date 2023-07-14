@@ -43,6 +43,7 @@ export default function OrderPage() {
 
   useEffect(() => {
     initialiseUserSession(username, setMenu, setBasket);
+    // eslint-disable-next-line
   }, []);
 
   const orderContextValue = {

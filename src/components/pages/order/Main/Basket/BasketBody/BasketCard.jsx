@@ -100,7 +100,7 @@ const BasketCardStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-right: 26px;
+    width: 48px;
 
     .quantity {
       font-family: "Open Sans";
