@@ -11,6 +11,7 @@ import { useBasket } from "../../../hooks/useBasket";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { initialiseUserSession } from "./helpers/initialiseUserSession";
+import { BACKGROUND_IMAGE } from "../../../enums/product";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
@@ -84,7 +85,7 @@ export default function OrderPage() {
 }
 
 const OrderPageSyled = styled.div`
-  background: ${theme.colors.primary} url(/images/pattern-burger.png) repeat;
+  background: ${theme.colors.primary} url(${BACKGROUND_IMAGE}) repeat;
   background-size: 100px;
   background-blend-mode: multiply;
 
