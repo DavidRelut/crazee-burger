@@ -2,7 +2,7 @@ import { useContext } from "react";
 import OrderContext from "../../../../../../../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../../../../../../../enums/product";
 import Button from "../../../../../../../../reusable-ui/Button";
-import Form from "../Form";
+import Form from "../Form/Form";
 import SuccessMessage from "./SuccessMessage";
 import { useSuccessMessage } from "../../../../../../../../../hooks/useSuccessMessage";
 import { replaceFrenchCommaWithDot } from "../../../../../../../../../utils/maths";

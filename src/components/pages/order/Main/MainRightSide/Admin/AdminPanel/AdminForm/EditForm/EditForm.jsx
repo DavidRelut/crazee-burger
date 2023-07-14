@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../../../../../context/OrderContext";
-import Form from "../Form";
+import Form from "../Form/Form";
 import EditInfoMessage from "./EditInfoMessage";
 import SavingEditMessage from "./SavingEditMessage";
 import { useSuccessMessage } from "../../../../../../../../../hooks/useSuccessMessage";

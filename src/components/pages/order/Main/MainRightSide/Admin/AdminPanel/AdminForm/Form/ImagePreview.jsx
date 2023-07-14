@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../../../theme";
+import { fadeIn } from "../../../../../../../../../theme/animations";
+import { theme } from "../../../../../../../../../theme";
 
 export default function ImagePreview({ imageSource, title }) {
   return (
@@ -8,7 +9,7 @@ export default function ImagePreview({ imageSource, title }) {
       {imageSource ? (
         <img src={imageSource} alt={title} />
       ) : (
-        <span className="text-without-image">Aucune image 📷</span>
+        <span className="text-without-image">Aucune Image 📷</span>
       )}
     </ImagePreviewStyled>
   );
@@ -39,5 +40,6 @@ const ImagePreviewStyled = styled.div`
     height: 100px;
     object-fit: contain;
     padding-left: 22px;
+    animation: ${fadeIn} 1s;
   }
 `;

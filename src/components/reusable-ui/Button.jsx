@@ -7,9 +7,15 @@ export default function Button({
   className,
   onClick,
   variant = "normal",
+  disabled,
 }) {
   return (
-    <ButtonStyled className={className} onClick={onClick} variant={variant}>
+    <ButtonStyled
+      className={className}
+      onClick={onClick}
+      variant={variant}
+      disabled={disabled}
+    >
       <span>{label}</span>
       {Icon && Icon}
     </ButtonStyled>
@@ -51,7 +57,7 @@ const normalStyle = css`
     color: ${theme.colors.white};
   }
 
-  &.is-disabled {
+  &:disabled {
     opacity: 50%;
     cursor: not-allowed;
     z-index: 2;
